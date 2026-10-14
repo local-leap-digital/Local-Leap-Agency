@@ -95,8 +95,8 @@ This website is a 100% static React app with zero server dependencies or databas
 
 When you are ready to personalize the site for your launch, update the following placeholders:
 
-- [x] **WhatsApp Number**: Configured (+91 8766036310)
-- [x] **Phone Number**: Configured (+91 87660 36310)
+- [x] **WhatsApp Number**: Configured (+91 8767807414)
+- [x] **Phone Number**: Configured (+91 87678 07414)
 - [x] **Email Address**: Configured (localleap.business@gmail.com)
 - [x] **City / Location**: Configured (Kolhapur)
 - [x] **Team Members**: Configured (Shreyash Kamble: Client Relations, Shreyas Kamble: Developer)

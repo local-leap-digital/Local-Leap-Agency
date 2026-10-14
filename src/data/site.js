@@ -10,18 +10,18 @@ export const siteConfig = {
     "Professional websites and simple automations that help clinics, cafes, restaurants and gyms get found on Google, look trustworthy, and get more bookings.",
   
   // WhatsApp Number: country code + 10 digits without + or spaces
-  whatsappNumber: "918766036310",
+  whatsappNumber: "918767807414",
   
   // Contact details
-  phoneDisplay: "+91 87660 36310",
-  phoneTel: "+918766036310",
+  phoneDisplay: "+91 87678 07414",
+  phoneTel: "+918767807414",
   email: "localleap.business@gmail.com",
   city: "Kolhapur",
   workingHours: "Mon – Sat: 10:00 AM – 7:00 PM",
 
   // Pricing Teaser Flag & Note
   showPricing: true,
-  pricingNote: "Every business is different. Call or WhatsApp us at +91 87660 36310 or email us at localleap.business@gmail.com for an exact, transparent quote.",
+  pricingNote: "Every business is different. Call or WhatsApp us at +91 87678 07414 or email us at localleap.business@gmail.com for an exact, transparent quote.",
 
   // Pre-filled WhatsApp messages
   messages: {
