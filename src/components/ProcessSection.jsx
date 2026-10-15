@@ -37,7 +37,7 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section id="process" className="py-20 md:py-28 bg-white relative">
+    <section id="process" className="py-16 sm:py-20 md:py-28 bg-white relative">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="HOW IT WORKS"
@@ -56,13 +56,16 @@ export default function ProcessSection() {
             <div className="h-full bg-gradient-to-r from-[#05B0B5] via-[#008F94] to-[#01315E] opacity-70" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-x-6 sm:gap-y-10 relative z-10">
             {steps.map((step, idx) => {
               const Icon = step.icon;
+              const isLast = idx === steps.length - 1;
               return (
                 <div
                   key={step.number}
-                  className="flex flex-col items-center text-center group"
+                  className={`flex flex-col items-center text-center group max-w-sm mx-auto ${
+                    isLast ? 'sm:col-span-2 lg:col-span-1' : ''
+                  }`}
                 >
                   {/* Step Number Circle */}
                   <div className="relative mb-5">

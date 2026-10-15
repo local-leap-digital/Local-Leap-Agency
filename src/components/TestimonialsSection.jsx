@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-[#F3FAFA]">
+    <section id="testimonials" className="py-16 sm:py-20 md:py-28 bg-[#F3FAFA]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="CLIENT REVIEWS"

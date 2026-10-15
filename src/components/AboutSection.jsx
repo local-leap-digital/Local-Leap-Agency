@@ -5,13 +5,13 @@ import { Users2, Check } from 'lucide-react';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-white">
+    <section id="about" className="py-16 sm:py-20 md:py-28 bg-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column: Logo Icon & Studio Badge on Ice White Panel */}
-          <div className="lg:col-span-5 order-2 lg:order-1">
-            <div className="bg-[#F3FAFA] rounded-3xl p-8 sm:p-12 border border-[#E2EEF0] relative overflow-hidden text-center shadow-xs">
+          <div className="lg:col-span-5 order-2 lg:order-1 w-full max-w-xl mx-auto lg:max-w-none">
+            <div className="bg-[#F3FAFA] rounded-3xl p-6 sm:p-12 border border-[#E2EEF0] relative overflow-hidden text-center shadow-xs">
               {/* Subtle decorative circles */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-[#05B0B5]/10 rounded-full blur-2xl pointer-events-none" />
               

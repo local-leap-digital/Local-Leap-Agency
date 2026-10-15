@@ -56,12 +56,12 @@ export default function Footer() {
   const whatsappUrl = getWhatsAppUrl();
 
   return (
-    <footer className="bg-[#002242] border-t border-slate-800 text-slate-300 pt-16 pb-12">
+    <footer className="bg-[#002242] border-t border-slate-800 text-slate-300 pt-14 sm:pt-16 pb-24 sm:pb-12">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-8 pb-12 border-b border-slate-800">
           
           {/* Column 1: Brand & Bio (4 cols) */}
-          <div className="lg:col-span-4">
+          <div className="col-span-2 lg:col-span-4">
             <a
               href="#"
               className="inline-flex items-center gap-3 mb-4 group"
@@ -94,7 +94,7 @@ export default function Footer() {
                 href={siteConfig.socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-[#05B0B5] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-lg bg-white/5 hover:bg-[#05B0B5] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
                 aria-label="Instagram profile [PLACEHOLDER]"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -103,7 +103,7 @@ export default function Footer() {
                 href={siteConfig.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-[#05B0B5] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-lg bg-white/5 hover:bg-[#05B0B5] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
                 aria-label="LinkedIn profile [PLACEHOLDER]"
               >
                 <LinkedinIcon className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default function Footer() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-[#25D366] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-lg bg-white/5 hover:bg-[#25D366] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
                 aria-label="WhatsApp Chat"
               >
                 <MessageSquare className="w-4 h-4" />
@@ -125,12 +125,12 @@ export default function Footer() {
             <h4 className="font-['Poppins'] font-bold text-sm text-white uppercase tracking-wider mb-4">
               Quick Links
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-1 text-sm">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-slate-400 hover:text-[#05B0B5] transition-colors"
+                    className="inline-block py-1.5 text-slate-400 hover:text-[#05B0B5] transition-colors"
                   >
                     {link.name}
                   </a>
@@ -144,12 +144,12 @@ export default function Footer() {
             <h4 className="font-['Poppins'] font-bold text-sm text-white uppercase tracking-wider mb-4">
               Our Services
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-1 text-sm">
               {serviceLinks.map((service) => (
                 <li key={service.name}>
                   <a
                     href={service.href}
-                    className="text-slate-400 hover:text-[#05B0B5] transition-colors"
+                    className="inline-block py-1.5 text-slate-400 hover:text-[#05B0B5] transition-colors"
                   >
                     {service.name}
                   </a>
@@ -159,7 +159,7 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact info (3 cols) */}
-          <div className="lg:col-span-3">
+          <div className="col-span-2 sm:col-span-1 lg:col-span-3">
             <h4 className="font-['Poppins'] font-bold text-sm text-white uppercase tracking-wider mb-4">
               Contact
             </h4>
@@ -170,7 +170,7 @@ export default function Footer() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
+                  className="inline-block py-0.5 hover:text-white transition-colors break-all"
                 >
                   WhatsApp: +{siteConfig.whatsappNumber}
                 </a>
@@ -179,7 +179,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-[#05B0B5] shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="hover:text-white transition-colors"
+                  className="inline-block py-0.5 hover:text-white transition-colors break-all"
                 >
                   {siteConfig.email}
                 </a>
@@ -200,7 +200,7 @@ export default function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 py-2 px-1 hover:text-white transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span>Back to top</span>

@@ -2,50 +2,63 @@
  * Portfolio projects for LocalLeap Digital.
  * New sample sites or client projects can be added directly here.
  * Set `isConcept: true` to show the "Concept Project" badge.
+ * Preview images live in public/projects/<id>.png — refresh them with
+ * `node scripts/capture-screenshots.js`.
  */
 
 export const projects = [
   {
+    id: "gym",
+    name: "Lalmati Strength Club",
+    category: "Fitness",
+    tag: "Gym",
+    description: "Membership plans, trainers, class timings and free-trial enquiry for a Kolhapur gym.",
+    image: "/projects/gym.png",
+    liveUrl: "https://lalmati-strength-club.vercel.app/",
+    isConcept: true,
+    featured: false
+  },
+  {
     id: "dental",
-    name: "[PLACEHOLDER] Dental Clinic",
+    name: "Smitam Dental Care",
     category: "Healthcare",
     tag: "Dental Clinic",
-    description: "Appointment booking, services, doctor profile and Google Map.",
+    description: "Treatments, doctor profile, appointment booking and Google Map for a dental clinic.",
     image: "/projects/dental.png",
-    liveUrl: "https://example.vercel.app",
+    liveUrl: "https://smitam-dental-care-ochre.vercel.app/",
     isConcept: true,
     featured: true
   },
   {
+    id: "realestate",
+    name: "Panchganga Realty",
+    category: "Real Estate",
+    tag: "Real Estate",
+    description: "Property listings, consultant profile and site-visit enquiry for a property consultant.",
+    image: "/projects/realestate.png",
+    liveUrl: "https://panchaganga-realty.vercel.app/",
+    isConcept: true,
+    featured: false
+  },
+  {
     id: "cafe",
-    name: "[PLACEHOLDER] Cafe",
+    name: "Brew & Bloom Cafe",
     category: "Food & Cafe",
     tag: "Cafe",
-    description: "Menu, gallery, opening hours and WhatsApp ordering.",
+    description: "Menu, gallery, opening hours and WhatsApp ordering for a cozy coffee shop.",
     image: "/projects/cafe.png",
-    liveUrl: "https://example.vercel.app",
+    liveUrl: "https://brew-and-bloom-cafe.vercel.app/",
     isConcept: true,
     featured: false
   },
   {
     id: "restaurant",
-    name: "[PLACEHOLDER] Restaurant",
+    name: "Ambari Kolhapuri Kitchen",
     category: "Food & Cafe",
     tag: "Restaurant",
-    description: "Full menu, table booking form and customer reviews.",
+    description: "Thali & biryani menu, table booking and reviews for a family restaurant.",
     image: "/projects/restaurant.png",
-    liveUrl: "https://example.vercel.app",
-    isConcept: true,
-    featured: false
-  },
-  {
-    id: "gym",
-    name: "[PLACEHOLDER] Fitness Gym",
-    category: "Fitness",
-    tag: "Gym",
-    description: "Membership plans, trainers, class timetable and free-trial form.",
-    image: "/projects/gym.png",
-    liveUrl: "https://example.vercel.app",
+    liveUrl: "https://ambari-kolhapuri-kitchen.vercel.app/",
     isConcept: true,
     featured: false
   }

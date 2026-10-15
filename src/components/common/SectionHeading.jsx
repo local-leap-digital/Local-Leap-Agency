@@ -17,7 +17,7 @@ export default function SectionHeading({
 
   return (
     <div
-      className={`mb-12 md:mb-16 ${
+      className={`mb-10 md:mb-16 ${
         isCenter ? 'text-center mx-auto max-w-2xl' : 'text-left max-w-2xl'
       } ${className}`}
     >
@@ -34,7 +34,7 @@ export default function SectionHeading({
       )}
 
       <h2
-        className={`text-28px md:text-[40px] font-bold font-["Poppins"] leading-[1.2] tracking-tight ${
+        className={`text-[28px] sm:text-[34px] md:text-[40px] font-bold font-["Poppins"] leading-[1.2] tracking-tight ${
           light ? 'text-white' : 'text-[#01315E]'
         }`}
       >

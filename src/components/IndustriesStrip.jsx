@@ -29,13 +29,13 @@ export default function IndustriesStrip() {
         </p>
 
         {/* Scrollable / wrapped pill chips */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
           {industries.map((ind) => {
             const Icon = iconMap[ind.icon] || Store;
             return (
               <div
                 key={ind.name}
-                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#F3FAFA] border border-[#E2EEF0] text-sm font-medium text-[#01315E] hover:border-[#05B0B5] hover:bg-white hover:shadow-xs transition-all duration-200 cursor-default"
+                className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-[#F3FAFA] border border-[#E2EEF0] text-sm font-medium text-[#01315E] hover:border-[#05B0B5] hover:bg-white hover:shadow-xs transition-all duration-200 cursor-default"
               >
                 <div className="w-6 h-6 rounded-full bg-[#05B0B5]/15 flex items-center justify-center text-[#008F94]">
                   <Icon className="w-3.5 h-3.5" />

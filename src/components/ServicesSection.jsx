@@ -26,7 +26,7 @@ const iconMap = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-white">
+    <section id="services" className="py-16 sm:py-20 md:py-28 bg-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="OUR SERVICES"
@@ -35,13 +35,13 @@ export default function ServicesSection() {
           description="We take care of your complete online presence so you can focus on running your business and serving your customers."
         />
 
-        <div className="space-y-16">
+        <div className="space-y-12 md:space-y-16">
           {serviceGroups.map((group) => (
             <div key={group.groupId} className="relative">
               {/* Group Header */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#E2EEF0]">
                 <div className="flex items-center gap-3">
-                  <h3 className="font-['Poppins'] font-bold text-22px sm:text-2xl text-[#01315E]">
+                  <h3 className="font-['Poppins'] font-bold text-[22px] sm:text-2xl text-[#01315E]">
                     {group.groupTitle}
                   </h3>
                   {group.badge && (
@@ -58,18 +58,18 @@ export default function ServicesSection() {
 
               {/* Cards Grid */}
               <div
-                className={`grid grid-cols-1 md:grid-cols-2 ${
-                  group.services.length === 3
-                    ? 'lg:grid-cols-3'
-                    : 'lg:grid-cols-3'
-                } gap-6`}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
               >
-                {group.services.map((service) => {
+                {group.services.map((service, idx) => {
                   const Icon = iconMap[service.icon] || Globe;
+                  // On 2-column tablets, stretch a lone last card across the row
+                  const isLoneLast = group.services.length % 2 === 1 && idx === group.services.length - 1;
                   return (
                     <div
                       key={service.id}
-                      className="bg-[#F3FAFA] hover:bg-white p-6 sm:p-7 rounded-2xl border border-[#E2EEF0] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-200 group flex flex-col justify-between"
+                      className={`bg-[#F3FAFA] hover:bg-white p-6 sm:p-7 rounded-2xl border border-[#E2EEF0] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-200 group flex flex-col justify-between ${
+                        isLoneLast ? 'md:col-span-2 lg:col-span-1' : ''
+                      }`}
                     >
                       <div>
                         {/* Icon Circle */}

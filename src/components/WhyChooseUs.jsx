@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-[#F3FAFA]">
+    <section className="py-16 sm:py-20 md:py-28 bg-[#F3FAFA]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="WHY LOCALLEAP"
@@ -36,13 +36,13 @@ export default function WhyChooseUs() {
           description="We take on a limited number of clients so we can give your business our full focus."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {reasons.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="bg-white p-7 rounded-2xl border border-[#E2EEF0] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-200 flex flex-col"
+                className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2EEF0] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-200 flex flex-col"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#05B0B5]/12 flex items-center justify-center text-[#008F94] mb-5">
                   <Icon className="w-6 h-6" />

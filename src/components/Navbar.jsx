@@ -28,6 +28,19 @@ export default function Navbar() {
     { name: 'Contact', href: '#contact' },
   ];
 
+  // Close the mobile menu with Escape or when the screen grows to desktop width
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKey = (e) => e.key === 'Escape' && setMobileMenuOpen(false);
+    const handleResize = () => window.innerWidth >= 1024 && setMobileMenuOpen(false);
+    window.addEventListener('keydown', handleKey);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('keydown', handleKey);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [mobileMenuOpen]);
+
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
   };
@@ -43,26 +56,26 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           {/* Logo brand: Map-pin icon + LocalLeap Digital text in HTML/CSS */}
           <a
             href="#"
-            className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[#05B0B5] rounded-lg p-1"
+            className="flex items-center gap-2 sm:gap-3 group focus-visible:ring-2 focus-visible:ring-[#05B0B5] rounded-lg p-1 min-w-0"
             aria-label="LocalLeap Digital - Home"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#01315E] flex items-center justify-center p-1.5 shadow-sm group-hover:scale-105 transition-transform duration-200">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-xl bg-[#01315E] flex items-center justify-center p-1.5 shadow-sm group-hover:scale-105 transition-transform duration-200">
               <img
                 src="/logo-icon.png"
                 alt="LocalLeap Icon"
                 className="w-full h-full object-contain brightness-0 invert"
               />
             </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1 font-['Poppins'] font-bold text-lg sm:text-xl text-[#01315E] tracking-tight leading-tight">
+            <div className="flex flex-col min-w-0">
+              <div className="flex items-center gap-1 font-['Poppins'] font-bold text-base xs:text-lg sm:text-xl text-[#01315E] tracking-tight leading-tight whitespace-nowrap">
                 <span>LocalLeap</span>
                 <span className="text-[#05B0B5]">Digital</span>
               </div>
-              <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-slate-400">
+              <span className="text-[9px] xs:text-[10px] tracking-[0.12em] xs:tracking-[0.2em] uppercase font-semibold text-slate-400 whitespace-nowrap">
                 Websites &amp; Automations
               </span>
             </div>
@@ -82,24 +95,24 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action: WhatsApp CTA & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 xs:gap-3 shrink-0">
+            {/* Icon-only on small phones, full label from 480px up */}
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs sm:text-sm font-semibold font-['Poppins'] px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-semibold font-['Poppins'] w-11 h-11 xs:w-auto xs:h-auto xs:px-4 xs:py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow"
               aria-label="Chat on WhatsApp"
             >
-              <MessageSquare className="w-4 h-4 fill-white" />
-              <span className="hidden xs:inline sm:inline">Chat on WhatsApp</span>
-              <span className="xs:hidden sm:hidden">WhatsApp</span>
+              <MessageSquare className="w-5 h-5 xs:w-4 xs:h-4 fill-white" />
+              <span className="hidden xs:inline">Chat on WhatsApp</span>
             </a>
 
             {/* Mobile Hamburger Button */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-[#01315E] hover:bg-[#F3FAFA] transition-colors focus-visible:ring-2 focus-visible:ring-[#05B0B5]"
+              className="lg:hidden w-11 h-11 flex items-center justify-center rounded-lg text-[#01315E] hover:bg-[#F3FAFA] transition-colors focus-visible:ring-2 focus-visible:ring-[#05B0B5]"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
@@ -115,20 +128,20 @@ export default function Navbar() {
 
       {/* Mobile Drawer / Slide-down Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white/98 border-b border-[#E2EEF0] px-4 pt-3 pb-6 shadow-xl animate-in fade-in slide-in-from-top-2 duration-200">
-          <nav className="flex flex-col space-y-3 pt-2">
+        <div className="lg:hidden bg-white border-b border-[#E2EEF0] px-4 sm:px-6 pt-3 pb-6 shadow-xl max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain">
+          <nav className="flex flex-col space-y-1 pt-2" aria-label="Mobile Navigation">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={handleLinkClick}
-                className="text-base font-semibold text-[#01315E] hover:text-[#008F94] hover:bg-[#F3FAFA] px-3 py-2.5 rounded-lg transition-colors flex items-center justify-between"
+                className="text-base font-semibold text-[#01315E] hover:text-[#008F94] hover:bg-[#F3FAFA] px-3 py-3 rounded-lg transition-colors flex items-center justify-between"
               >
                 <span>{link.name}</span>
                 <ArrowUpRight className="w-4 h-4 text-slate-400" />
               </a>
             ))}
-            <div className="pt-3 border-t border-slate-100 mt-2">
+            <div className="pt-4 border-t border-slate-100 mt-3">
               <a
                 href={whatsappLink}
                 target="_blank"

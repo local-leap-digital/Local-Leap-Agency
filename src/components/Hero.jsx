@@ -34,13 +34,16 @@ export default function Hero() {
           {/* Left Column: Copy & Actions (7 cols) */}
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#05B0B5]/10 border border-[#05B0B5]/20 text-[#008F94] font-semibold text-xs sm:text-sm tracking-wide uppercase mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-[#05B0B5]" />
-              <span>Websites &amp; Smart Automations for Local Businesses</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#05B0B5]/10 border border-[#05B0B5]/20 text-[#008F94] font-semibold text-[11px] xs:text-xs sm:text-sm tracking-wide uppercase mb-5 sm:mb-6">
+              <Sparkles className="w-3.5 h-3.5 text-[#05B0B5] shrink-0" />
+              <span>
+                <span className="hidden xs:inline">Websites &amp; Smart Automations for Local Businesses</span>
+                <span className="xs:hidden">Websites &amp; Automations</span>
+              </span>
             </div>
 
             {/* Main H1 */}
-            <h1 className="text-34px sm:text-44px md:text-[54px] lg:text-[56px] font-bold font-['Poppins'] text-[#01315E] leading-[1.12] tracking-tight mb-6">
+            <h1 className="text-[34px] xs:text-[40px] sm:text-[46px] md:text-[54px] lg:text-[56px] font-bold font-['Poppins'] text-[#01315E] leading-[1.12] tracking-tight mb-5 sm:mb-6">
               Helping Local Businesses{' '}
               <span className="text-[#05B0B5] inline-block">Grow Online.</span>
             </h1>
@@ -51,7 +54,7 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8">
               <Button
                 href="#contact"
                 variant="primary"
@@ -90,8 +93,8 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Device Mockups (Laptop + Phone) with Floating Notification (5 cols) */}
-          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-            <div className="relative mx-auto max-w-[480px] lg:max-w-none">
+          <div className="lg:col-span-5 relative mt-6 lg:mt-0 pb-6 sm:pb-8 lg:pb-0">
+            <div className="relative mx-auto max-w-[480px] md:max-w-[560px] lg:max-w-none">
               
               {/* Laptop Frame */}
               <div className="relative rounded-2xl bg-[#01315E] p-3 shadow-2xl border border-slate-800">
@@ -100,8 +103,8 @@ export default function Hero() {
                   <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
-                  <div className="ml-3 text-[10px] text-slate-300 font-mono tracking-tight opacity-75">
-                    sample-clinic.localleap.in
+                  <div className="ml-3 text-[10px] text-slate-300 font-mono tracking-tight opacity-75 truncate">
+                    smitam-dental-care-ochre.vercel.app
                   </div>
                 </div>
 
@@ -110,7 +113,7 @@ export default function Hero() {
                   <img
                     src="/projects/dental.png"
                     alt="Sample business website mockup preview"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                     loading="eager"
                   />
                 </div>
@@ -120,7 +123,7 @@ export default function Hero() {
               </div>
 
               {/* Overlapping Phone Frame */}
-              <div className="absolute -bottom-6 -left-4 sm:-bottom-8 sm:-left-8 w-40 sm:w-48 bg-slate-900 p-2 rounded-[28px] shadow-2xl border-2 border-slate-700 hidden xs:block">
+              <div className="absolute -bottom-6 -left-2 sm:-bottom-8 sm:-left-8 w-32 sm:w-40 lg:w-48 bg-slate-900 p-2 rounded-[28px] shadow-2xl border-2 border-slate-700 hidden xs:block">
                 {/* Speaker Notch */}
                 <div className="w-12 h-2.5 bg-slate-800 rounded-full mx-auto mb-2" />
                 {/* Phone Screen */}
@@ -128,15 +131,15 @@ export default function Hero() {
                   {/* Phone Mockup Content */}
                   <div className="bg-[#01315E] p-2.5 text-white">
                     <div className="flex items-center justify-between text-[8px] font-bold">
-                      <span>SmileCare Clinic</span>
+                      <span>Smitam Dental Care</span>
                       <span className="w-2 h-2 rounded-full bg-emerald-400" />
                     </div>
                     <p className="text-[7px] text-slate-200 mt-1">Book appointment in 10s</p>
                   </div>
                   <div className="p-2 space-y-1.5 flex-1 bg-slate-50 text-[7px] text-slate-700">
                     <div className="bg-white p-1.5 rounded shadow-xs border border-slate-200">
-                      <p className="font-semibold text-[#01315E]">Dr. Ananya Sharma</p>
-                      <p className="text-slate-500">Root Canal &amp; Aligners</p>
+                      <p className="font-semibold text-[#01315E]">Dr. Aditi Kulkarni</p>
+                      <p className="text-slate-500">Braces &amp; Implants</p>
                     </div>
                     <div className="bg-[#05B0B5]/10 text-[#008F94] p-1.5 rounded font-semibold text-center">
                       ✓ Instant WhatsApp Confirmation
@@ -149,8 +152,8 @@ export default function Hero() {
               </div>
 
               {/* Floating Automation Badge: "New appointment request 🔔" */}
-              <div className="absolute -top-4 -right-2 sm:-right-6 bg-white rounded-xl p-3 shadow-xl border border-[#E2EEF0] flex items-center gap-3 animate-bounce [animation-duration:3s]">
-                <div className="w-9 h-9 rounded-lg bg-[#05B0B5]/15 flex items-center justify-center text-[#008F94]">
+              <div className="absolute -top-5 right-0 sm:-right-6 bg-white rounded-xl p-2.5 sm:p-3 shadow-xl border border-[#E2EEF0] flex items-center gap-2.5 sm:gap-3 animate-bounce [animation-duration:3s] max-w-[calc(100%-1rem)]">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-lg bg-[#05B0B5]/15 flex items-center justify-center text-[#008F94]">
                   <Bell className="w-4 h-4" />
                 </div>
                 <div>

@@ -12,7 +12,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-[#F3FAFA]">
+    <section id="faq" className="py-16 sm:py-20 md:py-28 bg-[#F3FAFA]">
       <div className="max-w-[840px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="COMMON QUESTIONS"
@@ -21,7 +21,7 @@ export default function FAQSection() {
           description="Clear answers about our websites, process, and ongoing support. No jargon."
         />
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq) => {
             const isOpen = openId === faq.id;
             return (
@@ -32,7 +32,7 @@ export default function FAQSection() {
                 <button
                   type="button"
                   onClick={() => toggleFaq(faq.id)}
-                  className="w-full py-5 px-6 sm:px-7 text-left flex items-center justify-between gap-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#05B0B5] focus-visible:outline-hidden"
+                  className="w-full py-4 sm:py-5 px-5 sm:px-7 text-left flex items-center justify-between gap-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#05B0B5] focus-visible:outline-hidden"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${faq.id}`}
                   id={`faq-btn-${faq.id}`}
@@ -54,7 +54,7 @@ export default function FAQSection() {
                     id={`faq-answer-${faq.id}`}
                     role="region"
                     aria-labelledby={`faq-btn-${faq.id}`}
-                    className="px-6 sm:px-7 pb-6 pt-1 text-sm sm:text-base text-[#334155] leading-relaxed border-t border-slate-100"
+                    className="px-5 sm:px-7 pb-5 sm:pb-6 pt-3 text-sm sm:text-base text-[#334155] leading-relaxed border-t border-slate-100"
                   >
                     {faq.answer}
                   </div>

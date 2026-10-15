@@ -15,12 +15,12 @@ export default function PricingTeaser() {
   return (
     <section className="py-12 bg-white border-b border-[#E2EEF0]">
       <div className="max-w-[840px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#F3FAFA] rounded-3xl border-2 border-[#05B0B5]/30 p-8 sm:p-10 text-center shadow-xs">
+        <div className="bg-[#F3FAFA] rounded-3xl border-2 border-[#05B0B5]/30 p-6 sm:p-10 text-center shadow-xs">
           <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#008F94] bg-[#05B0B5]/15 px-3.5 py-1.5 rounded-full mb-3">
             Fair &amp; Transparent Pricing
           </span>
           
-          <h2 className="font-['Poppins'] font-bold text-24px sm:text-3xl text-[#01315E] mb-3">
+          <h2 className="font-['Poppins'] font-bold text-[24px] sm:text-3xl text-[#01315E] mb-3">
             Custom Packages for Every Business
           </h2>
 
@@ -28,7 +28,7 @@ export default function PricingTeaser() {
             {siteConfig.pricingNote}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center justify-center gap-3">
             <Button
               href={whatsappUrl}
               variant="whatsapp"

@@ -8,7 +8,7 @@ export default function FinalCTA() {
   const whatsappUrl = getWhatsAppUrl(siteConfig.messages.freeDemo);
 
   return (
-    <section className="relative py-20 md:py-28 bg-[#01315E] overflow-hidden text-white">
+    <section className="relative py-16 sm:py-20 md:py-28 bg-[#01315E] overflow-hidden text-white">
       {/* Subtle decorative curved path pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-15 overflow-hidden" aria-hidden="true">
         <svg
@@ -32,7 +32,7 @@ export default function FinalCTA() {
           Start Today With Zero Risk
         </span>
 
-        <h2 className="text-30px sm:text-40px md:text-[46px] font-bold font-['Poppins'] text-white leading-tight mb-4">
+        <h2 className="text-[30px] sm:text-[40px] md:text-[46px] font-bold font-['Poppins'] text-white leading-tight mb-4">
           Ready to Take Your Business Online?
         </h2>
 
@@ -47,6 +47,7 @@ export default function FinalCTA() {
             size="lg"
             external
             icon={MessageSquare}
+            className="w-full sm:w-auto"
           >
             Chat on WhatsApp
           </Button>
@@ -56,6 +57,7 @@ export default function FinalCTA() {
             variant="light"
             size="lg"
             icon={ArrowRight}
+            className="w-full sm:w-auto"
           >
             Request Free Demo
           </Button>
