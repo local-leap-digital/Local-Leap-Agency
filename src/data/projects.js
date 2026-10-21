@@ -61,5 +61,38 @@ export const projects = [
     liveUrl: "https://ambari-kolhapuri-kitchen.vercel.app/",
     isConcept: true,
     featured: false
+  },
+  {
+    id: "coaching",
+    name: "Coaching Academy",
+    category: "Education",
+    tag: "Coaching Classes",
+    description: "NEET, JEE & MHT-CET courses, results, faculty and admission enquiry for a coaching institute.",
+    image: "/projects/coaching.png",
+    liveUrl: "https://coaching-classes-website-seven.vercel.app/",
+    isConcept: true,
+    featured: false
+  },
+  {
+    id: "fontfinder",
+    name: "Free Font Finder",
+    category: "Web Tools",
+    tag: "AI Web App",
+    description: "AI tool that identifies any font from an image and suggests free, commercial-safe alternatives with CSS.",
+    image: "/projects/fontfinder.png",
+    liveUrl: "https://freefontfinders.com/",
+    isConcept: false,
+    featured: false
+  },
+  {
+    id: "wce-cgpa",
+    name: "WCE CGPA to Percentage",
+    category: "Web Tools",
+    tag: "Calculator",
+    description: "Instant CGPA to percentage converter for Walchand College of Engineering students using the official formula.",
+    image: "/projects/wce-cgpa.png",
+    liveUrl: "https://wce-cgpa-to-percentage.vercel.app/",
+    isConcept: false,
+    featured: false
   }
 ];
