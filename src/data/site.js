@@ -5,9 +5,9 @@
 
 export const siteConfig = {
   name: "LocalLeap Digital",
-  tagline: "Websites & Smart Automations for Local Businesses",
+  tagline: "Your Vision. Our Technology. Real Results.",
   description:
-    "Professional websites and simple automations that help clinics, cafes, restaurants and gyms get found on Google, look trustworthy, and get more bookings.",
+    "Customized websites, web applications and mobile apps for local shops, businesses and startups. From idea to launch, we build modern digital solutions that help you grow.",
   
   // WhatsApp Number: country code + 10 digits without + or spaces
   whatsappNumber: "918767807414",
@@ -15,13 +15,18 @@ export const siteConfig = {
   // Contact details
   phoneDisplay: "+91 87678 07414",
   phoneTel: "+918767807414",
+  phones: [
+    { display: "+91 87660 36310", tel: "+918766036310" },
+    { display: "+91 87678 07414", tel: "+918767807414" }
+  ],
   email: "localleap.business@gmail.com",
   city: "Kolhapur",
+  address: "Phulewadi, Ring Road, Kolhapur",
   workingHours: "Mon – Sat: 10:00 AM – 7:00 PM",
 
   // Pricing Teaser Flag & Note
   showPricing: true,
-  pricingNote: "Every business is different. Call or WhatsApp us at +91 87678 07414 or email us at localleap.business@gmail.com for an exact, transparent quote.",
+  pricingNote: "Every business is different. Call us at +91 87660 36310 / +91 87678 07414, WhatsApp us or email us at localleap.business@gmail.com for an exact, transparent quote.",
 
   // Pre-filled WhatsApp messages
   messages: {

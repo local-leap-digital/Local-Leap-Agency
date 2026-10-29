@@ -3,6 +3,7 @@ import {
   MessageSquare,
   Mail,
   MapPin,
+  Phone,
   ArrowUp
 } from 'lucide-react';
 import { siteConfig } from '../data/site';
@@ -41,12 +42,12 @@ export default function Footer() {
   ];
 
   const serviceLinks = [
-    { name: 'Business Websites', href: '#services' },
+    { name: 'Website Development', href: '#services' },
+    { name: 'Web Applications', href: '#services' },
+    { name: 'Mobile Applications', href: '#services' },
+    { name: 'Digital Solutions', href: '#services' },
     { name: 'Google Business Profile', href: '#services' },
-    { name: 'Hosting & Care', href: '#services' },
-    { name: 'Online Booking & Calendar', href: '#services' },
-    { name: 'WhatsApp Quick Replies', href: '#services' },
-    { name: 'Automated Review Requests', href: '#services' },
+    { name: 'Online Booking & Automations', href: '#services' },
   ];
 
   const scrollToTop = () => {
@@ -56,9 +57,9 @@ export default function Footer() {
   const whatsappUrl = getWhatsAppUrl();
 
   return (
-    <footer className="bg-[#002242] border-t border-slate-800 text-slate-300 pt-14 sm:pt-16 pb-24 sm:pb-12">
+    <footer className="bg-forest border-t-4 border-gold text-white/80 pt-14 sm:pt-16 pb-24 sm:pb-12">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-8 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-8 pb-12 border-b border-white/10">
           
           {/* Column 1: Brand & Bio (4 cols) */}
           <div className="col-span-2 lg:col-span-4">
@@ -67,25 +68,25 @@ export default function Footer() {
               className="inline-flex items-center gap-3 mb-4 group"
               aria-label="LocalLeap Digital - Back to top"
             >
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center p-2 shadow-xs group-hover:scale-105 transition-transform duration-200">
+              <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 transition-transform duration-200">
                 <img
                   src="/logo-icon.png"
                   alt="LocalLeap Icon"
-                  className="w-full h-full object-contain brightness-0 invert"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="flex flex-col">
-                <div className="font-['Poppins'] font-bold text-xl text-white tracking-tight leading-tight">
-                  LocalLeap <span className="text-[#05B0B5]">Digital</span>
+                <div className="font-heading font-bold text-xl text-white tracking-tight leading-tight">
+                  Local<span className="text-gold">Leap</span>
                 </div>
-                <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-slate-400">
-                  Websites &amp; Automations
+                <span className="text-[10px] tracking-[0.42em] uppercase font-semibold text-white/70">
+                  Digital
                 </span>
               </div>
             </a>
 
-            <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-sm">
-              Websites and simple automations for local businesses. Helping clinics, cafes, restaurants, and gyms get found and get booked.
+            <p className="text-sm text-white/70 leading-relaxed mb-6 max-w-sm">
+              Customized websites, web applications and mobile apps for local shops, businesses and startups.
             </p>
 
             {/* Social Icons */}
@@ -94,7 +95,7 @@ export default function Footer() {
                 href={siteConfig.socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-lg bg-white/5 hover:bg-[#05B0B5] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-lg bg-white/10 hover:bg-gold hover:text-navy text-white/80 flex items-center justify-center transition-colors"
                 aria-label="Instagram profile [PLACEHOLDER]"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -103,7 +104,7 @@ export default function Footer() {
                 href={siteConfig.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-lg bg-white/5 hover:bg-[#05B0B5] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-lg bg-white/10 hover:bg-gold hover:text-navy text-white/80 flex items-center justify-center transition-colors"
                 aria-label="LinkedIn profile [PLACEHOLDER]"
               >
                 <LinkedinIcon className="w-4 h-4" />
@@ -112,7 +113,7 @@ export default function Footer() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-lg bg-white/5 hover:bg-[#25D366] hover:text-white text-slate-400 flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-lg bg-white/10 hover:bg-[#25D366] hover:text-white text-white/80 flex items-center justify-center transition-colors"
                 aria-label="WhatsApp Chat"
               >
                 <MessageSquare className="w-4 h-4" />
@@ -122,7 +123,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="font-['Poppins'] font-bold text-sm text-white uppercase tracking-wider mb-4">
+            <h4 className="font-heading font-bold text-sm text-gold uppercase tracking-wider mb-4">
               Quick Links
             </h4>
             <ul className="space-y-1 text-sm">
@@ -130,7 +131,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="inline-block py-1.5 text-slate-400 hover:text-[#05B0B5] transition-colors"
+                    className="inline-block py-1.5 text-white/70 hover:text-gold transition-colors"
                   >
                     {link.name}
                   </a>
@@ -141,7 +142,7 @@ export default function Footer() {
 
           {/* Column 3: Services (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="font-['Poppins'] font-bold text-sm text-white uppercase tracking-wider mb-4">
+            <h4 className="font-heading font-bold text-sm text-gold uppercase tracking-wider mb-4">
               Our Services
             </h4>
             <ul className="space-y-1 text-sm">
@@ -149,7 +150,7 @@ export default function Footer() {
                 <li key={service.name}>
                   <a
                     href={service.href}
-                    className="inline-block py-1.5 text-slate-400 hover:text-[#05B0B5] transition-colors"
+                    className="inline-block py-1.5 text-white/70 hover:text-gold transition-colors"
                   >
                     {service.name}
                   </a>
@@ -160,10 +161,24 @@ export default function Footer() {
 
           {/* Column 4: Contact info (3 cols) */}
           <div className="col-span-2 sm:col-span-1 lg:col-span-3">
-            <h4 className="font-['Poppins'] font-bold text-sm text-white uppercase tracking-wider mb-4">
-              Contact
+            <h4 className="font-heading font-bold text-sm text-gold uppercase tracking-wider mb-4">
+              Get In Touch
             </h4>
-            <ul className="space-y-3 text-sm text-slate-400">
+            <ul className="space-y-3 text-sm text-white/75">
+              <li className="flex items-start gap-2.5">
+                <Phone className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                <span className="flex flex-col">
+                  {siteConfig.phones.map((phone) => (
+                    <a
+                      key={phone.tel}
+                      href={`tel:${phone.tel}`}
+                      className="inline-block py-0.5 hover:text-white transition-colors"
+                    >
+                      {phone.display}
+                    </a>
+                  ))}
+                </span>
+              </li>
               <li className="flex items-start gap-2.5">
                 <MessageSquare className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
                 <a
@@ -176,7 +191,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 text-[#05B0B5] shrink-0 mt-0.5" />
+                <Mail className="w-4 h-4 text-gold shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${siteConfig.email}`}
                   className="inline-block py-0.5 hover:text-white transition-colors break-all"
@@ -185,16 +200,21 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#05B0B5] shrink-0 mt-0.5" />
-                <span>{siteConfig.city}</span>
+                <MapPin className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                <span>{siteConfig.address}</span>
               </li>
             </ul>
           </div>
 
         </div>
 
+        {/* Poster tagline */}
+        <p className="gold-rules justify-center pt-8 text-[11px] sm:text-sm font-heading font-semibold uppercase tracking-[0.25em] sm:tracking-[0.35em] text-white text-center">
+          {siteConfig.tagline}
+        </p>
+
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <p>© {currentYear} LocalLeap Digital. All rights reserved.</p>
 
           <button

@@ -2,8 +2,8 @@ import React from 'react';
 
 /**
  * Reusable Button component adhering to the LocalLeap design system.
- * Supports primary (Dark Teal #008F94), secondary (Navy outline),
- * whatsapp (#25D366), and ghost variants.
+ * Supports primary (Leaf Green), secondary (Navy outline), gold,
+ * whatsapp (#25D366), light and ghost variants.
  */
 export default function Button({
   children,
@@ -19,7 +19,7 @@ export default function Button({
   ...props
 }) {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium font-["Poppins"] transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed select-none active:translate-y-0 rounded-lg text-center';
+    'inline-flex items-center justify-center font-medium font-heading transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed select-none active:translate-y-0 rounded-lg text-center';
 
   const sizeStyles = {
     sm: 'text-sm px-4 py-2 gap-1.5',
@@ -28,21 +28,24 @@ export default function Button({
   };
 
   const variantStyles = {
-    // Primary: Action Dark Teal (#008F94), text white, hover #007479, -2px lift
+    // Primary: Leaf Green, text white, darker green on hover, -2px lift
     primary:
-      'bg-[#008F94] text-white hover:bg-[#007479] hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-[#05B0B5] focus-visible:ring-offset-2',
+      'bg-green-dark text-white hover:bg-green-hover hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2',
     // Secondary: Outline Navy
     secondary:
-      'border-2 border-[#01315E] text-[#01315E] bg-transparent hover:bg-[#01315E]/5 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-[#01315E] focus-visible:ring-offset-2',
+      'border-2 border-navy text-navy bg-transparent hover:bg-navy/5 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2',
+    // Gold: Navy text on gold (poster URL pill)
+    gold:
+      'bg-gold text-navy font-semibold hover:bg-[#E0A500] hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2',
     // WhatsApp: Recognisable #25D366 green
     whatsapp:
       'bg-[#25D366] text-white hover:bg-[#20bd5a] hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2',
-    // Light (on dark Navy backgrounds)
+    // Light (on dark Navy / Forest backgrounds)
     light:
-      'bg-white text-[#01315E] hover:bg-[#F3FAFA] hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#01315E]',
+      'bg-white text-navy hover:bg-mint hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-forest',
     // Ghost
     ghost:
-      'text-[#01315E] hover:bg-[#F3FAFA] hover:text-[#008F94]'
+      'text-navy hover:bg-mint hover:text-green-dark'
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size] || sizeStyles.md} ${variantStyles[variant] || variantStyles.primary} ${className}`;

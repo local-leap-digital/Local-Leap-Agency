@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "assets": "node scripts/generate-assets.js && node scripts/recolor-logo.js"
   },
   "dependencies": {
     "lucide-react": "^1.57.0",

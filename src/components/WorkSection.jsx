@@ -24,8 +24,8 @@ function SliderArrow({ direction, onClick, disabled, className = '' }) {
       aria-label={direction === 'prev' ? 'Previous projects' : 'Next projects'}
       className={`w-11 h-11 rounded-full items-center justify-center border transition-all duration-200 shadow-sm ${
         disabled
-          ? 'bg-white text-slate-300 border-[#E2EEF0] cursor-not-allowed shadow-none'
-          : 'bg-[#01315E] text-white border-[#01315E] hover:bg-[#05B0B5] hover:border-[#05B0B5] cursor-pointer'
+          ? 'bg-white text-slate-300 border-mint-border cursor-not-allowed shadow-none'
+          : 'bg-navy text-white border-navy hover:bg-green hover:border-green cursor-pointer'
       } ${className}`}
     >
       <Icon className="w-5 h-5" />
@@ -94,7 +94,7 @@ export default function WorkSection() {
   const cardBasis = `calc((100% - ${SLIDE_GAP * (perView - 1)}px) / ${perView})`;
 
   return (
-    <section id="work" className="py-16 sm:py-20 md:py-28 bg-[#F3FAFA]">
+    <section id="work" className="py-16 sm:py-20 md:py-28 bg-mint">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="OUR WORK"
@@ -113,8 +113,8 @@ export default function WorkSection() {
                 onClick={() => handleCategoryChange(cat)}
                 className={`px-4 py-2.5 min-h-10 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-[#01315E] text-white shadow-sm'
-                    : 'bg-white text-slate-600 hover:text-[#01315E] border border-[#E2EEF0]'
+                    ? 'bg-navy text-white shadow-sm'
+                    : 'bg-white text-slate-600 hover:text-navy border border-mint-border'
                 }`}
               >
                 {cat}
@@ -125,11 +125,11 @@ export default function WorkSection() {
 
         {/* Projects Slider or Friendly Empty State */}
         {filteredProjects.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-[#E2EEF0] p-12 text-center max-w-md mx-auto shadow-sm">
-            <div className="w-14 h-14 rounded-full bg-[#05B0B5]/15 text-[#008F94] flex items-center justify-center mx-auto mb-4">
+          <div className="bg-white rounded-2xl border border-mint-border p-12 text-center max-w-md mx-auto shadow-sm">
+            <div className="w-14 h-14 rounded-full bg-green/15 text-green-dark flex items-center justify-center mx-auto mb-4">
               <Laptop className="w-7 h-7" />
             </div>
-            <h3 className="font-['Poppins'] font-bold text-xl text-[#01315E] mb-2">
+            <h3 className="font-heading font-bold text-xl text-navy mb-2">
               New Projects Coming Soon
             </h3>
             <p className="text-sm text-slate-500 mb-6">
@@ -165,7 +165,7 @@ export default function WorkSection() {
 
             {/* Slider viewport */}
             <div
-              className="overflow-hidden py-3 -my-3 touch-pan-y select-none rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#05B0B5]"
+              className="overflow-hidden py-3 -my-3 touch-pan-y select-none rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-green"
               tabIndex={0}
               onKeyDown={handleKeyDown}
               onPointerDown={handlePointerDown}
@@ -183,10 +183,10 @@ export default function WorkSection() {
                 aria-roledescription="slide"
                 aria-label={`${i + 1} of ${filteredProjects.length}: ${project.name}`}
                 style={{ flex: `0 0 ${cardBasis}` }}
-                className="bg-white rounded-2xl border border-[#E2EEF0] overflow-hidden shadow-xs hover:shadow-lg hover:-translate-y-1.5 transition-all duration-200 flex flex-col group"
+                className="bg-white rounded-2xl border border-mint-border overflow-hidden shadow-xs hover:shadow-lg hover:-translate-y-1.5 transition-all duration-200 flex flex-col group"
               >
                 {/* Browser Device Frame for screenshot preview */}
-                <div className="bg-[#01315E] p-2.5 pb-2">
+                <div className="bg-navy p-2.5 pb-2">
                   <div className="flex items-center gap-1.5 mb-1.5 px-1">
                     <div className="w-2 h-2 rounded-full bg-red-400" />
                     <div className="w-2 h-2 rounded-full bg-amber-400" />
@@ -205,8 +205,8 @@ export default function WorkSection() {
                     />
                     {project.isConcept && (
                       <div className="absolute top-2.5 right-2.5">
-                        <span className="inline-flex items-center gap-1 bg-[#01315E]/90 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md border border-white/20 shadow-xs">
-                          <Sparkles className="w-3 h-3 text-[#05B0B5]" />
+                        <span className="inline-flex items-center gap-1 bg-navy/90 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md border border-white/20 shadow-xs">
+                          <Sparkles className="w-3 h-3 text-green" />
                           Concept Project
                         </span>
                       </div>
@@ -218,12 +218,12 @@ export default function WorkSection() {
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#008F94] bg-[#05B0B5]/10 px-2.5 py-0.5 rounded-md">
+                      <span className="text-xs font-bold uppercase tracking-wider text-green-dark bg-green/10 px-2.5 py-0.5 rounded-md">
                         {project.tag || project.category}
                       </span>
                     </div>
 
-                    <h3 className="font-['Poppins'] font-bold text-lg text-[#01315E] mb-2 group-hover:text-[#008F94] transition-colors">
+                    <h3 className="font-heading font-bold text-lg text-navy mb-2 group-hover:text-green-dark transition-colors">
                       {project.name}
                     </h3>
 
@@ -237,7 +237,7 @@ export default function WorkSection() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 py-2.5 text-sm font-semibold text-[#008F94] hover:text-[#007479] transition-colors group-hover:underline"
+                      className="inline-flex items-center gap-1.5 py-2.5 text-sm font-semibold text-green-dark hover:text-green-hover transition-colors group-hover:underline"
                     >
                       <span>View Live Site</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -245,7 +245,7 @@ export default function WorkSection() {
 
                     <a
                       href="#contact"
-                      className="py-2.5 text-xs text-slate-400 hover:text-[#01315E] font-medium text-right"
+                      className="py-2.5 text-xs text-slate-400 hover:text-navy font-medium text-right"
                     >
                       Get similar design →
                     </a>
@@ -277,7 +277,7 @@ export default function WorkSection() {
                     >
                       <span
                         className={`block h-2 rounded-full transition-all duration-300 ${
-                          i === currentIndex ? 'w-6 bg-[#05B0B5]' : 'w-2 bg-[#01315E]/20 group-hover/dot:bg-[#01315E]/40'
+                          i === currentIndex ? 'w-6 bg-green' : 'w-2 bg-navy/20 group-hover/dot:bg-navy/40'
                         }`}
                       />
                     </button>
@@ -295,8 +295,8 @@ export default function WorkSection() {
         )}
 
         {/* Free Demo Prompt Note below slider */}
-        <div className="mt-10 md:mt-14 p-6 sm:p-8 bg-white rounded-2xl border border-[#E2EEF0] shadow-xs text-center max-w-2xl mx-auto">
-          <p className="text-base sm:text-lg font-medium text-[#01315E] mb-4">
+        <div className="mt-10 md:mt-14 p-6 sm:p-8 bg-white rounded-2xl border border-mint-border shadow-xs text-center max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg font-medium text-navy mb-4">
             Want to see what your business could look like? We'll make a free demo for you.
           </p>
           <Button href="#contact" variant="primary" size="md" className="w-full xs:w-auto">

@@ -123,7 +123,7 @@ export default function ContactSection() {
           {/* Left Column: Direct Contact Details & WhatsApp Button (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <h3 className="font-['Poppins'] font-bold text-[22px] sm:text-2xl text-[#01315E] mb-3">
+              <h3 className="font-heading font-bold text-[22px] sm:text-2xl text-navy mb-3">
                 Talk to Us Directly
               </h3>
               <p className="text-sm sm:text-base text-[#334155] leading-relaxed mb-8">
@@ -136,7 +136,7 @@ export default function ContactSection() {
                   href={whatsappGeneralUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-xl font-['Poppins'] font-bold text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                  className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-xl font-heading font-bold text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <MessageSquare className="w-5 h-5 fill-white" />
                   <span>Message on WhatsApp</span>
@@ -146,64 +146,71 @@ export default function ContactSection() {
                 </p>
               </div>
 
-              {/* Direct Details List */}
-              <div className="space-y-4 pt-4 border-t border-slate-100">
-                {/* Phone */}
-                <div className="flex items-center gap-3 text-sm text-[#334155]">
-                  <div className="w-10 h-10 rounded-lg bg-[#05B0B5]/12 flex items-center justify-center text-[#008F94] shrink-0">
+              {/* Direct Details: poster-style "Get In Touch" card */}
+              <div className="relative overflow-hidden bg-brand-gradient rounded-3xl p-6 sm:p-7 text-white shadow-lg">
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gold/20 rounded-full blur-2xl pointer-events-none" aria-hidden="true" />
+                <h4 className="relative font-heading font-bold text-xl sm:text-2xl text-gold mb-5">
+                  Get In Touch
+                </h4>
+                <div className="relative space-y-4">
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest shrink-0 shadow-sm">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-slate-400 font-medium">Phone / Call</p>
-                    <a
-                      href={`tel:${siteConfig.phoneTel}`}
-                      className="inline-block py-1 font-semibold text-[#01315E] hover:text-[#008F94] transition-colors break-all"
-                    >
-                      {siteConfig.phoneDisplay}
-                    </a>
+                    <p className="text-xs text-white/60 font-medium">Phone / Call</p>
+                    <div className="flex flex-wrap gap-x-2">
+                      {siteConfig.phones.map((phone, i) => (
+                        <a
+                          key={phone.tel}
+                          href={`tel:${phone.tel}`}
+                          className="inline-block py-1 font-semibold text-white hover:text-gold transition-colors whitespace-nowrap"
+                        >
+                          {phone.display}{i < siteConfig.phones.length - 1 && <span className="text-white/40"> /</span>}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Email */}
-                <div className="flex items-center gap-3 text-sm text-[#334155]">
-                  <div className="w-10 h-10 rounded-lg bg-[#05B0B5]/12 flex items-center justify-center text-[#008F94] shrink-0">
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest shrink-0 shadow-sm">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-slate-400 font-medium">Email</p>
+                    <p className="text-xs text-white/60 font-medium">Email</p>
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="inline-block py-1 font-semibold text-[#01315E] hover:text-[#008F94] transition-colors break-all"
+                      className="inline-block py-1 font-semibold text-white hover:text-gold transition-colors break-all"
                     >
                       {siteConfig.email}
                     </a>
                   </div>
                 </div>
 
-                {/* City */}
-                <div className="flex items-center gap-3 text-sm text-[#334155]">
-                  <div className="w-10 h-10 rounded-lg bg-[#05B0B5]/12 flex items-center justify-center text-[#008F94] shrink-0">
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest shrink-0 shadow-sm">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-slate-400 font-medium">Location</p>
-                    <p className="font-semibold text-[#01315E]">
-                      {siteConfig.city}
+                    <p className="text-xs text-white/60 font-medium">Address</p>
+                    <p className="font-semibold text-white">
+                      {siteConfig.address}
                     </p>
                   </div>
                 </div>
 
-                {/* Working Hours */}
-                <div className="flex items-center gap-3 text-sm text-[#334155]">
-                  <div className="w-10 h-10 rounded-lg bg-[#05B0B5]/12 flex items-center justify-center text-[#008F94] shrink-0">
+                <div className="flex items-center gap-3 text-sm">
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest shrink-0 shadow-sm">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-slate-400 font-medium">Working Hours</p>
-                    <p className="font-semibold text-[#01315E]">
+                    <p className="text-xs text-white/60 font-medium">Working Hours</p>
+                    <p className="font-semibold text-white">
                       {siteConfig.workingHours}
                     </p>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -211,8 +218,8 @@ export default function ContactSection() {
 
           {/* Right Column: Enquiry Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="bg-[#F3FAFA] p-5 xs:p-6 sm:p-10 rounded-3xl border border-[#E2EEF0] shadow-sm">
-              <h3 className="font-['Poppins'] font-bold text-xl sm:text-2xl text-[#01315E] mb-2">
+            <div className="bg-mint p-5 xs:p-6 sm:p-10 rounded-3xl border border-mint-border shadow-sm">
+              <h3 className="font-heading font-bold text-xl sm:text-2xl text-navy mb-2">
                 Request Your Free Demo Website
               </h3>
               <p className="text-sm text-[#334155] mb-6">
@@ -224,7 +231,7 @@ export default function ContactSection() {
                   <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h4 className="font-['Poppins'] font-bold text-xl text-[#01315E] mb-2">
+                  <h4 className="font-heading font-bold text-xl text-navy mb-2">
                     Thanks! We'll message you on WhatsApp soon.
                   </h4>
                   <p className="text-sm text-[#334155] max-w-md mx-auto mb-6">
@@ -243,7 +250,7 @@ export default function ContactSection() {
                     <button
                       type="button"
                       onClick={() => setFormStatus('idle')}
-                      className="py-2 px-3 text-xs text-slate-500 hover:text-[#01315E] underline cursor-pointer"
+                      className="py-2 px-3 text-xs text-slate-500 hover:text-navy underline cursor-pointer"
                     >
                       Submit another request
                     </button>
@@ -267,7 +274,7 @@ export default function ContactSection() {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-xs font-bold uppercase tracking-wider text-[#01315E] mb-1.5"
+                        className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5"
                       >
                         Your Name <span className="text-rose-500">*</span>
                       </label>
@@ -279,14 +286,14 @@ export default function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Dr. Rajesh / Amit Kumar"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2EEF0] text-base text-slate-800 focus:border-[#008F94] focus:outline-none focus:ring-1 focus:ring-[#008F94] transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
                       />
                     </div>
 
                     <div>
                       <label
                         htmlFor="businessName"
-                        className="block text-xs font-bold uppercase tracking-wider text-[#01315E] mb-1.5"
+                        className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5"
                       >
                         Business Name <span className="text-rose-500">*</span>
                       </label>
@@ -298,7 +305,7 @@ export default function ContactSection() {
                         value={formData.businessName}
                         onChange={handleChange}
                         placeholder="e.g. Apex Dental Care / Roast Cafe"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2EEF0] text-base text-slate-800 focus:border-[#008F94] focus:outline-none focus:ring-1 focus:ring-[#008F94] transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
                       />
                     </div>
                   </div>
@@ -308,7 +315,7 @@ export default function ContactSection() {
                     <div>
                       <label
                         htmlFor="businessType"
-                        className="block text-xs font-bold uppercase tracking-wider text-[#01315E] mb-1.5"
+                        className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5"
                       >
                         Business Type <span className="text-rose-500">*</span>
                       </label>
@@ -317,7 +324,7 @@ export default function ContactSection() {
                         name="businessType"
                         value={formData.businessType}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2EEF0] text-base text-slate-800 focus:border-[#008F94] focus:outline-none focus:ring-1 focus:ring-[#008F94] transition-all cursor-pointer"
+                        className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all cursor-pointer"
                       >
                         {businessTypes.map((type) => (
                           <option key={type} value={type}>
@@ -330,7 +337,7 @@ export default function ContactSection() {
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block text-xs font-bold uppercase tracking-wider text-[#01315E] mb-1.5"
+                        className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5"
                       >
                         Phone / WhatsApp <span className="text-rose-500">*</span>
                       </label>
@@ -342,7 +349,7 @@ export default function ContactSection() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="10-digit mobile number"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2EEF0] text-base text-slate-800 focus:border-[#008F94] focus:outline-none focus:ring-1 focus:ring-[#008F94] transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
                       />
                     </div>
                   </div>
@@ -351,7 +358,7 @@ export default function ContactSection() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-xs font-bold uppercase tracking-wider text-[#01315E] mb-1.5"
+                      className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5"
                     >
                       Message <span className="text-slate-400 font-normal">(Optional)</span>
                     </label>
@@ -362,7 +369,7 @@ export default function ContactSection() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Any specific features you need? (e.g. appointment booking, table reservation, menu display, Google review automation)"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[#E2EEF0] text-base text-slate-800 focus:border-[#008F94] focus:outline-none focus:ring-1 focus:ring-[#008F94] transition-all resize-y"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all resize-y"
                     />
                   </div>
 

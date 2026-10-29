@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Reusable SectionHeading component.
- * Displays teal eyebrow, H2 heading, and optional descriptive subtext.
+ * Displays a green pill eyebrow (poster style), H2 heading, and optional descriptive subtext.
  */
 export default function SectionHeading({
   eyebrow,
@@ -23,10 +23,10 @@ export default function SectionHeading({
     >
       {eyebrow && (
         <span
-          className={`inline-block text-xs md:text-sm font-bold uppercase tracking-wider mb-3 px-3 py-1 rounded-full ${
+          className={`inline-block text-xs md:text-sm font-bold uppercase tracking-wider mb-4 px-4 py-1.5 rounded-full shadow-sm ${
             light
-              ? 'bg-[#05B0B5]/20 text-[#05B0B5]'
-              : 'bg-[#05B0B5]/10 text-[#008F94]'
+              ? 'bg-gold text-navy'
+              : 'bg-gradient-to-r from-forest to-green-dark text-white'
           }`}
         >
           {eyebrow}
@@ -34,13 +34,16 @@ export default function SectionHeading({
       )}
 
       <h2
-        className={`text-[28px] sm:text-[34px] md:text-[40px] font-bold font-["Poppins"] leading-[1.2] tracking-tight ${
-          light ? 'text-white' : 'text-[#01315E]'
+        className={`text-[28px] sm:text-[34px] md:text-[40px] font-bold font-heading leading-[1.2] tracking-tight ${
+          light ? 'text-white' : 'text-navy'
         }`}
       >
         {title}
         {highlightText && (
-          <span className="text-[#05B0B5]"> {highlightText}</span>
+          <>
+            {' '}
+            <span className={`swoosh-underline ${light ? 'text-gold' : 'text-green'}`}>{highlightText}</span>
+          </>
         )}
       </h2>
 

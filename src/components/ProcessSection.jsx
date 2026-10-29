@@ -50,10 +50,10 @@ export default function ProcessSection() {
         <div className="relative mt-12 md:mt-16">
           {/* Horizontal Connecting Line (Desktop) */}
           <div
-            className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-[#E2EEF0] -z-0"
+            className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-mint-border -z-0"
             aria-hidden="true"
           >
-            <div className="h-full bg-gradient-to-r from-[#05B0B5] via-[#008F94] to-[#01315E] opacity-70" />
+            <div className="h-full bg-gradient-to-r from-green via-gold to-green-dark opacity-70" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-x-6 sm:gap-y-10 relative z-10">
@@ -69,16 +69,16 @@ export default function ProcessSection() {
                 >
                   {/* Step Number Circle */}
                   <div className="relative mb-5">
-                    <div className="w-14 h-14 rounded-full bg-white border-2 border-[#008F94] shadow-md flex items-center justify-center font-['Poppins'] font-bold text-lg text-[#01315E] group-hover:bg-[#008F94] group-hover:text-white transition-all duration-200">
+                    <div className="w-14 h-14 rounded-full bg-white border-2 border-green-dark shadow-md flex items-center justify-center font-heading font-bold text-lg text-navy group-hover:bg-green-dark group-hover:text-white transition-all duration-200">
                       <span>{step.number}</span>
                     </div>
                     {/* Small sub icon */}
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#05B0B5] text-white flex items-center justify-center shadow-xs">
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green text-white flex items-center justify-center shadow-xs">
                       <Icon className="w-3 h-3" />
                     </div>
                   </div>
 
-                  <h3 className="font-['Poppins'] font-bold text-lg text-[#01315E] mb-2">
+                  <h3 className="font-heading font-bold text-lg text-navy mb-2">
                     {step.title}
                   </h3>
 

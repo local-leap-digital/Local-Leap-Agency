@@ -51,7 +51,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm py-3 border-b border-[#E2EEF0]'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm py-3 border-b border-mint-border'
           : 'bg-white/90 backdrop-blur-sm py-4 md:py-5 border-b border-transparent'
       }`}
     >
@@ -60,23 +60,22 @@ export default function Navbar() {
           {/* Logo brand: Map-pin icon + LocalLeap Digital text in HTML/CSS */}
           <a
             href="#"
-            className="flex items-center gap-2 sm:gap-3 group focus-visible:ring-2 focus-visible:ring-[#05B0B5] rounded-lg p-1 min-w-0"
+            className="flex items-center gap-2 sm:gap-3 group focus-visible:ring-2 focus-visible:ring-green rounded-lg p-1 min-w-0"
             aria-label="LocalLeap Digital - Home"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-xl bg-[#01315E] flex items-center justify-center p-1.5 shadow-sm group-hover:scale-105 transition-transform duration-200">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
               <img
                 src="/logo-icon.png"
                 alt="LocalLeap Icon"
-                className="w-full h-full object-contain brightness-0 invert"
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="flex flex-col min-w-0">
-              <div className="flex items-center gap-1 font-['Poppins'] font-bold text-base xs:text-lg sm:text-xl text-[#01315E] tracking-tight leading-tight whitespace-nowrap">
-                <span>LocalLeap</span>
-                <span className="text-[#05B0B5]">Digital</span>
+              <div className="font-heading font-bold text-lg xs:text-xl sm:text-[22px] text-navy tracking-tight leading-none whitespace-nowrap">
+                Local<span className="text-green">Leap</span>
               </div>
-              <span className="text-[9px] xs:text-[10px] tracking-[0.12em] xs:tracking-[0.2em] uppercase font-semibold text-slate-400 whitespace-nowrap">
-                Websites &amp; Automations
+              <span className="mt-0.5 text-[9px] xs:text-[10px] tracking-[0.42em] uppercase font-semibold text-navy whitespace-nowrap">
+                Digital
               </span>
             </div>
           </a>
@@ -87,21 +86,29 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[15px] font-medium text-[#334155] hover:text-[#008F94] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#05B0B5] hover:after:w-full after:transition-all"
+                className="text-[15px] font-medium text-[#334155] hover:text-green-dark transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-green hover:after:w-full after:transition-all"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* Right Action: WhatsApp CTA & Mobile Toggle */}
+          {/* Right Action: Get Started, WhatsApp CTA & Mobile Toggle */}
           <div className="flex items-center gap-1.5 xs:gap-3 shrink-0">
+            <a
+              href="#contact"
+              className="hidden xl:inline-flex items-center gap-1.5 bg-navy hover:bg-navy-dark text-white text-sm font-semibold font-heading px-5 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow"
+            >
+              Get Started
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+
             {/* Icon-only on small phones, full label from 480px up */}
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-semibold font-['Poppins'] w-11 h-11 xs:w-auto xs:h-auto xs:px-4 xs:py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-semibold font-heading w-11 h-11 xs:w-auto xs:h-auto xs:px-4 xs:py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow"
               aria-label="Chat on WhatsApp"
             >
               <MessageSquare className="w-5 h-5 xs:w-4 xs:h-4 fill-white" />
@@ -112,7 +119,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-11 h-11 flex items-center justify-center rounded-lg text-[#01315E] hover:bg-[#F3FAFA] transition-colors focus-visible:ring-2 focus-visible:ring-[#05B0B5]"
+              className="lg:hidden w-11 h-11 flex items-center justify-center rounded-lg text-navy hover:bg-mint transition-colors focus-visible:ring-2 focus-visible:ring-green"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
@@ -128,14 +135,14 @@ export default function Navbar() {
 
       {/* Mobile Drawer / Slide-down Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E2EEF0] px-4 sm:px-6 pt-3 pb-6 shadow-xl max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain">
+        <div className="lg:hidden bg-white border-b border-mint-border px-4 sm:px-6 pt-3 pb-6 shadow-xl max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain">
           <nav className="flex flex-col space-y-1 pt-2" aria-label="Mobile Navigation">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={handleLinkClick}
-                className="text-base font-semibold text-[#01315E] hover:text-[#008F94] hover:bg-[#F3FAFA] px-3 py-3 rounded-lg transition-colors flex items-center justify-between"
+                className="text-base font-semibold text-navy hover:text-green-dark hover:bg-mint px-3 py-3 rounded-lg transition-colors flex items-center justify-between"
               >
                 <span>{link.name}</span>
                 <ArrowUpRight className="w-4 h-4 text-slate-400" />
@@ -147,7 +154,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg font-semibold font-['Poppins'] text-sm"
+                className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-lg font-semibold font-heading text-sm"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
                 <span>Chat on WhatsApp</span>

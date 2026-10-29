@@ -11,41 +11,41 @@ export default function AboutSection() {
           
           {/* Left Column: Logo Icon & Studio Badge on Ice White Panel */}
           <div className="lg:col-span-5 order-2 lg:order-1 w-full max-w-xl mx-auto lg:max-w-none">
-            <div className="bg-[#F3FAFA] rounded-3xl p-6 sm:p-12 border border-[#E2EEF0] relative overflow-hidden text-center shadow-xs">
+            <div className="bg-mint rounded-3xl p-6 sm:p-12 border border-mint-border relative overflow-hidden text-center shadow-xs">
               {/* Subtle decorative circles */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-[#05B0B5]/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-green/10 rounded-full blur-2xl pointer-events-none" />
               
               <div className="relative z-10 flex flex-col items-center">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#01315E] p-4 shadow-md flex items-center justify-center mb-6">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border border-mint-border p-3 shadow-md flex items-center justify-center mb-6">
                   <img
                     src="/logo-icon.png"
                     alt="LocalLeap Digital Icon"
-                    className="w-full h-full object-contain brightness-0 invert"
+                    className="w-full h-full object-contain"
                   />
                 </div>
 
-                <h3 className="font-['Poppins'] font-bold text-xl text-[#01315E] mb-2">
+                <h3 className="font-heading font-bold text-xl text-navy mb-2">
                   LocalLeap Digital
                 </h3>
-                <p className="text-xs font-semibold text-[#008F94] uppercase tracking-wider mb-6">
+                <p className="text-xs font-semibold text-green-dark uppercase tracking-wider mb-6">
                   Dedicated Two-Person Studio
                 </p>
 
-                <div className="w-full pt-6 border-t border-[#E2EEF0] space-y-3 text-left">
+                <div className="w-full pt-6 border-t border-mint-border space-y-3 text-left">
                   <div className="flex items-center gap-3 text-xs sm:text-sm text-[#334155]">
-                    <div className="w-5 h-5 rounded-full bg-[#05B0B5]/20 flex items-center justify-center text-[#008F94] shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center text-green-dark shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
                     <span>Direct personal accountability</span>
                   </div>
                   <div className="flex items-center gap-3 text-xs sm:text-sm text-[#334155]">
-                    <div className="w-5 h-5 rounded-full bg-[#05B0B5]/20 flex items-center justify-center text-[#008F94] shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center text-green-dark shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
                     <span>No middlemen, agencies, or sales reps</span>
                   </div>
                   <div className="flex items-center gap-3 text-xs sm:text-sm text-[#334155]">
-                    <div className="w-5 h-5 rounded-full bg-[#05B0B5]/20 flex items-center justify-center text-[#008F94] shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center text-green-dark shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
                     <span>Built exclusively for local business owners</span>
@@ -78,17 +78,17 @@ export default function AboutSection() {
               {siteConfig.team.map((member, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#F3FAFA] p-5 rounded-2xl border border-[#E2EEF0] flex items-center gap-4 hover:border-[#05B0B5] transition-colors"
+                  className="bg-mint p-5 rounded-2xl border border-mint-border flex items-center gap-4 hover:border-green transition-colors"
                 >
                   {/* Initials in a teal circle */}
-                  <div className="w-12 h-12 rounded-xl bg-[#01315E] text-[#05B0B5] font-['Poppins'] font-bold text-base flex items-center justify-center shrink-0 shadow-xs">
+                  <div className="w-12 h-12 rounded-xl bg-navy text-gold font-heading font-bold text-base flex items-center justify-center shrink-0 shadow-xs">
                     {member.initials}
                   </div>
                   <div>
-                    <h4 className="font-['Poppins'] font-bold text-sm sm:text-base text-[#01315E]">
+                    <h4 className="font-heading font-bold text-sm sm:text-base text-navy">
                       {member.name}
                     </h4>
-                    <p className="text-xs font-medium text-[#008F94]">
+                    <p className="text-xs font-medium text-green-dark">
                       {member.role}
                     </p>
                   </div>

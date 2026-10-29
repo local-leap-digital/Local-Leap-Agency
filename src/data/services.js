@@ -1,22 +1,49 @@
 /**
  * Services data for LocalLeap Digital.
- * Divided into two groups: Websites and Simple Automations.
+ * Core services match the printed poster; the second group covers
+ * the digital growth tools and automations bundled with them.
  * Uses Lucide icon names for easy matching.
  */
 
 export const serviceGroups = [
   {
-    groupId: "websites",
-    groupTitle: "Websites",
+    groupId: "core",
+    groupTitle: "What We Build",
     badge: null,
-    description: "Modern, search-friendly websites tailored for local businesses.",
+    description: "From a simple shop website to a full mobile app, built around your idea.",
     services: [
       {
-        id: "business-website",
-        title: "Business Website",
-        description: "A fast, mobile-friendly website with your services, photos, reviews, timings and location.",
+        id: "website-development",
+        title: "Website Development",
+        description: "Custom, fast and mobile-friendly websites for local businesses, with your services, photos, reviews, timings and location.",
         icon: "Globe"
       },
+      {
+        id: "web-applications",
+        title: "Web Applications",
+        description: "Powerful and scalable web apps: booking systems, dashboards, portals and tools built for how your business works.",
+        icon: "Code2"
+      },
+      {
+        id: "mobile-applications",
+        title: "Mobile Applications",
+        description: "Android and iOS apps for your ideas, designed to be simple for your customers and easy for you to manage.",
+        icon: "Smartphone"
+      },
+      {
+        id: "digital-solutions",
+        title: "Digital Solutions",
+        description: "Grow your business online with Google presence, WhatsApp, automations and ongoing support, all from one team.",
+        icon: "Rocket"
+      }
+    ]
+  },
+  {
+    groupId: "growth",
+    groupTitle: "Digital Solutions & Automations",
+    badge: "Save time every day",
+    description: "Get found online, eliminate repetitive tasks and never miss a potential customer.",
+    services: [
       {
         id: "google-business-profile",
         title: "Google Business Profile",
@@ -28,15 +55,7 @@ export const serviceGroups = [
         title: "Hosting & Maintenance",
         description: "We keep your website live, secure, fast, and updated, so you never have to worry about tech.",
         icon: "ShieldCheck"
-      }
-    ]
-  },
-  {
-    groupId: "automations",
-    groupTitle: "Simple Automations",
-    badge: "Save time every day",
-    description: "Eliminate manual repetitive tasks and never miss a potential customer.",
-    services: [
+      },
       {
         id: "online-booking",
         title: "Online Booking",

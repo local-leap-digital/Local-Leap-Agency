@@ -1,31 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #01315E;
-  --color-navy-dark: #002242;
-  --color-teal: #05B0B5;
-  --color-teal-dark: #008F94;
-  --color-teal-hover: #007479;
-  --color-ice: #F3FAFA;
-  --color-ice-border: #E2EEF0;
+  /* Brand palette — matches the LocalLeap poster (navy + leaf green + gold) */
+  --color-navy: #0B2C5F;
+  --color-navy-dark: #071E42;
+  --color-green: #1FA03C;
+  --color-green-dark: #15802F;
+  --color-green-hover: #0F6A26;
+  --color-forest: #0A4A27;
+  --color-gold: #F4B400;
+  --color-gold-soft: #FFF4CC;
+  --color-mint: #F3FAF4;
+  --color-mint-border: #E2EFE4;
   --color-slate-body: #334155;
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #20bd5a;
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Poppins', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Extra-small breakpoint for large phones (480px+) */
   --breakpoint-xs: 30rem;
 }
 
 :root {
-  --navy: #01315E;
-  --teal: #05B0B5;
-  --teal-dark: #008F94;
-  --teal-hover: #007479;
-  --ice: #F3FAFA;
-  --ice-border: #E2EEF0;
+  --navy: #0B2C5F;
+  --green: #1FA03C;
+  --green-dark: #15802F;
+  --forest: #0A4A27;
+  --gold: #F4B400;
+  --mint: #F3FAF4;
+  --mint-border: #E2EFE4;
   --slate: #334155;
   --whatsapp: #25D366;
 }
@@ -55,7 +60,7 @@ p, a, span, h1, h2, h3, h4 {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: #01315E;
+  color: #0B2C5F;
 }
 }
 
@@ -65,7 +70,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #05B0B5;
+  outline: 2px solid #1FA03C;
   outline-offset: 2px;
 }
 
@@ -81,11 +86,52 @@ textarea:focus-visible {
 
 /* Subtle pattern for hero & CTA background */
 .bg-subtle-pattern {
-  background-image: radial-gradient(rgba(5, 176, 181, 0.08) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(31, 160, 60, 0.08) 1.5px, transparent 1.5px);
   background-size: 28px 28px;
 }
 
 .bg-subtle-pattern-navy {
-  background-image: radial-gradient(rgba(5, 176, 181, 0.15) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(244, 180, 0, 0.14) 1.5px, transparent 1.5px);
   background-size: 28px 28px;
+}
+
+/* Poster-style dark band: forest → leaf green */
+.bg-brand-gradient {
+  background-image: linear-gradient(135deg, #0A4A27 0%, #0E6B32 55%, #1FA03C 100%);
+}
+
+/* Gold curved swoosh under highlighted words (as on the poster) */
+.swoosh-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.12em;
+}
+.swoosh-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.18em;
+  height: 0.32em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M2 16 C 60 4, 140 2, 198 8' stroke='%23F4B400' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  pointer-events: none;
+}
+
+/* Thin gold rules on both sides of a centred label */
+.gold-rules {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+.gold-rules::before,
+.gold-rules::after {
+  content: "";
+  flex: 1 1 0;
+  max-width: 7rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #F4B400);
+}
+.gold-rules::after {
+  background: linear-gradient(90deg, #F4B400, transparent);
 }

@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section id="testimonials" className="py-16 sm:py-20 md:py-28 bg-[#F3FAFA]">
+    <section id="testimonials" className="py-16 sm:py-20 md:py-28 bg-mint">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="CLIENT REVIEWS"
@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
           {realTestimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-white p-7 rounded-2xl border border-[#E2EEF0] shadow-sm flex flex-col justify-between"
+              className="bg-white p-7 rounded-2xl border border-mint-border shadow-sm flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-1 text-amber-400 mb-4">
@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
               </div>
 
               <div className="pt-4 border-t border-slate-100">
-                <p className="font-['Poppins'] font-bold text-sm text-[#01315E]">
+                <p className="font-heading font-bold text-sm text-navy">
                   {item.clientName}
                 </p>
                 <p className="text-xs text-slate-500">

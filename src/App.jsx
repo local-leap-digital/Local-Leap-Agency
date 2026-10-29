@@ -18,7 +18,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-[#05B0B5]/20 selection:text-[#01315E]">
+    <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-green/20 selection:text-navy">
       {/* 6.1 Header / Navigation (Sticky) */}
       <Navbar />
 
