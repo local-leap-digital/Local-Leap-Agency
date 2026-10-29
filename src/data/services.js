@@ -41,7 +41,7 @@ export const serviceGroups = [
   {
     groupId: "growth",
     groupTitle: "Digital Solutions & Automations",
-    badge: "Save time every day",
+    badge: null,
     description: "Get found online, eliminate repetitive tasks and never miss a potential customer.",
     services: [
       {

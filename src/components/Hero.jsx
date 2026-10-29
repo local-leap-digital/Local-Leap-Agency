@@ -5,24 +5,12 @@ import Button from './common/Button';
 export default function Hero() {
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-white via-[#FDFDF7] to-mint">
-      {/* Decorative background: soft green & gold glow plus poster-style corner stripes */}
+      {/* Decorative background: soft green & gold glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {/* Soft radial glow */}
         <div className="absolute -top-32 -left-32 w-[28rem] h-[28rem] bg-green/10 rounded-full blur-3xl" />
         <div className="absolute top-1/3 -right-32 w-96 h-96 bg-gold/15 rounded-full blur-3xl" />
         <div className="absolute -bottom-24 left-1/3 w-96 h-96 bg-green/5 rounded-full blur-3xl" />
-        {/* Diagonal green & gold corner stripes */}
-        <svg
-          className="absolute top-0 right-0 w-[260px] sm:w-[360px] lg:w-[460px] h-auto opacity-90"
-          viewBox="0 0 460 300"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M460 0 V210 L250 0 Z" fill="var(--color-green)" opacity="0.14" />
-          <path d="M460 0 V120 L340 0 Z" fill="var(--color-forest)" opacity="0.16" />
-          <path d="M300 0 L460 160 V185 L275 0 Z" fill="var(--color-gold)" opacity="0.55" />
-          <path d="M200 0 L460 260 V268 L192 0 Z" fill="var(--color-gold)" opacity="0.3" />
-        </svg>
         {/* Subtle decorative curved path */}
         <svg
           className="absolute top-12 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] opacity-[0.07]"
