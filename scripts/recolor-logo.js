@@ -3,7 +3,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 // Recolors the teal parts of the LocalLeap logo to the poster's leaf green
-// (navy stays untouched), then rebuilds the favicon & touch icon.
+// (navy stays untouched), then rebuilds the favicon set, touch icon & web manifest icons.
 // Safe to re-run: already-green pixels fall outside the teal hue range.
 
 const publicDir = path.resolve('public');
@@ -15,8 +15,7 @@ const TEAL_HUE_MAX = 200;
 const logoFiles = [
   'public/logo-icon.png',
   'public/logo.png',
-  'logo.png',
-  'transparent logo.png'
+  'public/logo-transparent.png'
 ];
 
 function rgbToHsl(r, g, b) {
@@ -69,19 +68,34 @@ async function recolor(file) {
   console.log(`${file}: recolored ${changed} pixels`);
 }
 
-// Single-image ICO that wraps a PNG (supported by all modern browsers)
-async function writeIco(pngBuffer, size, file) {
-  const header = Buffer.alloc(22);
+// Multi-size ICO that wraps PNG images (supported by all modern browsers)
+async function writeIco(images, file) {
+  const header = Buffer.alloc(6 + images.length * 16);
   header.writeUInt16LE(0, 0);
   header.writeUInt16LE(1, 2);
-  header.writeUInt16LE(1, 4);
-  header.writeUInt8(size, 6);
-  header.writeUInt8(size, 7);
-  header.writeUInt16LE(1, 10);
-  header.writeUInt16LE(32, 12);
-  header.writeUInt32LE(pngBuffer.length, 14);
-  header.writeUInt32LE(22, 18);
-  await fs.writeFile(file, Buffer.concat([header, pngBuffer]));
+  header.writeUInt16LE(images.length, 4);
+  let offset = header.length;
+  images.forEach(({ size, png }, i) => {
+    const entry = 6 + i * 16;
+    header.writeUInt8(size >= 256 ? 0 : size, entry);
+    header.writeUInt8(size >= 256 ? 0 : size, entry + 1);
+    header.writeUInt16LE(1, entry + 4);
+    header.writeUInt16LE(32, entry + 6);
+    header.writeUInt32LE(png.length, entry + 8);
+    header.writeUInt32LE(offset, entry + 12);
+    offset += png.length;
+  });
+  await fs.writeFile(file, Buffer.concat([header, ...images.map((img) => img.png)]));
+}
+
+// Icon centred on a white square with padding (for home-screen icons)
+function paddedIcon(icon, size, padding) {
+  const inner = size - padding * 2;
+  return sharp(icon)
+    .resize(inner, inner, { fit: 'contain', background: '#FFFFFF' })
+    .extend({ top: padding, bottom: padding, left: padding, right: padding, background: '#FFFFFF' })
+    .flatten({ background: '#FFFFFF' })
+    .png();
 }
 
 async function run() {
@@ -90,17 +104,38 @@ async function run() {
   }
 
   const icon = path.join(publicDir, 'logo-icon.png');
-  await sharp(icon)
-    .resize(150, 150)
-    .extend({ top: 15, bottom: 15, left: 15, right: 15, background: '#FFFFFF' })
-    .flatten({ background: '#FFFFFF' })
-    .png()
-    .toFile(path.join(publicDir, 'apple-touch-icon.png'));
 
-  const favicon = await sharp(icon).resize(32, 32).png().toBuffer();
-  await writeIco(favicon, 32, path.join(publicDir, 'favicon.ico'));
+  // Browser tab icons
+  const icoImages = [];
+  for (const size of [16, 32, 48]) {
+    const png = await sharp(icon).resize(size, size).png().toBuffer();
+    icoImages.push({ size, png });
+  }
+  await writeIco(icoImages, path.join(publicDir, 'favicon.ico'));
+  await fs.writeFile(path.join(publicDir, 'favicon-16x16.png'), icoImages[0].png);
+  await fs.writeFile(path.join(publicDir, 'favicon-32x32.png'), icoImages[1].png);
 
-  console.log('Logo, apple-touch-icon and favicon updated to the poster green.');
+  // iOS & Android home-screen icons
+  await paddedIcon(icon, 180, 15).toFile(path.join(publicDir, 'apple-touch-icon.png'));
+  await paddedIcon(icon, 192, 16).toFile(path.join(publicDir, 'android-chrome-192x192.png'));
+  await paddedIcon(icon, 512, 44).toFile(path.join(publicDir, 'android-chrome-512x512.png'));
+
+  const manifest = {
+    name: 'LocalLeap Digital',
+    short_name: 'LocalLeap',
+    description: 'Websites, web applications & mobile apps for local businesses.',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#FFFFFF',
+    theme_color: '#0A4A27',
+    icons: [
+      { src: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+      { src: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' }
+    ]
+  };
+  await fs.writeFile(path.join(publicDir, 'site.webmanifest'), JSON.stringify(manifest, null, 2) + '\n');
+
+  console.log('Logo recolored; favicon set, touch icons and web manifest generated.');
 }
 
 run();

@@ -1,0 +1,21 @@
+{
+  "name": "LocalLeap Digital",
+  "short_name": "LocalLeap",
+  "description": "Websites, web applications & mobile apps for local businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0A4A27",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
