@@ -40,22 +40,6 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/company/localleapdigital",
   },
 
-  // Team Details
-  team: [
-    {
-      name: "Shreyash Kamble",
-      role: "Client Relations",
-      bio: "Works directly with business owners to understand needs, guide features, and ensure an effortless experience.",
-      initials: "SK"
-    },
-    {
-      name: "Shreyas Kamble",
-      role: "Developer",
-      bio: "Crafts clean, high-performance websites and connects seamless calendar & WhatsApp automations.",
-      initials: "SK"
-    }
-  ],
-
   // Form service endpoint access key
   // Set in .env as VITE_FORM_ACCESS_KEY (Web3Forms access key)
   formAccessKey: import.meta.env.VITE_FORM_ACCESS_KEY || "4e4acd49-f7aa-4bd6-a9f0-6cdb3c31aba1"

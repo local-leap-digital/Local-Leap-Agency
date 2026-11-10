@@ -1,7 +1,6 @@
 import React from 'react';
 import SectionHeading from './common/SectionHeading';
-import { siteConfig } from '../data/site';
-import { Users2, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 export default function AboutSection() {
   return (
@@ -55,7 +54,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right Column: Narrative & Two Team Cards */}
+          {/* Right Column: Narrative */}
           <div className="lg:col-span-7 order-1 lg:order-2">
             <SectionHeading
               eyebrow="ABOUT US"
@@ -64,36 +63,13 @@ export default function AboutSection() {
               className="mb-6"
             />
 
-            <div className="prose text-base sm:text-[17px] text-[#334155] leading-relaxed space-y-4 mb-8">
+            <div className="prose text-base sm:text-[17px] text-[#334155] leading-relaxed space-y-4">
               <p>
                 LocalLeap Digital is a small studio of two people with one goal: helping local businesses get the online presence they deserve.
               </p>
               <p>
                 One of us works directly with clients to understand what your business needs. The other builds your website and automations. Because we're small, you always talk to the people actually doing the work.
               </p>
-            </div>
-
-            {/* Small row of two Team Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {siteConfig.team.map((member, idx) => (
-                <div
-                  key={idx}
-                  className="bg-mint p-5 rounded-2xl border border-mint-border flex items-center gap-4 hover:border-green transition-colors"
-                >
-                  {/* Initials in a teal circle */}
-                  <div className="w-12 h-12 rounded-xl bg-navy text-gold font-heading font-bold text-base flex items-center justify-center shrink-0 shadow-xs">
-                    {member.initials}
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-bold text-sm sm:text-base text-navy">
-                      {member.name}
-                    </h4>
-                    <p className="text-xs font-medium text-green-dark">
-                      {member.role}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
 
