@@ -127,7 +127,7 @@ export default function ContactSection() {
                 Talk to Us Directly
               </h3>
               <p className="text-sm sm:text-base text-[#334155] leading-relaxed mb-8">
-                We prefer WhatsApp for quick replies, questions, or sharing links. We are a small two-person team, so you'll always talk directly with us.
+                We prefer WhatsApp for quick replies, questions, or sharing links. We're a small team, so you'll always talk directly with us.
               </p>
 
               {/* Big WhatsApp Button */}

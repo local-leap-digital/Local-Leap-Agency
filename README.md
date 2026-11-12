@@ -99,7 +99,7 @@ When you are ready to personalize the site for your launch, update the following
 - [x] **Phone Number**: Configured (+91 87678 07414)
 - [x] **Email Address**: Configured (localleap.business@gmail.com)
 - [x] **City / Location**: Configured (Kolhapur)
-- [x] **Team**: Two-person studio (no individual names shown)
+- [x] **Team**: Small team (no headcount or individual names shown)
 - [x] **Web3Forms Key**: Configured (`.env` and `src/data/site.js`)
 - [x] **Pricing Note**: Configured with direct Call, WhatsApp, and Mail buttons
 - [ ] **FAQ Turnaround Days**: In `src/data/faqs.js` (`[PLACEHOLDER: X] days`)

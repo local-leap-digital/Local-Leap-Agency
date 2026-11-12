@@ -27,7 +27,7 @@ export default function AboutSection() {
                   LocalLeap Digital
                 </h3>
                 <p className="text-xs font-semibold text-green-dark uppercase tracking-wider mb-6">
-                  Dedicated Two-Person Studio
+                  Small, Dedicated Studio
                 </p>
 
                 <div className="w-full pt-6 border-t border-mint-border space-y-3 text-left">
@@ -65,10 +65,10 @@ export default function AboutSection() {
 
             <div className="prose text-base sm:text-[17px] text-[#334155] leading-relaxed space-y-4">
               <p>
-                LocalLeap Digital is a small studio of two people with one goal: helping local businesses get the online presence they deserve.
+                LocalLeap Digital is a small, focused studio with one goal: helping local businesses get the online presence they deserve.
               </p>
               <p>
-                One of us works directly with clients to understand what your business needs. The other builds your website and automations. Because we're small, you always talk to the people actually doing the work.
+                We take the time to understand your business, then design and build your website and automations around it. Because we're a small team, there are no handoffs or middlemen. You always talk to the people actually doing the work.
               </p>
             </div>
           </div>
