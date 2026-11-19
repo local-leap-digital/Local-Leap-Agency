@@ -96,7 +96,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 rounded-lg bg-white/10 hover:bg-gold hover:text-navy text-white/80 flex items-center justify-center transition-colors"
-                aria-label="Instagram profile [PLACEHOLDER]"
+                aria-label="Instagram profile"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>

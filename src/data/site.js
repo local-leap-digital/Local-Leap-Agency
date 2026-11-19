@@ -36,7 +36,7 @@ export const siteConfig = {
 
   // Social Links
   socialLinks: {
-    instagram: "https://instagram.com/localleapdigital",
+    instagram: "https://www.instagram.com/localleap.digital/",
     linkedin: "https://linkedin.com/company/localleapdigital",
   },
 
