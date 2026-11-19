@@ -94,5 +94,27 @@ export const projects = [
     liveUrl: "https://wce-cgpa-to-percentage.vercel.app/",
     isConcept: false,
     featured: false
+  },
+  {
+    id: "kuwar-tikamchand",
+    name: "Kuwar Tikamchand Jewellers",
+    category: "Retail",
+    tag: "Jewellery Store",
+    description: "Gold, diamond and bridal collections, live gold-rate enquiry and appointment booking for a Chandrapur jeweller.",
+    image: "/projects/kuwar-tikamchand.png",
+    liveUrl: "https://kuwartikamchand-jewellers.vercel.app/",
+    isConcept: true,
+    featured: false
+  },
+  {
+    id: "treat-nucleus",
+    name: "Treat Nucleus",
+    category: "Food & Cafe",
+    tag: "Ice Cream Parlour",
+    description: "Sundaes, shakes and chaat menu, Google reviews and call-to-order for a Chandrapur ice cream parlour.",
+    image: "/projects/treat-nucleus.png",
+    liveUrl: "https://treat-nucleus.vercel.app/",
+    isConcept: true,
+    featured: false
   }
 ];
