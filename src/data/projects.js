@@ -116,5 +116,16 @@ export const projects = [
     liveUrl: "https://treat-nucleus.vercel.app/",
     isConcept: true,
     featured: false
+  },
+  {
+    id: "school",
+    name: "Bright Sprouts English School",
+    category: "Education",
+    tag: "School",
+    description: "Pre-primary, primary and day care programs, campus gallery and admission enquiry for an English-medium school.",
+    image: "/projects/school.png",
+    liveUrl: "https://school-websites-phi.vercel.app/",
+    isConcept: true,
+    featured: false
   }
 ];
