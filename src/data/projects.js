@@ -127,5 +127,16 @@ export const projects = [
     liveUrl: "https://school-websites-phi.vercel.app/",
     isConcept: true,
     featured: false
+  },
+  {
+    id: "interior-design",
+    name: "Maison Indigo",
+    category: "Interior Design",
+    tag: "Interior Studio",
+    description: "Turnkey home and office interiors, 3D design studio, cost estimator and consultation booking for a Kolhapur interior design studio.",
+    image: "/projects/interior-design.png",
+    liveUrl: "https://interior-design-website-cyan-five.vercel.app/",
+    isConcept: true,
+    featured: false
   }
 ];
