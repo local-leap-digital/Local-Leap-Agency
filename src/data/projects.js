@@ -138,5 +138,16 @@ export const projects = [
     liveUrl: "https://interior-design-website-cyan-five.vercel.app/",
     isConcept: true,
     featured: false
+  },
+  {
+    id: "lawyer",
+    name: "Deshmukh & Associates",
+    category: "Legal Services",
+    tag: "Law Firm",
+    description: "Court representation, family and property law, legal documents and consultation booking for a Kolhapur law firm practising since 2009.",
+    image: "/projects/lawyer.png",
+    liveUrl: "https://lawyer-website-ashen-ten.vercel.app/",
+    isConcept: true,
+    featured: false
   }
 ];
