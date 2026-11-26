@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionHeading from './common/SectionHeading';
 import { Eye, Smartphone, MessageCircle, BadgePercent } from 'lucide-react';
+import { RevealStagger, RevealItem } from './common/Reveal';
 
 export default function WhyChooseUs() {
   const reasons = [
@@ -36,15 +37,15 @@ export default function WhyChooseUs() {
           description="We take on a limited number of clients so we can give your business our full focus."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {reasons.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
+              <RevealItem
                 key={idx}
-                className="bg-white p-6 sm:p-7 rounded-2xl border border-mint-border shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-200 flex flex-col"
+                className="card-glow group bg-white p-6 sm:p-7 rounded-2xl border border-mint-border shadow-xs hover:shadow-[0_18px_40px_-14px_rgba(11,44,95,0.28)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col"
               >
-                <div className="w-12 h-12 rounded-xl bg-green/12 flex items-center justify-center text-green-dark mb-5">
+                <div className="w-12 h-12 rounded-xl bg-green/12 flex items-center justify-center text-green-dark mb-5 transition-all duration-300 group-hover:bg-green-dark group-hover:text-white group-hover:rotate-6">
                   <Icon className="w-6 h-6" />
                 </div>
 
@@ -55,10 +56,10 @@ export default function WhyChooseUs() {
                 <p className="text-sm text-[#334155] leading-relaxed">
                   {item.description}
                 </p>
-              </div>
+              </RevealItem>
             );
           })}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

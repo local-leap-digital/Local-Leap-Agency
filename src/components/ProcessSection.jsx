@@ -1,8 +1,11 @@
 import React from 'react';
 import SectionHeading from './common/SectionHeading';
 import { Eye, MessagesSquare, CheckCircle, Code2, Rocket } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import { RevealStagger, RevealItem } from './common/Reveal';
 
 export default function ProcessSection() {
+  const reduce = useReducedMotion();
   const steps = [
     {
       number: '1',
@@ -53,15 +56,21 @@ export default function ProcessSection() {
             className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-mint-border -z-0"
             aria-hidden="true"
           >
-            <div className="h-full bg-gradient-to-r from-green via-gold to-green-dark opacity-70" />
+            <motion.div
+              className="h-full bg-gradient-to-r from-green via-gold to-green-dark origin-left"
+              initial={reduce ? false : { scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-x-6 sm:gap-y-10 relative z-10">
+          <RevealStagger stagger={0.18} delay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-x-6 sm:gap-y-10 relative z-10">
             {steps.map((step, idx) => {
               const Icon = step.icon;
               const isLast = idx === steps.length - 1;
               return (
-                <div
+                <RevealItem
                   key={step.number}
                   className={`flex flex-col items-center text-center group max-w-sm mx-auto ${
                     isLast ? 'sm:col-span-2 lg:col-span-1' : ''
@@ -69,7 +78,7 @@ export default function ProcessSection() {
                 >
                   {/* Step Number Circle */}
                   <div className="relative mb-5">
-                    <div className="w-14 h-14 rounded-full bg-white border-2 border-green-dark shadow-md flex items-center justify-center font-heading font-bold text-lg text-navy group-hover:bg-green-dark group-hover:text-white transition-all duration-200">
+                    <div className="relative w-14 h-14 rounded-full bg-white border-2 border-green-dark shadow-md flex items-center justify-center font-heading font-bold text-lg text-navy group-hover:bg-green-dark group-hover:text-white group-hover:scale-110 transition-all duration-300">
                       <span>{step.number}</span>
                     </div>
                     {/* Small sub icon */}
@@ -85,10 +94,10 @@ export default function ProcessSection() {
                   <p className="text-sm text-[#334155] leading-relaxed">
                     {step.description}
                   </p>
-                </div>
+                </RevealItem>
               );
             })}
-          </div>
+          </RevealStagger>
         </div>
       </div>
     </section>

@@ -1,15 +1,46 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, Bell } from 'lucide-react';
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'motion/react';
+import { ArrowRight, CheckCircle2, Bell, Sparkles } from 'lucide-react';
 import Button from './common/Button';
+import { EASE } from './common/motion';
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 26 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
+};
 
 export default function Hero() {
+  const reduce = useReducedMotion();
+
+  // Subtle 3D tilt of the device mockup following the mouse (desktop pointers only)
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-7, 7]), { stiffness: 120, damping: 18 });
+  const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [6, -6]), { stiffness: 120, damping: 18 });
+
+  const handleMove = (e) => {
+    if (reduce || e.pointerType !== 'mouse') return;
+    const r = e.currentTarget.getBoundingClientRect();
+    mx.set((e.clientX - r.left) / r.width - 0.5);
+    my.set((e.clientY - r.top) / r.height - 0.5);
+  };
+  const handleLeave = () => {
+    mx.set(0);
+    my.set(0);
+  };
+
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-white via-[#FDFDF7] to-mint">
       {/* Decorative background: soft green & gold glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {/* Soft radial glow */}
-        <div className="absolute -top-32 -left-32 w-[28rem] h-[28rem] bg-green/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 -right-32 w-96 h-96 bg-gold/15 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-grid-navy" />
+        <div className="blob absolute -top-32 -left-32 w-[28rem] h-[28rem] bg-green/15 rounded-full blur-3xl" />
+        <div className="blob blob-delay absolute top-1/3 -right-32 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
         <div className="absolute -bottom-24 left-1/3 w-96 h-96 bg-green/5 rounded-full blur-3xl" />
         {/* Subtle decorative curved path */}
         <svg
@@ -33,25 +64,42 @@ export default function Hero() {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Copy & Actions (7 cols) */}
-          <div className="lg:col-span-7 text-center lg:text-left">
+          <motion.div
+            className="lg:col-span-7 text-center lg:text-left"
+            variants={container}
+            initial={reduce ? false : 'hidden'}
+            animate="show"
+          >
+            {/* Small announcement pill */}
+            <motion.div variants={item} className="mb-6 flex justify-center lg:justify-start">
+              <span className="inline-flex items-center gap-2 rounded-full border border-green/25 bg-white/80 backdrop-blur px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-navy shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green" />
+                </span>
+                Now taking new projects in Kolhapur
+                <Sparkles className="w-3.5 h-3.5 text-gold" />
+              </span>
+            </motion.div>
+
             {/* Main H1 */}
-            <h1 className="text-[34px] xs:text-[40px] sm:text-[46px] md:text-[54px] lg:text-[56px] font-bold font-heading text-navy leading-[1.12] tracking-tight mb-5 sm:mb-6">
+            <motion.h1 variants={item} className="text-[34px] xs:text-[40px] sm:text-[46px] md:text-[54px] lg:text-[56px] font-bold font-heading text-navy leading-[1.12] tracking-tight mb-5 sm:mb-6">
               Turn Your Idea Into a{' '}
-              <span className="text-green swoosh-underline">Digital Reality.</span>
-            </h1>
+              <span className="text-gradient-green swoosh-underline">Digital Reality.</span>
+            </motion.h1>
 
             {/* Marathi line from the poster */}
-            <p lang="mr" className="text-lg xs:text-xl sm:text-2xl font-heading font-bold text-navy leading-snug mb-5 sm:mb-6">
+            <motion.p variants={item} lang="mr" className="text-lg xs:text-xl sm:text-2xl font-heading font-bold text-navy leading-snug mb-5 sm:mb-6">
               तुमची Idea <span className="text-green">Digital Reality</span> मध्ये आणतो.
-            </p>
+            </motion.p>
 
             {/* Sub-text */}
-            <p className="text-base sm:text-lg md:text-[19px] text-[#334155] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-normal">
+            <motion.p variants={item} className="text-base sm:text-lg md:text-[19px] text-[#334155] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-normal">
               Customized websites, web applications and mobile apps for local shops, businesses, startups and any idea you have. Built to get you found online and bring in more customers.
-            </p>
+            </motion.p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8">
+            <motion.div variants={item} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8">
               <Button
                 href="#contact"
                 variant="primary"
@@ -70,10 +118,10 @@ export default function Hero() {
               >
                 See Our Work
               </Button>
-            </div>
+            </motion.div>
 
             {/* Honest Trust Line */}
-            <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-500 font-medium">
+            <motion.div variants={item} className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-500 font-medium">
               <div className="flex items-center gap-1.5 text-navy">
                 <CheckCircle2 className="w-4 h-4 text-green-dark" />
                 <span>Free demo before you pay</span>
@@ -86,16 +134,26 @@ export default function Hero() {
                 <CheckCircle2 className="w-4 h-4 text-green-dark" />
                 <span>Direct WhatsApp support</span>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: Device Mockups (Laptop + Phone) with Floating Notification (5 cols) */}
-          <div className="lg:col-span-5 relative mt-6 lg:mt-0">
+          <motion.div
+            className="lg:col-span-5 relative mt-6 lg:mt-0 [perspective:1200px]"
+            initial={reduce ? false : { opacity: 0, y: 40, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, ease: EASE, delay: 0.35 }}
+            onPointerMove={handleMove}
+            onPointerLeave={handleLeave}
+          >
             {/* Space is reserved on the right & bottom so the phone only overlaps the laptop corner (as on the poster) */}
-            <div className="relative mx-auto max-w-[480px] md:max-w-[560px] lg:max-w-none xs:pr-12 sm:pr-16 lg:pr-12 xs:pb-14 sm:pb-16">
+            <motion.div
+              style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+              className="relative mx-auto max-w-[480px] md:max-w-[560px] lg:max-w-none xs:pr-12 sm:pr-16 lg:pr-12 xs:pb-14 sm:pb-16"
+            >
               
               {/* Laptop Frame */}
-              <div className="relative rounded-2xl bg-navy p-3 shadow-2xl border border-navy-dark ring-4 ring-gold/20">
+              <div className="relative rounded-2xl bg-navy p-3 shadow-[0_40px_80px_-30px_rgba(11,44,95,0.55)] border border-navy-dark ring-4 ring-gold/20">
                 {/* Laptop Camera / Header dot */}
                 <div className="flex items-center gap-1.5 pb-2 px-1">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
@@ -121,7 +179,7 @@ export default function Hero() {
               </div>
 
               {/* Overlapping Phone Frame (bottom-right corner) */}
-              <div className="absolute bottom-0 right-0 w-28 sm:w-32 lg:w-[7.5rem] xl:w-32 bg-slate-900 p-1.5 sm:p-2 rounded-[24px] sm:rounded-[28px] shadow-2xl border-2 border-slate-700 hidden xs:block">
+              <div className="animate-float-slow absolute bottom-0 right-0 w-28 sm:w-32 lg:w-[7.5rem] xl:w-32 bg-slate-900 p-1.5 sm:p-2 rounded-[24px] sm:rounded-[28px] shadow-2xl border-2 border-slate-700 hidden xs:block [transform:translateZ(40px)]">
                 {/* Speaker Notch */}
                 <div className="w-10 h-2 bg-slate-800 rounded-full mx-auto mb-1.5" />
                 {/* Phone Screen */}
@@ -150,7 +208,7 @@ export default function Hero() {
               </div>
 
               {/* Floating Automation Badge: "New appointment request 🔔" */}
-              <div className="absolute -top-5 right-0 sm:-right-6 bg-white rounded-xl p-2.5 sm:p-3 shadow-xl border border-mint-border flex items-center gap-2.5 sm:gap-3 animate-bounce [animation-duration:3s] max-w-[calc(100%-1rem)]">
+              <div className="absolute -top-5 right-0 sm:-right-6 bg-white rounded-xl p-2.5 sm:p-3 shadow-xl border border-mint-border flex items-center gap-2.5 sm:gap-3 animate-float max-w-[calc(100%-1rem)]">
                 <div className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-lg bg-green/15 flex items-center justify-center text-green-dark">
                   <Bell className="w-4 h-4" />
                 </div>
@@ -163,8 +221,8 @@ export default function Hero() {
                 </div>
               </div>
 
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

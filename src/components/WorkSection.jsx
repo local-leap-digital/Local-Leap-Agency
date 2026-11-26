@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { ExternalLink, Sparkles, Laptop, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Reveal } from './common/Reveal';
 import SectionHeading from './common/SectionHeading';
 import Button from './common/Button';
 import { projects } from '../data/projects';
@@ -105,7 +106,7 @@ export default function WorkSection() {
 
         {/* Filter Tabs */}
         {categories.length > 1 && (
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8 md:mb-12">
+          <Reveal className="flex flex-wrap items-center justify-center gap-2 mb-8 md:mb-12">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -120,7 +121,7 @@ export default function WorkSection() {
                 {cat}
               </button>
             ))}
-          </div>
+          </Reveal>
         )}
 
         {/* Projects Slider or Friendly Empty State */}
@@ -140,7 +141,7 @@ export default function WorkSection() {
             </Button>
           </div>
         ) : (
-          <div
+          <Reveal
             className="relative"
             role="region"
             aria-roledescription="carousel"
@@ -291,18 +292,17 @@ export default function WorkSection() {
                 />
               </div>
             )}
-          </div>
+          </Reveal>
         )}
 
-        {/* Free Demo Prompt Note below slider */}
-        <div className="mt-10 md:mt-14 p-6 sm:p-8 bg-white rounded-2xl border border-mint-border shadow-xs text-center max-w-2xl mx-auto">
+        <Reveal className="mt-10 md:mt-14 p-6 sm:p-8 bg-white rounded-2xl border border-mint-border shadow-xs text-center max-w-2xl mx-auto">
           <p className="text-base sm:text-lg font-medium text-navy mb-4">
             Want to see what your business could look like? We'll make a free demo for you.
           </p>
           <Button href="#contact" variant="primary" size="md" className="w-full xs:w-auto">
             Request Free Demo Website
           </Button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

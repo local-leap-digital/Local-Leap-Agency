@@ -5,6 +5,7 @@ import BenefitsStrip from './components/BenefitsStrip';
 import ServicesSection from './components/ServicesSection';
 import IndustriesStrip from './components/IndustriesStrip';
 import WorkSection from './components/WorkSection';
+import StatsBand from './components/StatsBand';
 import ProcessSection from './components/ProcessSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import AboutSection from './components/AboutSection';
@@ -18,7 +19,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-green/20 selection:text-navy">
+    <div id="top" className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-green/20 selection:text-navy">
       {/* 6.1 Header / Navigation (Sticky) */}
       <Navbar />
 
@@ -32,11 +33,14 @@ export default function App() {
         {/* 6.4 Services (id="services") */}
         <ServicesSection />
 
-        {/* 6.5 Industries we work with */}
+        {/* 6.5 Industries we work with (scrolling marquee) */}
         <IndustriesStrip />
 
         {/* 6.6 Our Work (id="work") */}
         <WorkSection />
+
+        {/* Animated stats band */}
+        <StatsBand />
 
         {/* 6.7 How It Works (id="process") */}
         <ProcessSection />

@@ -14,6 +14,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import SectionHeading from './common/SectionHeading';
+import { RevealStagger, RevealItem, Reveal } from './common/Reveal';
 import { serviceGroups } from '../data/services';
 
 const iconMap = {
@@ -50,13 +51,13 @@ export default function ServicesSection() {
         />
 
         {/* Core services: poster-style cards */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-14 md:mb-20">
+        <RevealStagger className={`grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-14 md:mb-20`}>
           {coreGroup.services.map((service) => {
             const Icon = iconMap[service.icon] || Globe;
             return (
-              <div
+              <RevealItem
                 key={service.id}
-                className="group relative bg-white rounded-3xl border border-mint-border shadow-[0_10px_30px_-12px_rgba(11,44,95,0.18)] hover:shadow-[0_18px_40px_-14px_rgba(11,44,95,0.28)] hover:-translate-y-1.5 transition-all duration-200 p-6 sm:p-7 text-center overflow-hidden"
+                className="card-glow group relative bg-white rounded-3xl border border-mint-border shadow-[0_10px_30px_-12px_rgba(11,44,95,0.18)] hover:shadow-[0_18px_40px_-14px_rgba(11,44,95,0.28)] hover:-translate-y-1.5 transition-all duration-200 p-6 sm:p-7 text-center overflow-hidden"
               >
                 {/* Gold top accent */}
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-green via-gold to-green opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -72,14 +73,15 @@ export default function ServicesSection() {
                 <p className="text-sm text-slate-body leading-relaxed">
                   {service.description}
                 </p>
-              </div>
+              </RevealItem>
             );
           })}
-        </div>
+        </RevealStagger>
+
 
         <div className="space-y-12 md:space-y-16">
           {extraGroups.map((group) => (
-            <div key={group.groupId} className="relative">
+            <Reveal key={group.groupId} className="relative">
               {/* Group Header */}
               <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b-2 border-gold/40">
                 <div className="flex flex-wrap items-center gap-3">
@@ -99,7 +101,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Cards Grid */}
-              <div
+              <RevealStagger
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
               >
                 {group.services.map((service, idx) => {
@@ -108,7 +110,7 @@ export default function ServicesSection() {
                   const isLoneLastMd = group.services.length % 2 === 1 && idx === group.services.length - 1;
                   const isLoneLastLg = group.services.length % 3 === 1 && idx === group.services.length - 1;
                   return (
-                    <div
+                    <RevealItem
                       key={service.id}
                       className={`bg-mint hover:bg-white p-6 sm:p-7 rounded-2xl border border-mint-border shadow-xs hover:shadow-md hover:border-green/40 hover:-translate-y-1.5 transition-all duration-200 group flex flex-col justify-between ${
                         isLoneLastMd ? 'md:col-span-2' : ''
@@ -135,11 +137,11 @@ export default function ServicesSection() {
                         <span>Included in package</span>
                         <span className="text-gold">✓</span>
                       </div>
-                    </div>
+                    </RevealItem>
                   );
                 })}
-              </div>
-            </div>
+              </RevealStagger>
+            </Reveal>
           ))}
         </div>
       </div>

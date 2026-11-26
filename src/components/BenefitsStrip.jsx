@@ -1,5 +1,6 @@
 import React from 'react';
 import { Handshake, Users, ShieldCheck, TrendingUp } from 'lucide-react';
+import { RevealStagger, RevealItem } from './common/Reveal';
 
 export default function BenefitsStrip() {
   // Mirrors the highlights strip on the LocalLeap poster
@@ -29,13 +30,13 @@ export default function BenefitsStrip() {
   return (
     <section className="py-10 sm:py-12 bg-gradient-to-b from-mint to-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl border border-mint-border shadow-[0_10px_30px_-12px_rgba(11,44,95,0.18)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
+        <RevealStagger className="bg-white rounded-3xl border border-mint-border shadow-[0_10px_30px_-12px_rgba(11,44,95,0.18)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
           {benefits.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <RevealItem
                 key={index}
-                className="relative p-5 sm:p-6 flex items-center gap-4"
+                className="group relative p-5 sm:p-6 flex items-center gap-4 hover:bg-mint/60 transition-colors duration-300"
               >
                 {/* Gold divider between items (vertical on desktop, horizontal on mobile) */}
                 {index > 0 && (
@@ -46,7 +47,7 @@ export default function BenefitsStrip() {
                     aria-hidden="true"
                   />
                 )}
-                <div className="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 text-navy">
+                <div className="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 text-navy transition-all duration-300 group-hover:bg-navy group-hover:text-gold group-hover:-rotate-6">
                   <Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <div>
@@ -57,10 +58,10 @@ export default function BenefitsStrip() {
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </RevealItem>
             );
           })}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ export default function Button({
   const variantStyles = {
     // Primary: Leaf Green, text white, darker green on hover, -2px lift
     primary:
-      'bg-green-dark text-white hover:bg-green-hover hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2',
+      'btn-shine bg-green-dark text-white hover:bg-green-hover hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2',
     // Secondary: Outline Navy
     secondary:
       'border-2 border-navy text-navy bg-transparent hover:bg-navy/5 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2',
@@ -39,7 +39,7 @@ export default function Button({
       'bg-gold text-navy font-semibold hover:bg-[#E0A500] hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2',
     // WhatsApp: Recognisable #25D366 green
     whatsapp:
-      'bg-[#25D366] text-white hover:bg-[#20bd5a] hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2',
+      'btn-shine bg-[#25D366] text-white hover:bg-[#20bd5a] hover:-translate-y-0.5 hover:shadow-md active:shadow-sm focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2',
     // Light (on dark Navy / Forest backgrounds)
     light:
       'bg-white text-navy hover:bg-mint hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-forest',

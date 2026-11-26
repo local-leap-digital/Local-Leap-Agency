@@ -1,4 +1,5 @@
 import React from 'react';
+import { Reveal } from './Reveal';
 
 /**
  * Reusable SectionHeading component.
@@ -16,7 +17,7 @@ export default function SectionHeading({
   const isCenter = align === 'center';
 
   return (
-    <div
+    <Reveal
       className={`mb-10 md:mb-16 ${
         isCenter ? 'text-center mx-auto max-w-2xl' : 'text-left max-w-2xl'
       } ${className}`}
@@ -56,6 +57,6 @@ export default function SectionHeading({
           {description}
         </p>
       )}
-    </div>
+    </Reveal>
   );
 }

@@ -135,3 +135,107 @@ textarea:focus-visible {
 .gold-rules::after {
   background: linear-gradient(90deg, #F4B400, transparent);
 }
+
+/* ------------------------------------------------------------------
+   Motion & premium utilities
+------------------------------------------------------------------- */
+
+/* Gradient text for highlighted words */
+.text-gradient-brand {
+  background: linear-gradient(100deg, #F4B400 0%, #FFD966 40%, #3FD267 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-green {
+  background: linear-gradient(100deg, #15802F 0%, #1FA03C 50%, #0B2C5F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Faint grid backgrounds */
+.bg-grid-white {
+  background-image:
+    linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+.bg-grid-navy {
+  background-image:
+    linear-gradient(rgba(11,44,95,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,44,95,0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at top, #000 20%, transparent 70%);
+}
+
+/* Frosted glass panel */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+/* Slow drifting glow blobs */
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -24px) scale(1.08); }
+  66% { transform: translate(-22px, 18px) scale(0.95); }
+}
+.blob { animation: blob-drift 16s ease-in-out infinite; }
+.blob-delay { animation-delay: -8s; }
+
+/* Infinite marquee (duplicate the content once inside .marquee-track) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* Gentle float for hero badges */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float { animation: float-y 5s ease-in-out infinite; }
+.animate-float-slow { animation: float-y 7s ease-in-out infinite; animation-delay: -2s; }
+
+/* Shimmer sweep across primary buttons */
+.btn-shine { position: relative; overflow: hidden; isolation: isolate; }
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.28) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.btn-shine:hover::after { transform: translateX(120%); }
+
+/* Card with animated gradient border on hover */
+.card-glow { position: relative; }
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #1FA03C, #F4B400, #0B2C5F);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.card-glow:hover::before { opacity: 1; }

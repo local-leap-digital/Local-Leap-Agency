@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionHeading from './common/SectionHeading';
 import { Check } from 'lucide-react';
+import { Reveal } from './common/Reveal';
 
 export default function AboutSection() {
   return (
@@ -9,7 +10,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column: Logo Icon & Studio Badge on Ice White Panel */}
-          <div className="lg:col-span-5 order-2 lg:order-1 w-full max-w-xl mx-auto lg:max-w-none">
+          <Reveal x={-32} y={0} className="lg:col-span-5 order-2 lg:order-1 w-full max-w-xl mx-auto lg:max-w-none">
             <div className="bg-mint rounded-3xl p-6 sm:p-12 border border-mint-border relative overflow-hidden text-center shadow-xs">
               {/* Subtle decorative circles */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-green/10 rounded-full blur-2xl pointer-events-none" />
@@ -52,10 +53,10 @@ export default function AboutSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right Column: Narrative */}
-          <div className="lg:col-span-7 order-1 lg:order-2">
+          <Reveal delay={0.1} className="lg:col-span-7 order-1 lg:order-2">
             <SectionHeading
               eyebrow="ABOUT US"
               title="About LocalLeap Digital"
@@ -71,7 +72,7 @@ export default function AboutSection() {
                 We take the time to understand your business, then design and build your website and automations around it. Because we're a small team, there are no handoffs or middlemen. You always talk to the people actually doing the work.
               </p>
             </div>
-          </div>
+          </Reveal>
 
         </div>
       </div>

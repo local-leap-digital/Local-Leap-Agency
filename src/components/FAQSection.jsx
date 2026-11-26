@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { RevealStagger, RevealItem } from './common/Reveal';
 import SectionHeading from './common/SectionHeading';
 import { faqs } from '../data/faqs';
 
@@ -21,13 +23,15 @@ export default function FAQSection() {
           description="Clear answers about our websites, process, and ongoing support. No jargon."
         />
 
-        <div className="space-y-3 sm:space-y-4">
+        <RevealStagger className="space-y-3 sm:space-y-4" stagger={0.06}>
           {faqs.map((faq) => {
             const isOpen = openId === faq.id;
             return (
-              <div
+              <RevealItem
                 key={faq.id}
-                className="bg-white rounded-2xl border border-mint-border overflow-hidden transition-all duration-200 shadow-2xs"
+                className={`bg-white rounded-2xl border overflow-hidden transition-[border-color,box-shadow] duration-300 ${
+                  isOpen ? 'border-green/40 shadow-[0_12px_32px_-16px_rgba(11,44,95,0.3)]' : 'border-mint-border shadow-2xs hover:border-green/30'
+                }`}
               >
                 <button
                   type="button"
@@ -41,28 +45,37 @@ export default function FAQSection() {
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-full bg-mint flex items-center justify-center shrink-0 text-green-dark transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 bg-green/15' : ''
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      isOpen ? 'rotate-180 bg-green-dark text-white' : 'bg-mint text-green-dark'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div
-                    id={`faq-answer-${faq.id}`}
-                    role="region"
-                    aria-labelledby={`faq-btn-${faq.id}`}
-                    className="px-5 sm:px-7 pb-5 sm:pb-6 pt-3 text-sm sm:text-base text-[#334155] leading-relaxed border-t border-slate-100"
-                  >
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="answer"
+                      id={`faq-answer-${faq.id}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${faq.id}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 sm:px-7 pb-5 sm:pb-6 pt-3 text-sm sm:text-base text-[#334155] leading-relaxed border-t border-slate-100">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </RevealItem>
             );
           })}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

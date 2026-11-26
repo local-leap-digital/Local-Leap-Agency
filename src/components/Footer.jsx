@@ -64,7 +64,7 @@ export default function Footer() {
           {/* Column 1: Brand & Bio (4 cols) */}
           <div className="col-span-2 lg:col-span-4">
             <a
-              href="#"
+              href="#top"
               className="inline-flex items-center gap-3 mb-4 group"
               aria-label="LocalLeap Digital - Back to top"
             >
@@ -131,7 +131,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="inline-block py-1.5 text-white/70 hover:text-gold transition-colors"
+                    className="inline-block py-1.5 text-white/70 hover:text-gold hover:translate-x-1 transition-all duration-200"
                   >
                     {link.name}
                   </a>
@@ -150,7 +150,7 @@ export default function Footer() {
                 <li key={service.name}>
                   <a
                     href={service.href}
-                    className="inline-block py-1.5 text-white/70 hover:text-gold transition-colors"
+                    className="inline-block py-1.5 text-white/70 hover:text-gold hover:translate-x-1 transition-all duration-200"
                   >
                     {service.name}
                   </a>

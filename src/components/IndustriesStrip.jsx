@@ -9,6 +9,7 @@ import {
   Store
 } from 'lucide-react';
 import { industries } from '../data/services';
+import { Reveal } from './common/Reveal';
 
 const iconMap = {
   Smile,
@@ -20,30 +21,37 @@ const iconMap = {
   Store
 };
 
-export default function IndustriesStrip() {
+function Pill({ ind }) {
+  const Icon = iconMap[ind.icon] || Store;
   return (
-    <section className="py-12 bg-white border-b border-mint-border">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-sm md:text-base font-medium text-slate-500 mb-6 italic">
-          We specialise in local businesses that serve customers in person.
-        </p>
+    <div className="shrink-0 inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-white border border-mint-border text-sm sm:text-[15px] font-semibold text-navy shadow-[0_6px_18px_-10px_rgba(11,44,95,0.25)] hover:border-green hover:text-green-dark transition-colors duration-200 cursor-default">
+      <div className="w-7 h-7 rounded-full bg-green/15 flex items-center justify-center text-green-dark">
+        <Icon className="w-4 h-4" />
+      </div>
+      <span className="whitespace-nowrap">{ind.name}</span>
+    </div>
+  );
+}
 
-        {/* Scrollable / wrapped pill chips */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
-          {industries.map((ind) => {
-            const Icon = iconMap[ind.icon] || Store;
-            return (
-              <div
-                key={ind.name}
-                className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-mint border border-mint-border text-sm font-medium text-navy hover:border-green hover:bg-white hover:shadow-xs transition-all duration-200 cursor-default"
-              >
-                <div className="w-6 h-6 rounded-full bg-green/15 flex items-center justify-center text-green-dark">
-                  <Icon className="w-3.5 h-3.5" />
-                </div>
-                <span>{ind.name}</span>
-              </div>
-            );
-          })}
+export default function IndustriesStrip() {
+  // Repeat the list so one half always fills wide screens, then duplicate for a seamless loop
+  const half = [...industries, ...industries];
+
+  return (
+    <section className="py-12 md:py-16 bg-mint border-y border-mint-border overflow-hidden">
+      <Reveal className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
+        <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-slate-500">
+          We specialise in local businesses that serve customers in person
+        </p>
+      </Reveal>
+
+      <div className="marquee" aria-label="Industries we work with">
+        <div className="marquee-track">
+          {[...half, ...half].map((ind, i) => (
+            <div key={`${ind.name}-${i}`} className="pr-4" aria-hidden={i >= industries.length ? 'true' : undefined}>
+              <Pill ind={ind} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

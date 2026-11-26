@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageSquare, ArrowRight } from 'lucide-react';
 import Button from './common/Button';
+import { Reveal } from './common/Reveal';
 import { siteConfig } from '../data/site';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 
@@ -27,7 +28,9 @@ export default function FinalCTA() {
         </svg>
       </div>
 
-      <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div className="blob absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold/20 blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="blob blob-delay absolute -bottom-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-green/40 blur-3xl pointer-events-none" aria-hidden="true" />
+      <Reveal className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <span className="inline-block text-xs font-bold uppercase tracking-wider text-navy bg-gold px-3.5 py-1.5 rounded-full mb-4 shadow-sm">
           Start Today With Zero Risk
         </span>
@@ -62,7 +65,7 @@ export default function FinalCTA() {
             Request Free Demo
           </Button>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
