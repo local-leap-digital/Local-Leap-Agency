@@ -57,22 +57,24 @@ export default function ServicesSection() {
             return (
               <RevealItem
                 key={service.id}
-                className="card-glow group relative bg-white rounded-3xl border border-mint-border shadow-[0_10px_30px_-12px_rgba(11,44,95,0.18)] hover:shadow-[0_18px_40px_-14px_rgba(11,44,95,0.28)] hover:-translate-y-1.5 transition-all duration-200 p-6 sm:p-7 text-center overflow-hidden"
+                className="card-glow group relative bg-white rounded-3xl border border-mint-border shadow-[0_10px_30px_-12px_rgba(11,44,95,0.18)] hover:shadow-[0_18px_40px_-14px_rgba(11,44,95,0.28)] hover:-translate-y-1.5 transition-all duration-200 p-5 sm:p-7 text-left xs:text-center overflow-hidden flex items-start gap-4 xs:block"
               >
                 {/* Gold top accent */}
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-green via-gold to-green opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-mint to-gold-soft/60 border border-mint-border flex items-center justify-center text-navy mb-5 transition-colors group-hover:text-green-dark">
-                  <Icon className="w-8 h-8 transition-transform group-hover:scale-110 duration-200" strokeWidth={2.2} />
+                <div className="w-14 h-14 xs:w-16 xs:h-16 shrink-0 xs:mx-auto rounded-2xl bg-gradient-to-br from-mint to-gold-soft/60 border border-mint-border flex items-center justify-center text-navy xs:mb-5 transition-colors group-hover:text-green-dark">
+                  <Icon className="w-7 h-7 xs:w-8 xs:h-8 transition-transform group-hover:scale-110 duration-200" strokeWidth={2.2} />
                 </div>
 
-                <h3 className="font-heading font-bold text-lg sm:text-xl text-navy mb-2 leading-snug">
-                  {service.title}
-                </h3>
+                <div className="min-w-0">
+                  <h3 className="font-heading font-bold text-lg sm:text-xl text-navy mb-1 xs:mb-2 leading-snug">
+                    {service.title}
+                  </h3>
 
-                <p className="text-sm text-slate-body leading-relaxed">
-                  {service.description}
-                </p>
+                  <p className="text-sm text-slate-body leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
               </RevealItem>
             );
           })}
@@ -83,7 +85,7 @@ export default function ServicesSection() {
           {extraGroups.map((group) => (
             <Reveal key={group.groupId} className="relative">
               {/* Group Header */}
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b-2 border-gold/40">
+              <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-6 sm:mb-8 pb-4 border-b-2 border-gold/40">
                 <div className="flex flex-wrap items-center gap-3">
                   <h3 className="font-heading font-bold text-[22px] sm:text-2xl text-navy">
                     {group.groupTitle}
@@ -112,28 +114,30 @@ export default function ServicesSection() {
                   return (
                     <RevealItem
                       key={service.id}
-                      className={`bg-mint hover:bg-white p-6 sm:p-7 rounded-2xl border border-mint-border shadow-xs hover:shadow-md hover:border-green/40 hover:-translate-y-1.5 transition-all duration-200 group flex flex-col justify-between ${
+                      className={`bg-mint hover:bg-white p-5 sm:p-7 rounded-2xl border border-mint-border shadow-xs hover:shadow-md hover:border-green/40 hover:-translate-y-1.5 transition-all duration-200 group flex flex-col justify-between ${
                         isLoneLastMd ? 'md:col-span-2' : ''
                       } ${isLoneLastLg ? 'lg:col-span-3' : isLoneLastMd ? 'lg:col-span-1' : ''}`}
                     >
-                      <div>
+                      <div className="flex items-start gap-4 sm:block">
                         {/* Icon Circle */}
-                        <div className="w-12 h-12 rounded-xl bg-white group-hover:bg-green/12 border border-mint-border flex items-center justify-center text-green-dark mb-5 shadow-2xs transition-colors">
-                          <Icon className="w-6 h-6 transition-transform group-hover:scale-110 duration-200" />
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-xl bg-white group-hover:bg-green/12 border border-mint-border flex items-center justify-center text-green-dark sm:mb-5 shadow-2xs transition-colors">
+                          <Icon className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-110 duration-200" />
                         </div>
 
-                        {/* Title */}
-                        <h4 className="font-heading font-bold text-lg text-navy mb-2 group-hover:text-green-dark transition-colors">
-                          {service.title}
-                        </h4>
+                        <div className="min-w-0">
+                          {/* Title */}
+                          <h4 className="font-heading font-bold text-base sm:text-lg text-navy mb-1 sm:mb-2 group-hover:text-green-dark transition-colors">
+                            {service.title}
+                          </h4>
 
-                        {/* Description */}
-                        <p className="text-sm text-[#334155] leading-relaxed">
-                          {service.description}
-                        </p>
+                          {/* Description */}
+                          <p className="text-sm text-[#334155] leading-relaxed">
+                            {service.description}
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="mt-5 pt-3 border-t border-mint-border/60 flex items-center justify-between text-xs font-semibold text-green-dark">
+                      <div className="mt-4 sm:mt-5 pt-3 border-t border-mint-border/60 flex items-center justify-between text-xs font-semibold text-green-dark">
                         <span>Included in package</span>
                         <span className="text-gold">✓</span>
                       </div>

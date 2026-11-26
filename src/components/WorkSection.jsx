@@ -6,6 +6,7 @@ import Button from './common/Button';
 import { projects } from '../data/projects';
 
 const SLIDE_GAP = 24; // px between cards
+const MAX_DOTS = 7; // above this, phones show a "3 / 13" counter instead of dots
 
 // Cards visible at once: 1 on mobile, 2 on tablet (md), 3 on desktop (lg)
 function getPerView() {
@@ -23,7 +24,7 @@ function SliderArrow({ direction, onClick, disabled, className = '' }) {
       onClick={onClick}
       disabled={disabled}
       aria-label={direction === 'prev' ? 'Previous projects' : 'Next projects'}
-      className={`w-11 h-11 rounded-full items-center justify-center border transition-all duration-200 shadow-sm ${
+      className={`w-11 h-11 shrink-0 rounded-full items-center justify-center border transition-all duration-200 shadow-sm ${
         disabled
           ? 'bg-white text-slate-300 border-mint-border cursor-not-allowed shadow-none'
           : 'bg-navy text-white border-navy hover:bg-green hover:border-green cursor-pointer'
@@ -192,7 +193,7 @@ export default function WorkSection() {
                     <div className="w-2 h-2 rounded-full bg-red-400" />
                     <div className="w-2 h-2 rounded-full bg-amber-400" />
                     <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                    <div className="ml-2 text-[10px] text-slate-300 font-mono tracking-tight truncate">
+                    <div className="ml-2 text-[11px] text-slate-300 font-mono tracking-tight truncate">
                       {project.liveUrl.replace(/^https?:\/\//, '')}
                     </div>
                   </div>
@@ -246,7 +247,7 @@ export default function WorkSection() {
 
                     <a
                       href="#contact"
-                      className="py-2.5 text-xs text-slate-400 hover:text-navy font-medium text-right"
+                      className="inline-flex items-center min-h-11 py-2.5 text-xs text-slate-500 hover:text-navy font-medium text-right"
                     >
                       Get similar design →
                     </a>
@@ -266,7 +267,12 @@ export default function WorkSection() {
                   disabled={currentIndex === 0}
                   className="flex lg:hidden"
                 />
-                <div className="flex items-center">
+                {maxIndex + 1 > MAX_DOTS && (
+                  <p className="lg:hidden min-w-16 text-center text-sm font-semibold text-navy tabular-nums" aria-live="polite">
+                    {currentIndex + 1} <span className="text-slate-400 font-medium">/ {maxIndex + 1}</span>
+                  </p>
+                )}
+                <div className={`items-center ${maxIndex + 1 > MAX_DOTS ? 'hidden lg:flex' : 'flex'}`}>
                   {Array.from({ length: maxIndex + 1 }, (_, i) => (
                     <button
                       key={i}

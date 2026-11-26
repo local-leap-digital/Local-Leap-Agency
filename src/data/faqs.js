@@ -12,7 +12,7 @@ export const faqs = [
   {
     id: "timeline",
     question: "How long does it take?",
-    answer: "Most business websites are ready within [PLACEHOLDER: X] days after we receive your details."
+    answer: "It depends on the complexity of your project. Once we understand your requirements, we'll give you a clear timeline before we start."
   },
   {
     id: "technical-knowledge",

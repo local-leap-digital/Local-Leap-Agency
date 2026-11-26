@@ -37,7 +37,6 @@ export const siteConfig = {
   // Social Links
   socialLinks: {
     instagram: "https://www.instagram.com/localleap.digital/",
-    linkedin: "https://linkedin.com/company/localleapdigital",
   },
 
   // Form service endpoint access key

@@ -19,16 +19,6 @@ function InstagramIcon({ className }) {
   );
 }
 
-function LinkedinIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-      <rect width="4" height="12" x="2" y="9"/>
-      <circle cx="4" cy="4" r="2"/>
-    </svg>
-  );
-}
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -101,15 +91,6 @@ export default function Footer() {
                 <InstagramIcon className="w-4 h-4" />
               </a>
               <a
-                href={siteConfig.socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 rounded-lg bg-white/10 hover:bg-gold hover:text-navy text-white/80 flex items-center justify-center transition-colors"
-                aria-label="LinkedIn profile [PLACEHOLDER]"
-              >
-                <LinkedinIcon className="w-4 h-4" />
-              </a>
-              <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -131,7 +112,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="inline-block py-1.5 text-white/70 hover:text-gold hover:translate-x-1 transition-all duration-200"
+                    className="inline-block py-2.5 sm:py-1.5 text-white/70 hover:text-gold hover:translate-x-1 transition-all duration-200"
                   >
                     {link.name}
                   </a>
@@ -150,7 +131,7 @@ export default function Footer() {
                 <li key={service.name}>
                   <a
                     href={service.href}
-                    className="inline-block py-1.5 text-white/70 hover:text-gold hover:translate-x-1 transition-all duration-200"
+                    className="inline-block py-2.5 sm:py-1.5 text-white/70 hover:text-gold hover:translate-x-1 transition-all duration-200"
                   >
                     {service.name}
                   </a>
@@ -164,7 +145,7 @@ export default function Footer() {
             <h4 className="font-heading font-bold text-sm text-gold uppercase tracking-wider mb-4">
               Get In Touch
             </h4>
-            <ul className="space-y-3 text-sm text-white/75">
+            <ul className="space-y-1.5 sm:space-y-3 text-sm text-white/75">
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-gold shrink-0 mt-0.5" />
                 <span className="flex flex-col">
@@ -172,7 +153,7 @@ export default function Footer() {
                     <a
                       key={phone.tel}
                       href={`tel:${phone.tel}`}
-                      className="inline-block py-0.5 hover:text-white transition-colors"
+                      className="inline-block py-2 sm:py-0.5 hover:text-white transition-colors"
                     >
                       {phone.display}
                     </a>
@@ -185,7 +166,7 @@ export default function Footer() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block py-0.5 hover:text-white transition-colors break-all"
+                  className="inline-block py-2 sm:py-0.5 hover:text-white transition-colors break-all"
                 >
                   WhatsApp: +{siteConfig.whatsappNumber}
                 </a>
@@ -194,7 +175,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-gold shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="inline-block py-0.5 hover:text-white transition-colors break-all"
+                  className="inline-block py-2 sm:py-0.5 hover:text-white transition-colors break-all"
                 >
                   {siteConfig.email}
                 </a>
@@ -209,7 +190,7 @@ export default function Footer() {
         </div>
 
         {/* Poster tagline */}
-        <p className="gold-rules justify-center pt-8 text-[11px] sm:text-sm font-heading font-semibold uppercase tracking-[0.25em] sm:tracking-[0.35em] text-white text-center">
+        <p className="gold-rules justify-center pt-8 text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.25em] sm:tracking-[0.35em] text-white text-center">
           {siteConfig.tagline}
         </p>
 
@@ -220,7 +201,7 @@ export default function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 py-2 px-1 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 py-3 sm:py-2 px-2 hover:text-white transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span>Back to top</span>

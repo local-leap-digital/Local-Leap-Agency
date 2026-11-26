@@ -50,7 +50,9 @@ export default function ProcessSection() {
         />
 
         {/* Process Steps */}
-        <div className="relative mt-12 md:mt-16">
+        <div className="relative mt-8 sm:mt-12 md:mt-16">
+          {/* Vertical connecting line (phones) */}
+          <div className="sm:hidden absolute left-7 top-7 bottom-7 w-0.5 bg-gradient-to-b from-green via-gold to-green-dark opacity-40" aria-hidden="true" />
           {/* Horizontal Connecting Line (Desktop) */}
           <div
             className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-mint-border -z-0"
@@ -65,19 +67,19 @@ export default function ProcessSection() {
             />
           </div>
 
-          <RevealStagger stagger={0.18} delay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-x-6 sm:gap-y-10 relative z-10">
+          <RevealStagger stagger={0.18} delay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-x-6 sm:gap-y-10 relative z-10">
             {steps.map((step, idx) => {
               const Icon = step.icon;
               const isLast = idx === steps.length - 1;
               return (
                 <RevealItem
                   key={step.number}
-                  className={`flex flex-col items-center text-center group max-w-sm mx-auto ${
+                  className={`flex items-start gap-4 text-left sm:flex-col sm:items-center sm:gap-0 sm:text-center group sm:max-w-sm sm:mx-auto ${
                     isLast ? 'sm:col-span-2 lg:col-span-1' : ''
                   }`}
                 >
                   {/* Step Number Circle */}
-                  <div className="relative mb-5">
+                  <div className="relative shrink-0 sm:mb-5">
                     <div className="relative w-14 h-14 rounded-full bg-white border-2 border-green-dark shadow-md flex items-center justify-center font-heading font-bold text-lg text-navy group-hover:bg-green-dark group-hover:text-white group-hover:scale-110 transition-all duration-300">
                       <span>{step.number}</span>
                     </div>
@@ -87,13 +89,15 @@ export default function ProcessSection() {
                     </div>
                   </div>
 
-                  <h3 className="font-heading font-bold text-lg text-navy mb-2">
-                    {step.title}
-                  </h3>
+                  <div className="min-w-0 pt-1.5 sm:pt-0">
+                    <h3 className="font-heading font-bold text-lg text-navy mb-1 sm:mb-2">
+                      {step.title}
+                    </h3>
 
-                  <p className="text-sm text-[#334155] leading-relaxed">
-                    {step.description}
-                  </p>
+                    <p className="text-sm text-[#334155] leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </RevealItem>
               );
             })}

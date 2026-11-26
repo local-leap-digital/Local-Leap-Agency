@@ -164,7 +164,7 @@ export default function ContactSection() {
                         <a
                           key={phone.tel}
                           href={`tel:${phone.tel}`}
-                          className="inline-block py-1 font-semibold text-white hover:text-gold transition-colors whitespace-nowrap"
+                          className="inline-block py-2 sm:py-1 font-semibold text-white hover:text-gold transition-colors whitespace-nowrap"
                         >
                           {phone.display}{i < siteConfig.phones.length - 1 && <span className="text-white/40"> /</span>}
                         </a>
@@ -181,7 +181,7 @@ export default function ContactSection() {
                     <p className="text-xs text-white/60 font-medium">Email</p>
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="inline-block py-1 font-semibold text-white hover:text-gold transition-colors break-all"
+                      className="inline-block py-2 sm:py-1 font-semibold text-white hover:text-gold transition-colors break-all"
                     >
                       {siteConfig.email}
                     </a>

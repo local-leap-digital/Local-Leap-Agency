@@ -102,6 +102,6 @@ When you are ready to personalize the site for your launch, update the following
 - [x] **Team**: Small team (no headcount or individual names shown)
 - [x] **Web3Forms Key**: Configured (`.env` and `src/data/site.js`)
 - [x] **Pricing Note**: Configured with direct Call, WhatsApp, and Mail buttons
-- [ ] **FAQ Turnaround Days**: In `src/data/faqs.js` (`[PLACEHOLDER: X] days`)
+- [x] **FAQ Turnaround**: Timeline depends on project complexity
 - [ ] **Real Sample Sites / Projects**: In `src/data/projects.js` (replace concept projects with real client links & screenshots as they become available)
 - [ ] **Testimonials (Future)**: When genuine client reviews exist, populate `realTestimonials` in `src/components/TestimonialsSection.jsx`
