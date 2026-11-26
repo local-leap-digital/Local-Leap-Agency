@@ -16,7 +16,7 @@ export const siteConfig = {
   phoneDisplay: "+91 87678 07414",
   phoneTel: "+918767807414",
   phones: [
-    { display: "+91 87660 36310", tel: "+918766036310" },
+    { display: "+91 87672 06376", tel: "+918767206376" },
     { display: "+91 87678 07414", tel: "+918767807414" }
   ],
   email: "localleap.business@gmail.com",
@@ -26,7 +26,7 @@ export const siteConfig = {
 
   // Pricing Teaser Flag & Note
   showPricing: true,
-  pricingNote: "Every business is different. Call us at +91 87660 36310 / +91 87678 07414, WhatsApp us or email us at localleap.business@gmail.com for an exact, transparent quote.",
+  pricingNote: "Every business is different. Call us at +91 87672 06376 / +91 87678 07414, WhatsApp us or email us at localleap.business@gmail.com for an exact, transparent quote.",
 
   // Pre-filled WhatsApp messages
   messages: {
