@@ -45,9 +45,9 @@ export const projects = [
     name: "Brew & Bloom Cafe",
     category: "Food & Cafe",
     tag: "Cafe",
-    description: "Menu, gallery, opening hours and WhatsApp ordering for a cozy coffee shop.",
+    description: "Menu, gallery, events and table reservations for a Kolhapur coffee house.",
     image: "/projects/cafe.png",
-    liveUrl: "https://brew-and-bloom-cafe.vercel.app/",
+    liveUrl: "https://brew-and-bloom-cafe-five.vercel.app/",
     isConcept: true,
     featured: false
   },
