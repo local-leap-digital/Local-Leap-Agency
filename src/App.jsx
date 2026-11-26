@@ -57,14 +57,14 @@ export default function App() {
         {/* Testimonials (Hidden until real reviews exist, as per Section 2) */}
         <TestimonialsSection />
 
-        {/* 6.11 FAQ (id="faq") */}
-        <FAQSection />
-
         {/* 6.12 Contact (id="contact") */}
         <ContactSection />
 
         {/* 6.13 Final CTA band */}
         <FinalCTA />
+
+        {/* FAQ (id="faq"), last section above the footer */}
+        <FAQSection />
       </main>
 
       {/* 6.14 Footer */}

@@ -27,8 +27,8 @@ export default function Footer() {
     { name: 'Work', href: '#work' },
     { name: 'How It Works', href: '#process' },
     { name: 'About', href: '#about' },
-    { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },
+    { name: 'FAQ', href: '#faq' },
   ];
 
   const serviceLinks = [
