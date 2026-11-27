@@ -64,7 +64,7 @@ export const projects = [
   },
   {
     id: "coaching",
-    name: "Coaching Academy",
+    name: "Sahyadri Science Academy",
     category: "Education",
     tag: "Coaching Classes",
     description: "NEET, JEE & MHT-CET courses, results, faculty and admission enquiry for a coaching institute.",
