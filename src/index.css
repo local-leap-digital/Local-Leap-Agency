@@ -221,3 +221,7 @@ textarea:focus-visible {
 :root[data-palette="logo"] footer .text-coral\/65 { color: rgb(63 210 103 / 0.75); }
 :root[data-palette="logo"] footer .bg-coral { background-color: #1FA03C; }
 :root[data-palette="logo"] .bg-deep-teal .asterisk-mark { color: #1FA03C; }
+/* Text/icons in dark green sitting on a green fill switch to white */
+:root[data-palette="logo"] .bg-coral.text-green-dark,
+:root[data-palette="logo"] .bg-coral .text-green-dark,
+:root[data-palette="logo"] .group:hover .group-hover\:bg-coral.text-green-dark { color: #FFFFFF; }
