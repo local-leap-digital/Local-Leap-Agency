@@ -30,7 +30,7 @@ export default function BenefitsStrip() {
   return (
     <section className="py-10 sm:py-12 bg-mint">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <RevealStagger className="bg-offwhite rounded-2xl border-2 border-ink  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
+        <RevealStagger className="bg-offwhite rounded-2xl border-2 border-ink  grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 overflow-hidden">
           {benefits.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -41,8 +41,8 @@ export default function BenefitsStrip() {
                 {/* Gold divider between items (vertical on desktop, horizontal on mobile) */}
                 {index > 0 && (
                   <span
-                    className={`absolute bg-ink rounded-full top-0 left-6 right-6 h-0.5 lg:left-0 lg:right-auto lg:top-1/4 lg:bottom-1/4 lg:h-auto lg:w-0.5 ${
-                      index === 1 ? 'sm:hidden lg:block' : ''
+                    className={`absolute bg-ink rounded-full top-0 left-6 right-6 h-0.5 xl:left-0 xl:right-auto xl:top-1/4 xl:bottom-1/4 xl:h-auto xl:w-0.5 ${
+                      index === 1 ? 'sm:hidden xl:block' : ''
                     }`}
                     aria-hidden="true"
                   />

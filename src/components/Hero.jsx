@@ -143,7 +143,7 @@ export default function Hero() {
             {/* Space is reserved on the right & bottom so the phone only overlaps the laptop corner (as on the poster) */}
             <motion.div
               style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-              className="relative mx-auto max-w-[480px] md:max-w-[560px] lg:max-w-none xs:pr-12 sm:pr-16 lg:pr-12 xs:pb-14 sm:pb-16"
+              className="relative mx-auto max-w-[480px] md:max-w-[560px] lg:max-w-none pr-10 xs:pr-12 sm:pr-16 lg:pr-12 pb-10 xs:pb-14 sm:pb-16"
             >
               
               {/* Laptop Frame */}
@@ -173,7 +173,7 @@ export default function Hero() {
               </div>
 
               {/* Overlapping Phone Frame (bottom-right corner) */}
-              <div className="animate-float-slow absolute bottom-0 right-0 w-28 sm:w-32 lg:w-[7.5rem] xl:w-32 bg-ink p-1.5 sm:p-2 rounded-2xl sm:rounded-2xl  border-2 border-ink hidden xs:block [transform:translateZ(40px)]">
+              <div className="animate-float-slow absolute bottom-0 right-0 w-24 xs:w-28 sm:w-32 lg:w-[7.5rem] xl:w-32 bg-ink p-1.5 sm:p-2 rounded-2xl border-2 border-ink [transform:translateZ(40px)]">
                 {/* Speaker Notch */}
                 <div className="w-10 h-2 bg-muted-ink rounded-full mx-auto mb-1.5" />
                 {/* Phone Screen */}
@@ -202,16 +202,16 @@ export default function Hero() {
               </div>
 
               {/* Floating Automation Badge: "New appointment request 🔔" */}
-              <div className="absolute -top-5 right-0 sm:-right-6 bg-offwhite rounded-2xl p-2.5 sm:p-3 border-2 border-ink flex items-center gap-2.5 sm:gap-3 animate-float max-w-[calc(100%-1rem)]">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-full bg-coral flex items-center justify-center text-deep-teal">
-                  <Bell className="w-4 h-4" />
+              <div className="absolute -top-6 sm:-top-5 left-6 xs:left-auto right-0 sm:-right-6 lg:-right-2 xl:-right-6 bg-offwhite rounded-2xl p-2 xs:p-2.5 sm:p-3 border-2 border-ink flex items-center gap-2 xs:gap-2.5 sm:gap-3 animate-float xs:max-w-[calc(100%-1rem)]">
+                <div className="w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 shrink-0 rounded-full bg-coral flex items-center justify-center text-deep-teal">
+                  <Bell className="w-3.5 h-3.5 xs:w-4 xs:h-4" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-navy">New booking request</span>
+                    <span className="text-[11px] xs:text-xs font-bold text-navy whitespace-nowrap">New booking request</span>
                     <span className="text-[10px] text-deep-teal font-bold bg-mint px-1 rounded">Live</span>
                   </div>
-                  <p className="text-[11px] text-muted-ink">Added to Google Calendar ✓</p>
+                  <p className="text-[10px] xs:text-[11px] text-muted-ink truncate">Added to Google Calendar ✓</p>
                 </div>
               </div>
 

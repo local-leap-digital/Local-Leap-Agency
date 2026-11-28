@@ -26,7 +26,7 @@ function SliderArrow({ direction, onClick, disabled, className = '' }) {
       aria-label={direction === 'prev' ? 'Previous projects' : 'Next projects'}
       className={`w-11 h-11 shrink-0 rounded-full items-center justify-center border transition-all duration-200  ${
         disabled
-          ? 'bg-offwhite text-offwhite/70 border-mint-border cursor-not-allowed '
+          ? 'bg-offwhite text-ink/30 border-ink/20 cursor-not-allowed'
           : 'bg-navy text-white border-navy hover:bg-coral hover:text-deep-teal hover:border-coral cursor-pointer'
       } ${className}`}
     >

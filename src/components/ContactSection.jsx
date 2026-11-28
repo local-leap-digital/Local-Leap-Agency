@@ -158,14 +158,14 @@ export default function ContactSection() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-xs text-offwhite/60 font-medium">Phone / Call</p>
-                    <div className="flex flex-wrap gap-x-2">
+                    <div className="flex flex-col sm:flex-row sm:flex-wrap sm:gap-x-2">
                       {siteConfig.phones.map((phone, i) => (
                         <a
                           key={phone.tel}
                           href={`tel:${phone.tel}`}
-                          className="inline-block py-2 sm:py-1 font-semibold text-offwhite hover:text-gold transition-colors whitespace-nowrap"
+                          className="inline-block py-1 font-semibold text-offwhite hover:text-gold transition-colors whitespace-nowrap"
                         >
-                          {phone.display}{i < siteConfig.phones.length - 1 && <span className="text-offwhite/40"> /</span>}
+                          {phone.display}{i < siteConfig.phones.length - 1 && <span className="hidden sm:inline text-offwhite/40"> /</span>}
                         </a>
                       ))}
                     </div>

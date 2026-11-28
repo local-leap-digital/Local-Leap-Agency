@@ -20,7 +20,7 @@ export default function StatsBand() {
             <div className="font-heading text-5xl sm:text-6xl md:text-7xl tracking-[-0.01em] leading-none text-coral">
               <AnimatedCounter value={s.value} prefix={s.prefix} suffix={s.suffix} />
             </div>
-            <p className="mt-2 text-xs sm:text-sm uppercase tracking-[0.16em] text-offwhite/70 font-medium">
+            <p className="mt-2 text-xs sm:text-sm uppercase tracking-[0.12em] xl:tracking-[0.16em] text-offwhite/70 font-medium">
               {s.label}
             </p>
           </RevealItem>
