@@ -13,7 +13,6 @@ const TEAL_HUE_MIN = 165;
 const TEAL_HUE_MAX = 200;
 
 const logoFiles = [
-  'public/logo-icon.png',
   'public/logo.png',
   'public/logo-transparent.png'
 ];
@@ -88,6 +87,46 @@ async function writeIco(images, file) {
   await fs.writeFile(file, Buffer.concat([header, ...images.map((img) => img.png)]));
 }
 
+// Cuts the pin mark out of the real logo (above the wordmark) so the icon matches it exactly.
+// The ring's hole is transparent in the source; back it with white so the mark reads on dark tabs.
+async function extractIcon(size, marginRatio) {
+  const source = path.join(publicDir, 'logo-transparent.png');
+  const { data, info } = await sharp(source).raw().toBuffer({ resolveWithObject: true });
+  const markBottomLimit = Math.round(info.height * 0.64); // wordmark starts below this line
+  let x0 = info.width, x1 = 0, y0 = info.height, y1 = 0;
+  for (let y = 0; y < markBottomLimit; y++) {
+    for (let x = 0; x < info.width; x++) {
+      if (data[(y * info.width + x) * info.channels + 3] > 20) {
+        x0 = Math.min(x0, x); x1 = Math.max(x1, x);
+        y0 = Math.min(y0, y); y1 = Math.max(y1, y);
+      }
+    }
+  }
+  const w = x1 - x0 + 1;
+  const h = y1 - y0 + 1;
+  // Ring hole: centred horizontally, its centre sits ~39% down the pin, radius ~36% of pin width
+  const holeR = Math.round(w * 0.36);
+  const holeCx = Math.round(w / 2);
+  const holeCy = Math.round(h * 0.39);
+  const backing = Buffer.from(
+    `<svg width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg"><circle cx="${holeCx}" cy="${holeCy}" r="${holeR}" fill="#FFFFFF"/></svg>`
+  );
+  const mark = await sharp(source).extract({ left: x0, top: y0, width: w, height: h }).png().toBuffer();
+  const filled = await sharp(backing).composite([{ input: mark }]).png().toBuffer();
+  const inner = Math.round(size * (1 - marginRatio * 2));
+  return sharp(filled)
+    .resize(inner, inner, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .extend({
+      top: Math.floor((size - inner) / 2),
+      bottom: Math.ceil((size - inner) / 2),
+      left: Math.floor((size - inner) / 2),
+      right: Math.ceil((size - inner) / 2),
+      background: { r: 0, g: 0, b: 0, alpha: 0 }
+    })
+    .png()
+    .toBuffer();
+}
+
 // Icon centred on a white square with padding (for home-screen icons)
 function paddedIcon(icon, size, padding) {
   const inner = size - padding * 2;
@@ -103,12 +142,13 @@ async function run() {
     await recolor(file);
   }
 
-  const icon = path.join(publicDir, 'logo-icon.png');
+  const icon = await extractIcon(512, 0.06);
+  await fs.writeFile(path.join(publicDir, 'logo-icon.png'), icon);
 
-  // Browser tab icons
+  // Browser tab icons: mark fills almost the whole square so it stays legible at 16px
   const icoImages = [];
   for (const size of [16, 32, 48]) {
-    const png = await sharp(icon).resize(size, size).png().toBuffer();
+    const png = await sharp(await extractIcon(512, 0.01)).resize(size, size).png().toBuffer();
     icoImages.push({ size, png });
   }
   await writeIco(icoImages, path.join(publicDir, 'favicon.ico'));
