@@ -13,10 +13,10 @@ export default function PricingTeaser() {
   const whatsappUrl = getWhatsAppUrl(quoteMessage);
 
   return (
-    <section className="py-12 bg-white border-b border-mint-border">
+    <section className="py-12 bg-offwhite border-b-2 border-ink">
       <div className="max-w-[840px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-mint rounded-3xl border-2 border-green/30 p-6 sm:p-10 text-center shadow-xs">
-          <span className="inline-block text-xs font-bold uppercase tracking-wider text-green-dark bg-green/15 px-3.5 py-1.5 rounded-full mb-3">
+        <div className="bg-mint rounded-2xl border-2 border-green/30 p-6 sm:p-10 text-center ">
+          <span className="inline-block text-xs font-bold uppercase tracking-wider text-green-dark bg-coral px-3.5 py-1.5 rounded-full mb-3">
             Fair &amp; Transparent Pricing
           </span>
           
@@ -24,7 +24,7 @@ export default function PricingTeaser() {
             Custom Packages for Every Business
           </h2>
 
-          <p className="text-base sm:text-[17px] text-[#334155] max-w-xl mx-auto mb-6 leading-relaxed">
+          <p className="text-base sm:text-[17px] text-muted-ink max-w-xl mx-auto mb-6 leading-relaxed">
             {siteConfig.pricingNote}
           </p>
 

@@ -28,33 +28,33 @@ export default function BenefitsStrip() {
   ];
 
   return (
-    <section className="py-10 sm:py-12 bg-gradient-to-b from-mint to-white">
+    <section className="py-10 sm:py-12 bg-mint">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <RevealStagger className="bg-white rounded-3xl border border-mint-border shadow-[0_10px_30px_-12px_rgba(11,44,95,0.18)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
+        <RevealStagger className="bg-offwhite rounded-2xl border-2 border-ink  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden">
           {benefits.map((item, index) => {
             const Icon = item.icon;
             return (
               <RevealItem
                 key={index}
-                className="group relative p-5 sm:p-6 flex items-center gap-4 hover:bg-mint/60 transition-colors duration-300"
+                className="group relative p-5 sm:p-6 flex items-center gap-4 hover:bg-mint/50 transition-colors duration-300"
               >
                 {/* Gold divider between items (vertical on desktop, horizontal on mobile) */}
                 {index > 0 && (
                   <span
-                    className={`absolute bg-gold/70 rounded-full top-0 left-6 right-6 h-0.5 lg:left-0 lg:right-auto lg:top-1/4 lg:bottom-1/4 lg:h-auto lg:w-0.5 ${
+                    className={`absolute bg-ink rounded-full top-0 left-6 right-6 h-0.5 lg:left-0 lg:right-auto lg:top-1/4 lg:bottom-1/4 lg:h-auto lg:w-0.5 ${
                       index === 1 ? 'sm:hidden lg:block' : ''
                     }`}
                     aria-hidden="true"
                   />
                 )}
-                <div className="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center shrink-0 text-navy transition-all duration-300 group-hover:bg-navy group-hover:text-gold group-hover:-rotate-6">
+                <div className="w-12 h-12 rounded-full bg-coral flex items-center justify-center shrink-0 text-deep-teal transition-all duration-300 group-hover:bg-deep-teal group-hover:text-coral group-hover:-rotate-6">
                   <Icon className="w-6 h-6" strokeWidth={2.2} />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-[15px] text-navy leading-snug mb-0.5">
+                  <h3 className="font-heading text-xl text-ink leading-none mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-[13px] text-slate-500 leading-relaxed">
+                  <p className="text-[13px] text-muted-ink leading-relaxed">
                     {item.description}
                   </p>
                 </div>

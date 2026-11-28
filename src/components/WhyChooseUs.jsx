@@ -43,9 +43,9 @@ export default function WhyChooseUs() {
             return (
               <RevealItem
                 key={idx}
-                className="card-glow group bg-white p-5 sm:p-7 rounded-2xl border border-mint-border shadow-xs hover:shadow-[0_18px_40px_-14px_rgba(11,44,95,0.28)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:flex-col sm:gap-0"
+                className="card-glow group bg-offwhite p-5 sm:p-7 rounded-2xl border-2 border-ink   hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:flex-col sm:gap-0"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-xl bg-green/12 flex items-center justify-center text-green-dark sm:mb-5 transition-all duration-300 group-hover:bg-green-dark group-hover:text-white group-hover:rotate-6">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-xl bg-coral flex items-center justify-center text-green-dark sm:mb-5 transition-all duration-300 group-hover:bg-green-dark group-hover:text-white group-hover:rotate-6">
                   <Icon className="w-6 h-6" />
                 </div>
 
@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-[#334155] leading-relaxed">
+                  <p className="text-sm text-muted-ink leading-relaxed">
                     {item.description}
                   </p>
                 </div>

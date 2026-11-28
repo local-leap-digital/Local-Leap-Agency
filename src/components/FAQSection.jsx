@@ -29,24 +29,24 @@ export default function FAQSection() {
             return (
               <RevealItem
                 key={faq.id}
-                className={`bg-white rounded-2xl border overflow-hidden transition-[border-color,box-shadow] duration-300 ${
-                  isOpen ? 'border-green/40 shadow-[0_12px_32px_-16px_rgba(11,44,95,0.3)]' : 'border-mint-border shadow-2xs hover:border-green/30'
+                className={`bg-offwhite rounded-2xl border overflow-hidden transition-[border-color,box-shadow] duration-300 ${
+                  isOpen ? 'border-green/40 ' : 'border-mint-border  hover:border-green/30'
                 }`}
               >
                 <button
                   type="button"
                   onClick={() => toggleFaq(faq.id)}
-                  className="w-full py-4 sm:py-5 px-5 sm:px-7 text-left flex items-center justify-between gap-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-green focus-visible:outline-hidden"
+                  className="w-full py-4 sm:py-5 px-5 sm:px-7 text-left flex items-center justify-between gap-4 cursor-pointer focus-visible:outline-2 focus-visible:outline-ink focus-visible:outline-hidden"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${faq.id}`}
                   id={`faq-btn-${faq.id}`}
                 >
-                  <span className="font-heading font-semibold text-base sm:text-lg text-navy">
+                  <span className="font-sans font-bold text-base sm:text-lg text-ink">
                     {faq.question}
                   </span>
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                      isOpen ? 'rotate-180 bg-green-dark text-white' : 'bg-mint text-green-dark'
+                      isOpen ? 'rotate-180 bg-deep-teal text-coral' : 'bg-mint text-green-dark'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -66,7 +66,7 @@ export default function FAQSection() {
                       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 sm:px-7 pb-5 sm:pb-6 pt-3 text-sm sm:text-base text-[#334155] leading-relaxed border-t border-slate-100">
+                      <div className="px-5 sm:px-7 pb-5 sm:pb-6 pt-3 text-sm sm:text-base text-muted-ink leading-relaxed border-t border-slate-100">
                         {faq.answer}
                       </div>
                     </motion.div>

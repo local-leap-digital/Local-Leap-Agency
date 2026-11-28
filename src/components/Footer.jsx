@@ -47,9 +47,9 @@ export default function Footer() {
   const whatsappUrl = getWhatsAppUrl();
 
   return (
-    <footer className="bg-forest border-t-4 border-gold text-white/80 pt-14 sm:pt-16 pb-24 sm:pb-12">
+    <footer className="bg-deep-teal text-offwhite/80 pt-14 sm:pt-16 pb-24 sm:pb-12">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-8 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-8 pb-12 border-b border-coral/25">
           
           {/* Column 1: Brand & Bio (4 cols) */}
           <div className="col-span-2 lg:col-span-4">
@@ -58,7 +58,7 @@ export default function Footer() {
               className="inline-flex items-center gap-3 mb-4 group"
               aria-label="LocalLeap Digital - Back to top"
             >
-              <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center p-1.5 shadow-xs group-hover:scale-105 transition-transform duration-200">
+              <div className="w-11 h-11 rounded-2xl bg-offwhite flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform duration-200">
                 <img
                   src="/logo-icon.png"
                   alt="LocalLeap Icon"
@@ -66,16 +66,16 @@ export default function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <div className="font-heading font-bold text-xl text-white tracking-tight leading-tight">
-                  Local<span className="text-gold">Leap</span>
+                <div className="font-heading uppercase text-2xl text-offwhite tracking-[-0.01em] leading-none">
+                  Local<span className="text-coral">Leap</span>
                 </div>
-                <span className="text-[10px] tracking-[0.42em] uppercase font-semibold text-white/70">
+                <span className="text-[10px] tracking-[0.42em] uppercase font-semibold text-offwhite/70">
                   Digital
                 </span>
               </div>
             </a>
 
-            <p className="text-sm text-white/70 leading-relaxed mb-6 max-w-sm">
+            <p className="text-sm text-offwhite/70 leading-relaxed mb-6 max-w-sm">
               Customized websites, web applications and mobile apps for local shops, businesses and startups.
             </p>
 
@@ -85,7 +85,7 @@ export default function Footer() {
                 href={siteConfig.socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-lg bg-white/10 hover:bg-gold hover:text-navy text-white/80 flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-md bg-coral hover:bg-offwhite text-deep-teal flex items-center justify-center transition-colors"
                 aria-label="Instagram profile"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -94,7 +94,7 @@ export default function Footer() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-lg bg-white/10 hover:bg-[#25D366] hover:text-white text-white/80 flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-md bg-coral hover:bg-offwhite text-deep-teal flex items-center justify-center transition-colors"
                 aria-label="WhatsApp Chat"
               >
                 <MessageSquare className="w-4 h-4" />
@@ -104,7 +104,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="font-heading font-bold text-sm text-gold uppercase tracking-wider mb-4">
+            <h4 className="font-sans font-medium text-sm text-coral uppercase tracking-[0.02em] mb-4">
               Quick Links
             </h4>
             <ul className="space-y-1 text-sm">
@@ -112,7 +112,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="inline-block py-2.5 sm:py-1.5 text-white/70 hover:text-gold hover:translate-x-1 transition-all duration-200"
+                    className="inline-block py-2.5 sm:py-1.5 text-coral/65 hover:text-coral transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -123,7 +123,7 @@ export default function Footer() {
 
           {/* Column 3: Services (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="font-heading font-bold text-sm text-gold uppercase tracking-wider mb-4">
+            <h4 className="font-sans font-medium text-sm text-coral uppercase tracking-[0.02em] mb-4">
               Our Services
             </h4>
             <ul className="space-y-1 text-sm">
@@ -131,7 +131,7 @@ export default function Footer() {
                 <li key={service.name}>
                   <a
                     href={service.href}
-                    className="inline-block py-2.5 sm:py-1.5 text-white/70 hover:text-gold hover:translate-x-1 transition-all duration-200"
+                    className="inline-block py-2.5 sm:py-1.5 text-coral/65 hover:text-coral transition-colors duration-200"
                   >
                     {service.name}
                   </a>
@@ -142,18 +142,18 @@ export default function Footer() {
 
           {/* Column 4: Contact info (3 cols) */}
           <div className="col-span-2 sm:col-span-1 lg:col-span-3">
-            <h4 className="font-heading font-bold text-sm text-gold uppercase tracking-wider mb-4">
+            <h4 className="font-sans font-medium text-sm text-coral uppercase tracking-[0.02em] mb-4">
               Get In Touch
             </h4>
-            <ul className="space-y-1.5 sm:space-y-3 text-sm text-white/75">
+            <ul className="space-y-1.5 sm:space-y-3 text-sm text-offwhite/75">
               <li className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                <Phone className="w-4 h-4 text-coral shrink-0 mt-0.5" />
                 <span className="flex flex-col">
                   {siteConfig.phones.map((phone) => (
                     <a
                       key={phone.tel}
                       href={`tel:${phone.tel}`}
-                      className="inline-block py-2 sm:py-0.5 hover:text-white transition-colors"
+                      className="inline-block py-2 sm:py-0.5 hover:text-coral transition-colors"
                     >
                       {phone.display}
                     </a>
@@ -161,27 +161,27 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <MessageSquare className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+                <MessageSquare className="w-4 h-4 text-coral shrink-0 mt-0.5" />
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block py-2 sm:py-0.5 hover:text-white transition-colors break-all"
+                  className="inline-block py-2 sm:py-0.5 hover:text-coral transition-colors break-all"
                 >
                   WhatsApp: +{siteConfig.whatsappNumber}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                <Mail className="w-4 h-4 text-coral shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="inline-block py-2 sm:py-0.5 hover:text-white transition-colors break-all"
+                  className="inline-block py-2 sm:py-0.5 hover:text-coral transition-colors break-all"
                 >
                   {siteConfig.email}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-coral shrink-0 mt-0.5" />
                 <span>{siteConfig.address}</span>
               </li>
             </ul>
@@ -190,18 +190,18 @@ export default function Footer() {
         </div>
 
         {/* Poster tagline */}
-        <p className="gold-rules justify-center pt-8 text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.25em] sm:tracking-[0.35em] text-white text-center">
+        <p className="gold-rules justify-center pt-8 text-xs sm:text-sm font-sans font-medium uppercase tracking-[0.25em] sm:tracking-[0.35em] text-offwhite text-center">
           {siteConfig.tagline}
         </p>
 
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-offwhite/50">
           <p>© {currentYear} LocalLeap Digital. All rights reserved.</p>
 
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 py-3 sm:py-2 px-2 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 py-3 sm:py-2 px-2 hover:text-coral transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span>Back to top</span>

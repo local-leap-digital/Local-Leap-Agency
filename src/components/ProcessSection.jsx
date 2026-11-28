@@ -40,7 +40,7 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section id="process" className="py-16 sm:py-20 md:py-28 bg-white relative">
+    <section id="process" className="py-16 sm:py-20 md:py-28 bg-offwhite relative">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="HOW IT WORKS"
@@ -52,14 +52,14 @@ export default function ProcessSection() {
         {/* Process Steps */}
         <div className="relative mt-8 sm:mt-12 md:mt-16">
           {/* Vertical connecting line (phones) */}
-          <div className="sm:hidden absolute left-7 top-7 bottom-7 w-0.5 bg-gradient-to-b from-green via-gold to-green-dark opacity-40" aria-hidden="true" />
+          <div className="sm:hidden absolute left-7 top-7 bottom-7 w-0.5 bg-ink opacity-30" aria-hidden="true" />
           {/* Horizontal Connecting Line (Desktop) */}
           <div
             className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-mint-border -z-0"
             aria-hidden="true"
           >
             <motion.div
-              className="h-full bg-gradient-to-r from-green via-gold to-green-dark origin-left"
+              className="h-full bg-coral origin-left"
               initial={reduce ? false : { scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: '-80px' }}
@@ -80,11 +80,11 @@ export default function ProcessSection() {
                 >
                   {/* Step Number Circle */}
                   <div className="relative shrink-0 sm:mb-5">
-                    <div className="relative w-14 h-14 rounded-full bg-white border-2 border-green-dark shadow-md flex items-center justify-center font-heading font-bold text-lg text-navy group-hover:bg-green-dark group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                    <div className="relative w-14 h-14 rounded-full bg-offwhite border-2 border-green-dark  flex items-center justify-center font-heading font-bold text-lg text-navy group-hover:bg-green-dark group-hover:text-white group-hover:scale-110 transition-all duration-300">
                       <span>{step.number}</span>
                     </div>
                     {/* Small sub icon */}
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green text-white flex items-center justify-center shadow-xs">
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-coral text-deep-teal flex items-center justify-center ">
                       <Icon className="w-3 h-3" />
                     </div>
                   </div>
@@ -94,7 +94,7 @@ export default function ProcessSection() {
                       {step.title}
                     </h3>
 
-                    <p className="text-sm text-[#334155] leading-relaxed">
+                    <p className="text-sm text-muted-ink leading-relaxed">
                       {step.description}
                     </p>
                   </div>

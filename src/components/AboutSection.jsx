@@ -5,18 +5,17 @@ import { Reveal } from './common/Reveal';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-16 sm:py-20 md:py-28 bg-white">
+    <section id="about" className="py-16 sm:py-20 md:py-28 bg-offwhite">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column: Logo Icon & Studio Badge on Ice White Panel */}
           <Reveal x={-32} y={0} className="lg:col-span-5 order-2 lg:order-1 w-full max-w-xl mx-auto lg:max-w-none">
-            <div className="bg-mint rounded-3xl p-6 sm:p-12 border border-mint-border relative overflow-hidden text-center shadow-xs">
+            <div className="bg-mint rounded-2xl p-6 sm:p-12 border-2 border-ink relative overflow-hidden text-center ">
               {/* Subtle decorative circles */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-green/10 rounded-full blur-2xl pointer-events-none" />
               
               <div className="relative z-10 flex flex-col items-center">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white border border-mint-border p-3 shadow-md flex items-center justify-center mb-6">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-offwhite border-2 border-ink p-3  flex items-center justify-center mb-6">
                   <img
                     src="/logo-icon.png"
                     alt="LocalLeap Digital Icon"
@@ -32,20 +31,20 @@ export default function AboutSection() {
                 </p>
 
                 <div className="w-full pt-6 border-t border-mint-border space-y-3 text-left">
-                  <div className="flex items-center gap-3 text-xs sm:text-sm text-[#334155]">
-                    <div className="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center text-green-dark shrink-0">
+                  <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-ink">
+                    <div className="w-5 h-5 rounded-full bg-coral flex items-center justify-center text-green-dark shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
                     <span>Direct personal accountability</span>
                   </div>
-                  <div className="flex items-center gap-3 text-xs sm:text-sm text-[#334155]">
-                    <div className="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center text-green-dark shrink-0">
+                  <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-ink">
+                    <div className="w-5 h-5 rounded-full bg-coral flex items-center justify-center text-green-dark shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
                     <span>No middlemen, agencies, or sales reps</span>
                   </div>
-                  <div className="flex items-center gap-3 text-xs sm:text-sm text-[#334155]">
-                    <div className="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center text-green-dark shrink-0">
+                  <div className="flex items-center gap-3 text-xs sm:text-sm text-muted-ink">
+                    <div className="w-5 h-5 rounded-full bg-coral flex items-center justify-center text-green-dark shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
                     <span>Built exclusively for local business owners</span>
@@ -64,7 +63,7 @@ export default function AboutSection() {
               className="mb-6"
             />
 
-            <div className="prose text-base sm:text-[17px] text-[#334155] leading-relaxed space-y-4">
+            <div className="prose text-base sm:text-[17px] text-muted-ink leading-relaxed space-y-4">
               <p>
                 LocalLeap Digital is a small, focused studio with one goal: helping local businesses get the online presence they deserve.
               </p>

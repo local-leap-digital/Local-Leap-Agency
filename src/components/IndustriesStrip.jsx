@@ -24,8 +24,8 @@ const iconMap = {
 function Pill({ ind }) {
   const Icon = iconMap[ind.icon] || Store;
   return (
-    <div className="shrink-0 inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-white border border-mint-border text-sm sm:text-[15px] font-semibold text-navy shadow-[0_6px_18px_-10px_rgba(11,44,95,0.25)] hover:border-green hover:text-green-dark transition-colors duration-200 cursor-default">
-      <div className="w-7 h-7 rounded-full bg-green/15 flex items-center justify-center text-green-dark">
+    <div className="shrink-0 inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-offwhite border-2 border-ink text-sm sm:text-[15px] font-semibold text-navy  hover:border-green hover:text-green-dark transition-colors duration-200 cursor-default">
+      <div className="w-7 h-7 rounded-full bg-coral flex items-center justify-center text-green-dark">
         <Icon className="w-4 h-4" />
       </div>
       <span className="whitespace-nowrap">{ind.name}</span>
@@ -38,9 +38,9 @@ export default function IndustriesStrip() {
   const half = [...industries, ...industries];
 
   return (
-    <section className="py-12 md:py-16 bg-mint border-y border-mint-border overflow-hidden">
+    <section className="py-12 md:py-16 bg-offwhite border-y-2 border-ink overflow-hidden">
       <Reveal className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
-        <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-slate-500">
+        <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-muted-ink">
           We specialise in local businesses that serve customers in person
         </p>
       </Reveal>

@@ -1,38 +1,49 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — matches the LocalLeap poster (navy + leaf green + gold) */
-  --color-navy: #0B2C5F;
-  --color-navy-dark: #071E42;
-  --color-green: #1FA03C;
-  --color-green-dark: #15802F;
-  --color-green-hover: #0F6A26;
-  --color-forest: #0A4A27;
-  --color-gold: #F4B400;
-  --color-gold-soft: #FFF4CC;
-  --color-mint: #F3FAF4;
-  --color-mint-border: #E2EFE4;
-  --color-slate-body: #334155;
-  --color-whatsapp: #25D366;
-  --color-whatsapp-hover: #20bd5a;
+  /* Halftone-style palette (see /DESIGN.md): coral, deep teal, mint, off-white, ink.
+     Legacy token names are kept and remapped so every component picks up the new system. */
+  --color-coral: #FF8B7B;
+  --color-coral-dark: #F26F5D;
+  --color-deep-teal: #0A2E33;
+  --color-deep-teal-light: #143F45;
+  --color-mintx: #B8E6E0;
+  --color-offwhite: #F5F5F0;
+  --color-ink: #1A1A1A;
+  --color-muted-ink: #4A4A4A;
+
+  --color-navy: #1A1A1A;          /* ink: headings, dark chips */
+  --color-navy-dark: #0A2E33;     /* deep teal: dark bands */
+  --color-green: #FF8B7B;         /* coral: accents */
+  --color-green-dark: #0A2E33;    /* deep teal: accent text & icons on light */
+  --color-green-hover: #143F45;
+  --color-forest: #0A2E33;        /* deep teal */
+  --color-gold: #FF8B7B;          /* coral on dark */
+  --color-gold-soft: #B8E6E0;     /* mint */
+  --color-mint: #B8E6E0;          /* mint surfaces */
+  --color-mint-border: #1A1A1A;   /* ink borders (sticker cards) */
+  --color-slate-body: #4A4A4A;
+  --color-whatsapp: #FF8B7B;
+  --color-whatsapp-hover: #F26F5D;
 
   --font-sans: 'Inter', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Poppins', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Anton', 'Noto Sans Devanagari', Impact, 'Arial Narrow', sans-serif;
+  --font-display: 'Anton', 'Noto Sans Devanagari', Impact, 'Arial Narrow', sans-serif;
+
+  --radius-pill: 9999px;
+  --radius-card: 1rem;
 
   /* Extra-small breakpoint for large phones (480px+) */
   --breakpoint-xs: 30rem;
 }
 
 :root {
-  --navy: #0B2C5F;
-  --green: #1FA03C;
-  --green-dark: #15802F;
-  --forest: #0A4A27;
-  --gold: #F4B400;
-  --mint: #F3FAF4;
-  --mint-border: #E2EFE4;
-  --slate: #334155;
-  --whatsapp: #25D366;
+  --coral: #FF8B7B;
+  --deep-teal: #0A2E33;
+  --mint: #B8E6E0;
+  --off-white: #F5F5F0;
+  --ink: #1A1A1A;
+  --muted-ink: #4A4A4A;
 }
 
 /* Custom Utilities and Base Settings
@@ -40,8 +51,9 @@
 @layer base {
 html {
   font-family: var(--font-sans);
-  color: #334155;
-  line-height: 1.65;
+  color: var(--color-muted-ink);
+  background: var(--color-offwhite);
+  line-height: 1.6;
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
   -webkit-text-size-adjust: 100%;
@@ -50,6 +62,7 @@ html {
 }
 
 body {
+  background: var(--color-offwhite);
   overflow-x: clip;
   -webkit-tap-highlight-color: transparent;
 }
@@ -61,7 +74,12 @@ p, a, span, h1, h2, h3, h4 {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: #0B2C5F;
+  color: var(--color-ink);
+}
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
 }
 }
 
@@ -71,7 +89,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #1FA03C;
+  outline: 2px solid var(--color-ink);
   outline-offset: 2px;
 }
 
@@ -85,40 +103,38 @@ textarea:focus-visible {
   }
 }
 
-/* Subtle pattern for hero & CTA background */
-.bg-subtle-pattern {
-  background-image: radial-gradient(rgba(31, 160, 60, 0.08) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
-}
+/* Anton ships one weight; never fake-bold it */
+.font-heading { font-weight: 400; font-synthesis: none; }
 
-.bg-subtle-pattern-navy {
-  background-image: radial-gradient(rgba(244, 180, 0, 0.14) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
-}
+/* Flat colour fields only — no gradients, glows or shadows (DESIGN.md) */
+.bg-subtle-pattern, .bg-subtle-pattern-navy { background-image: none; }
+.bg-brand-gradient { background-color: var(--color-deep-teal); }
+.bg-grid-white, .bg-grid-navy { display: none; }
+.blob { display: none; }
+.glass { background: var(--color-offwhite); }
+.text-gradient-brand, .text-gradient-green { color: var(--color-coral); }
+.card-glow { position: relative; }
 
-/* Poster-style dark band: forest → leaf green */
-.bg-brand-gradient {
-  background-image: linear-gradient(135deg, #0A4A27 0%, #0E6B32 55%, #1FA03C 100%);
-}
-
-/* Gold curved swoosh under highlighted words (as on the poster) */
+/* Coral underline mark under highlighted words */
 .swoosh-underline {
   position: relative;
   display: inline-block;
-  padding-bottom: 0.12em;
+  padding-bottom: 0.08em;
 }
 .swoosh-underline::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -0.18em;
-  height: 0.32em;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M2 16 C 60 4, 140 2, 198 8' stroke='%23F4B400' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  bottom: -0.12em;
+  height: 0.28em;
+  background: var(--color-coral);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M2 16 C 60 4, 140 2, 198 8' stroke='%23000' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M2 16 C 60 4, 140 2, 198 8' stroke='%23000' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
   pointer-events: none;
 }
 
-/* Thin gold rules on both sides of a centred label */
+/* Thin coral rules on both sides of a centred label */
 .gold-rules {
   display: flex;
   align-items: center;
@@ -130,70 +146,22 @@ textarea:focus-visible {
   flex: 1 1 0;
   max-width: 7rem;
   height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, transparent, #F4B400);
-}
-.gold-rules::after {
-  background: linear-gradient(90deg, #F4B400, transparent);
+  background: var(--color-coral);
 }
 
-/* ------------------------------------------------------------------
-   Motion & premium utilities
-------------------------------------------------------------------- */
-
-/* Gradient text for highlighted words */
-.text-gradient-brand {
-  background: linear-gradient(100deg, #F4B400 0%, #FFD966 40%, #3FD267 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Large rotated coral asterisk accent (footer CTA) */
+.asterisk-mark {
+  font-family: var(--font-display);
+  color: var(--color-coral);
+  line-height: 1;
+  transform: rotate(12deg);
+  user-select: none;
 }
-.text-gradient-green {
-  background: linear-gradient(100deg, #15802F 0%, #1FA03C 50%, #0B2C5F 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Faint grid backgrounds */
-.bg-grid-white {
-  background-image:
-    linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
-}
-.bg-grid-navy {
-  background-image:
-    linear-gradient(rgba(11,44,95,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(11,44,95,0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at top, #000 20%, transparent 70%);
-}
-
-/* Frosted glass panel */
-.glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-}
-
-/* Slow drifting glow blobs */
-@keyframes blob-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -24px) scale(1.08); }
-  66% { transform: translate(-22px, 18px) scale(0.95); }
-}
-.blob { animation: blob-drift 16s ease-in-out infinite; }
-.blob-delay { animation-delay: -8s; }
 
 /* Infinite marquee (duplicate the content once inside .marquee-track) */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
-}
-.marquee {
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 .marquee-track {
   display: flex;
@@ -210,33 +178,46 @@ textarea:focus-visible {
 .animate-float { animation: float-y 5s ease-in-out infinite; }
 .animate-float-slow { animation: float-y 7s ease-in-out infinite; animation-delay: -2s; }
 
-/* Shimmer sweep across primary buttons */
-.btn-shine { position: relative; overflow: hidden; isolation: isolate; }
-.btn-shine::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.28) 50%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.7s ease;
-}
-.btn-shine:hover::after { transform: translateX(120%); }
+.btn-shine { position: relative; }
 
-/* Card with animated gradient border on hover */
-.card-glow { position: relative; }
-.card-glow::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, #1FA03C, #F4B400, #0B2C5F);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
+/* ------------------------------------------------------------------
+   LOGO PALETTE (default): same halftone layout, recoloured with the
+   LocalLeap logo colours: navy + leaf green + white.
+   Coral version: open the site with ?palette=coral
+------------------------------------------------------------------- */
+:root[data-palette="logo"] {
+  --color-coral: #1FA03C;          /* leaf green: accents, headline highlights */
+  --color-coral-dark: #15802F;
+  --color-deep-teal: #0B2C5F;      /* navy: dark bands, footer, text on green */
+  --color-deep-teal-light: #133A75;
+  --color-mintx: #E3F3E7;
+  --color-offwhite: #FFFFFF;       /* white canvas */
+  --color-ink: #0B2C5F;            /* navy headings, borders */
+  --color-muted-ink: #334155;      /* slate body */
+
+  --color-navy: #0B2C5F;
+  --color-navy-dark: #0B2C5F;
+  --color-green: #1FA03C;
+  --color-green-dark: #15802F;
+  --color-green-hover: #0F6A26;
+  --color-forest: #0B2C5F;
+  --color-gold: #1FA03C;
+  --color-gold-soft: #E3F3E7;
+  --color-mint: #E3F3E7;           /* soft green section fields */
+  --color-mint-border: #0B2C5F;
+  --color-slate-body: #334155;
+  --color-whatsapp: #15802F;
+  --color-whatsapp-hover: #0F6A26;
 }
-.card-glow:hover::before { opacity: 1; }
+/* Green fills carry white text (logo green + white), darker green for AA contrast */
+:root[data-palette="logo"] .bg-coral { background-color: #15802F; }
+:root[data-palette="logo"] .bg-coral.text-deep-teal,
+:root[data-palette="logo"] .bg-coral .text-deep-teal,
+:root[data-palette="logo"] .bg-coral > svg { color: #FFFFFF; }
+:root[data-palette="logo"] .hover\:bg-coral-dark:hover { background-color: #0F6A26; }
+:root[data-palette="logo"] .bg-deep-teal .text-coral,
+:root[data-palette="logo"] .bg-deep-teal.text-coral,
+:root[data-palette="logo"] footer .text-coral { color: #3FD267; }
+:root[data-palette="logo"] footer .text-coral\/65 { color: rgb(63 210 103 / 0.75); }
+:root[data-palette="logo"] footer .bg-coral { background-color: #1FA03C; }
+:root[data-palette="logo"] .bg-deep-teal .asterisk-mark { color: #1FA03C; }

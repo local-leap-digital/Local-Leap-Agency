@@ -110,7 +110,7 @@ export default function ContactSection() {
   const whatsappDemoUrl = getDemoWhatsAppUrl(formData.businessName);
 
   return (
-    <section id="contact" className="py-16 sm:py-20 md:py-28 bg-white">
+    <section id="contact" className="py-16 sm:py-20 md:py-28 bg-offwhite">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="GET IN TOUCH"
@@ -126,7 +126,7 @@ export default function ContactSection() {
               <h3 className="font-heading font-bold text-[22px] sm:text-2xl text-navy mb-3">
                 Talk to Us Directly
               </h3>
-              <p className="text-sm sm:text-base text-[#334155] leading-relaxed mb-8">
+              <p className="text-sm sm:text-base text-muted-ink leading-relaxed mb-8">
                 We prefer WhatsApp for quick replies, questions, or sharing links. We're a small team, so you'll always talk directly with us.
               </p>
 
@@ -136,37 +136,36 @@ export default function ContactSection() {
                   href={whatsappGeneralUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-xl font-heading font-bold text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                  className="w-full flex items-center justify-center gap-3 bg-coral hover:bg-coral-dark text-deep-teal p-4 rounded-full font-sans font-medium uppercase tracking-[0.02em] text-sm sm:text-base transition-colors duration-200"
                 >
-                  <MessageSquare className="w-5 h-5 fill-white" />
+                  <MessageSquare className="w-5 h-5" />
                   <span>Message on WhatsApp</span>
                 </a>
-                <p className="text-xs text-center text-slate-400 mt-2">
+                <p className="text-xs text-center text-muted-ink mt-2">
                   Usually replies within 1–2 hours
                 </p>
               </div>
 
               {/* Direct Details: poster-style "Get In Touch" card */}
-              <div className="relative overflow-hidden bg-brand-gradient rounded-3xl p-6 sm:p-7 text-white shadow-lg">
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gold/20 rounded-full blur-2xl pointer-events-none" aria-hidden="true" />
+              <div className="relative overflow-hidden bg-deep-teal rounded-2xl p-6 sm:p-7 text-offwhite ">
                 <h4 className="relative font-heading font-bold text-xl sm:text-2xl text-gold mb-5">
                   Get In Touch
                 </h4>
                 <div className="relative space-y-4">
                 <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest shrink-0 shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-offwhite flex items-center justify-center text-forest shrink-0 ">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-white/60 font-medium">Phone / Call</p>
+                    <p className="text-xs text-offwhite/60 font-medium">Phone / Call</p>
                     <div className="flex flex-wrap gap-x-2">
                       {siteConfig.phones.map((phone, i) => (
                         <a
                           key={phone.tel}
                           href={`tel:${phone.tel}`}
-                          className="inline-block py-2 sm:py-1 font-semibold text-white hover:text-gold transition-colors whitespace-nowrap"
+                          className="inline-block py-2 sm:py-1 font-semibold text-offwhite hover:text-gold transition-colors whitespace-nowrap"
                         >
-                          {phone.display}{i < siteConfig.phones.length - 1 && <span className="text-white/40"> /</span>}
+                          {phone.display}{i < siteConfig.phones.length - 1 && <span className="text-offwhite/40"> /</span>}
                         </a>
                       ))}
                     </div>
@@ -174,14 +173,14 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest shrink-0 shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-offwhite flex items-center justify-center text-forest shrink-0 ">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-white/60 font-medium">Email</p>
+                    <p className="text-xs text-offwhite/60 font-medium">Email</p>
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="inline-block py-2 sm:py-1 font-semibold text-white hover:text-gold transition-colors break-all"
+                      className="inline-block py-2 sm:py-1 font-semibold text-offwhite hover:text-gold transition-colors break-all"
                     >
                       {siteConfig.email}
                     </a>
@@ -189,24 +188,24 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest shrink-0 shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-offwhite flex items-center justify-center text-forest shrink-0 ">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-white/60 font-medium">Address</p>
-                    <p className="font-semibold text-white">
+                    <p className="text-xs text-offwhite/60 font-medium">Address</p>
+                    <p className="font-semibold text-offwhite">
                       {siteConfig.address}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-forest shrink-0 shadow-sm">
+                  <div className="w-10 h-10 rounded-full bg-offwhite flex items-center justify-center text-forest shrink-0 ">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-white/60 font-medium">Working Hours</p>
-                    <p className="font-semibold text-white">
+                    <p className="text-xs text-offwhite/60 font-medium">Working Hours</p>
+                    <p className="font-semibold text-offwhite">
                       {siteConfig.workingHours}
                     </p>
                   </div>
@@ -218,23 +217,23 @@ export default function ContactSection() {
 
           {/* Right Column: Enquiry Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="bg-mint p-5 xs:p-6 sm:p-10 rounded-3xl border border-mint-border shadow-sm">
+            <div className="bg-mint p-5 xs:p-6 sm:p-10 rounded-2xl border-2 border-ink ">
               <h3 className="font-heading font-bold text-xl sm:text-2xl text-navy mb-2">
                 Request Your Free Demo Website
               </h3>
-              <p className="text-sm text-[#334155] mb-6">
+              <p className="text-sm text-muted-ink mb-6">
                 Fill this short form. We will create a sample website preview for your business and share it with you.
               </p>
 
               {formStatus === 'success' ? (
-                <div className="bg-white p-6 sm:p-8 rounded-2xl border border-emerald-200 text-center">
+                <div className="bg-offwhite p-6 sm:p-8 rounded-2xl border border-emerald-200 text-center">
                   <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h4 className="font-heading font-bold text-xl text-navy mb-2">
                     Thanks! We'll message you on WhatsApp soon.
                   </h4>
-                  <p className="text-sm text-[#334155] max-w-md mx-auto mb-6">
+                  <p className="text-sm text-muted-ink max-w-md mx-auto mb-6">
                     We've received your request. We'll start crafting a free concept demo for <strong>{formData.businessName || 'your business'}</strong>.
                   </p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -242,15 +241,15 @@ export default function ContactSection() {
                       href={whatsappDemoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#20bd5a] transition-all"
+                      className="inline-flex items-center gap-2 bg-coral text-deep-teal px-6 py-3 rounded-full text-sm font-medium uppercase tracking-[0.02em] hover:bg-coral-dark transition-colors"
                     >
-                      <MessageSquare className="w-4 h-4 fill-white" />
+                      <MessageSquare className="w-4 h-4" />
                       <span>Ping Us on WhatsApp Now</span>
                     </a>
                     <button
                       type="button"
                       onClick={() => setFormStatus('idle')}
-                      className="py-2 px-3 text-xs text-slate-500 hover:text-navy underline cursor-pointer"
+                      className="py-2 px-3 text-xs text-muted-ink hover:text-navy underline cursor-pointer"
                     >
                       Submit another request
                     </button>
@@ -286,7 +285,7 @@ export default function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Dr. Rajesh / Amit Kumar"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-offwhite border-2 border-ink text-base text-ink focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
                       />
                     </div>
 
@@ -305,7 +304,7 @@ export default function ContactSection() {
                         value={formData.businessName}
                         onChange={handleChange}
                         placeholder="e.g. Apex Dental Care / Roast Cafe"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-offwhite border-2 border-ink text-base text-ink focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
                       />
                     </div>
                   </div>
@@ -324,7 +323,7 @@ export default function ContactSection() {
                         name="businessType"
                         value={formData.businessType}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all cursor-pointer"
+                        className="w-full px-4 py-3 rounded-xl bg-offwhite border-2 border-ink text-base text-ink focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all cursor-pointer"
                       >
                         {businessTypes.map((type) => (
                           <option key={type} value={type}>
@@ -349,7 +348,7 @@ export default function ContactSection() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="10-digit mobile number"
-                        className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-offwhite border-2 border-ink text-base text-ink focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all"
                       />
                     </div>
                   </div>
@@ -360,7 +359,7 @@ export default function ContactSection() {
                       htmlFor="message"
                       className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5"
                     >
-                      Message <span className="text-slate-400 font-normal">(Optional)</span>
+                      Message <span className="text-muted-ink font-normal">(Optional)</span>
                     </label>
                     <textarea
                       id="message"
@@ -369,7 +368,7 @@ export default function ContactSection() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Any specific features you need? (e.g. appointment booking, table reservation, menu display, Google review automation)"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-mint-border text-base text-slate-800 focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all resize-y"
+                      className="w-full px-4 py-3 rounded-xl bg-offwhite border-2 border-ink text-base text-ink focus:border-green-dark focus:outline-none focus:ring-1 focus:ring-green-dark transition-all resize-y"
                     />
                   </div>
 
@@ -404,7 +403,7 @@ export default function ContactSection() {
                     )}
                   </Button>
 
-                  <p className="text-[11px] text-center text-slate-400 pt-1">
+                  <p className="text-[11px] text-center text-muted-ink pt-1">
                     🔒 No spam, ever. We only contact you regarding your demo website.
                   </p>
                 </form>

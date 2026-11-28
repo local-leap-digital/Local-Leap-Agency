@@ -3,7 +3,7 @@ import { Reveal } from './Reveal';
 
 /**
  * Reusable SectionHeading component.
- * Displays a green pill eyebrow (poster style), H2 heading, and optional descriptive subtext.
+ * Displays an ink/coral pill eyebrow, H2 heading, and optional descriptive subtext.
  */
 export default function SectionHeading({
   eyebrow,
@@ -24,10 +24,8 @@ export default function SectionHeading({
     >
       {eyebrow && (
         <span
-          className={`inline-block text-xs md:text-sm font-bold uppercase tracking-wider mb-4 px-4 py-1.5 rounded-full shadow-sm ${
-            light
-              ? 'bg-gold text-navy'
-              : 'bg-gradient-to-r from-forest to-green-dark text-white'
+          className={`inline-block font-sans text-xs md:text-sm font-medium uppercase tracking-[0.02em] mb-4 px-4 py-1.5 rounded-full ${
+            light ? 'bg-coral text-deep-teal' : 'bg-ink text-offwhite'
           }`}
         >
           {eyebrow}
@@ -35,15 +33,15 @@ export default function SectionHeading({
       )}
 
       <h2
-        className={`text-[28px] sm:text-[34px] md:text-[40px] font-bold font-heading leading-[1.2] tracking-tight ${
-          light ? 'text-white' : 'text-navy'
+        className={`text-[36px] sm:text-[48px] md:text-[56px] font-heading leading-[1.05] tracking-[-0.01em] uppercase ${
+          light ? 'text-coral' : 'text-ink'
         }`}
       >
         {title}
         {highlightText && (
           <>
             {' '}
-            <span className={`swoosh-underline ${light ? 'text-gold' : 'text-green'}`}>{highlightText}</span>
+            <span className={`swoosh-underline ${light ? 'text-offwhite' : 'text-coral'}`}>{highlightText}</span>
           </>
         )}
       </h2>
@@ -51,7 +49,7 @@ export default function SectionHeading({
       {description && (
         <p
           className={`mt-4 text-base md:text-[17px] leading-relaxed ${
-            light ? 'text-slate-300' : 'text-[#334155]'
+            light ? 'text-offwhite/80' : 'text-muted-ink'
           }`}
         >
           {description}

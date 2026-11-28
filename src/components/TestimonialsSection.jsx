@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
           {realTestimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-white p-7 rounded-2xl border border-mint-border shadow-sm flex flex-col justify-between"
+              className="bg-offwhite p-7 rounded-2xl border-2 border-ink  flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-1 text-amber-400 mb-4">
@@ -59,16 +59,16 @@ export default function TestimonialsSection() {
                     <Star key={i} className="w-4 h-4 fill-amber-400" />
                   ))}
                 </div>
-                <p className="text-[#334155] text-sm leading-relaxed italic mb-6">
+                <p className="text-muted-ink text-sm leading-relaxed italic mb-6">
                   "{item.quote}"
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-100">
-                <p className="font-heading font-bold text-sm text-navy">
+                <p className="font-sans font-bold text-sm text-ink">
                   {item.clientName}
                 </p>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted-ink">
                   {item.businessName} · {item.location}
                 </p>
               </div>

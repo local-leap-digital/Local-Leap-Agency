@@ -24,10 +24,10 @@ function SliderArrow({ direction, onClick, disabled, className = '' }) {
       onClick={onClick}
       disabled={disabled}
       aria-label={direction === 'prev' ? 'Previous projects' : 'Next projects'}
-      className={`w-11 h-11 shrink-0 rounded-full items-center justify-center border transition-all duration-200 shadow-sm ${
+      className={`w-11 h-11 shrink-0 rounded-full items-center justify-center border transition-all duration-200  ${
         disabled
-          ? 'bg-white text-slate-300 border-mint-border cursor-not-allowed shadow-none'
-          : 'bg-navy text-white border-navy hover:bg-green hover:border-green cursor-pointer'
+          ? 'bg-offwhite text-offwhite/70 border-mint-border cursor-not-allowed '
+          : 'bg-navy text-white border-navy hover:bg-coral hover:text-deep-teal hover:border-coral cursor-pointer'
       } ${className}`}
     >
       <Icon className="w-5 h-5" />
@@ -115,8 +115,8 @@ export default function WorkSection() {
                 onClick={() => handleCategoryChange(cat)}
                 className={`px-4 py-2.5 min-h-10 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-navy text-white shadow-sm'
-                    : 'bg-white text-slate-600 hover:text-navy border border-mint-border'
+                    ? 'bg-navy text-white '
+                    : 'bg-offwhite text-muted-ink hover:text-navy border-2 border-ink'
                 }`}
               >
                 {cat}
@@ -127,14 +127,14 @@ export default function WorkSection() {
 
         {/* Projects Slider or Friendly Empty State */}
         {filteredProjects.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-mint-border p-12 text-center max-w-md mx-auto shadow-sm">
-            <div className="w-14 h-14 rounded-full bg-green/15 text-green-dark flex items-center justify-center mx-auto mb-4">
+          <div className="bg-offwhite rounded-2xl border-2 border-ink p-12 text-center max-w-md mx-auto ">
+            <div className="w-14 h-14 rounded-full bg-coral text-green-dark flex items-center justify-center mx-auto mb-4">
               <Laptop className="w-7 h-7" />
             </div>
             <h3 className="font-heading font-bold text-xl text-navy mb-2">
               New Projects Coming Soon
             </h3>
-            <p className="text-sm text-slate-500 mb-6">
+            <p className="text-sm text-muted-ink mb-6">
               We are currently designing fresh concept websites for this category. Want to see one for your business?
             </p>
             <Button href="#contact" variant="primary" size="sm">
@@ -167,7 +167,7 @@ export default function WorkSection() {
 
             {/* Slider viewport */}
             <div
-              className="overflow-hidden py-3 -my-3 touch-pan-y select-none rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-green"
+              className="overflow-hidden py-3 -my-3 touch-pan-y select-none rounded-2xl focus:outline-none focus-visible:outline-2 focus-visible:outline-ink"
               tabIndex={0}
               onKeyDown={handleKeyDown}
               onPointerDown={handlePointerDown}
@@ -185,7 +185,7 @@ export default function WorkSection() {
                 aria-roledescription="slide"
                 aria-label={`${i + 1} of ${filteredProjects.length}: ${project.name}`}
                 style={{ flex: `0 0 ${cardBasis}` }}
-                className="bg-white rounded-2xl border border-mint-border overflow-hidden shadow-xs hover:shadow-lg hover:-translate-y-1.5 transition-all duration-200 flex flex-col group"
+                className="bg-offwhite rounded-2xl border-2 border-ink overflow-hidden   hover:-translate-y-1.5 transition-all duration-200 flex flex-col group"
               >
                 {/* Browser Device Frame for screenshot preview */}
                 <div className="bg-navy p-2.5 pb-2">
@@ -193,7 +193,7 @@ export default function WorkSection() {
                     <div className="w-2 h-2 rounded-full bg-red-400" />
                     <div className="w-2 h-2 rounded-full bg-amber-400" />
                     <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                    <div className="ml-2 text-[11px] text-slate-300 font-mono tracking-tight truncate">
+                    <div className="ml-2 text-[11px] text-offwhite/70 font-mono tracking-tight truncate">
                       {project.liveUrl.replace(/^https?:\/\//, '')}
                     </div>
                   </div>
@@ -207,7 +207,7 @@ export default function WorkSection() {
                     />
                     {project.isConcept && (
                       <div className="absolute top-2.5 right-2.5">
-                        <span className="inline-flex items-center gap-1 bg-navy/90 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md border border-white/20 shadow-xs">
+                        <span className="inline-flex items-center gap-1 bg-navy/90 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-1 rounded-md border border-white/20 ">
                           <Sparkles className="w-3 h-3 text-green" />
                           Concept Project
                         </span>
@@ -220,7 +220,7 @@ export default function WorkSection() {
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-bold uppercase tracking-wider text-green-dark bg-green/10 px-2.5 py-0.5 rounded-md">
+                      <span className="text-xs font-bold uppercase tracking-wider text-green-dark bg-coral px-2.5 py-0.5 rounded-md">
                         {project.tag || project.category}
                       </span>
                     </div>
@@ -229,7 +229,7 @@ export default function WorkSection() {
                       {project.name}
                     </h3>
 
-                    <p className="text-sm text-[#334155] leading-relaxed mb-4">
+                    <p className="text-sm text-muted-ink leading-relaxed mb-4">
                       {project.description}
                     </p>
                   </div>
@@ -247,7 +247,7 @@ export default function WorkSection() {
 
                     <a
                       href="#contact"
-                      className="inline-flex items-center min-h-11 py-2.5 text-xs text-slate-500 hover:text-navy font-medium text-right"
+                      className="inline-flex items-center min-h-11 py-2.5 text-xs text-muted-ink hover:text-navy font-medium text-right"
                     >
                       Get similar design →
                     </a>
@@ -269,7 +269,7 @@ export default function WorkSection() {
                 />
                 {maxIndex + 1 > MAX_DOTS && (
                   <p className="lg:hidden min-w-16 text-center text-sm font-semibold text-navy tabular-nums" aria-live="polite">
-                    {currentIndex + 1} <span className="text-slate-400 font-medium">/ {maxIndex + 1}</span>
+                    {currentIndex + 1} <span className="text-muted-ink font-medium">/ {maxIndex + 1}</span>
                   </p>
                 )}
                 <div className={`items-center ${maxIndex + 1 > MAX_DOTS ? 'hidden lg:flex' : 'flex'}`}>
@@ -301,7 +301,7 @@ export default function WorkSection() {
           </Reveal>
         )}
 
-        <Reveal className="mt-10 md:mt-14 p-6 sm:p-8 bg-white rounded-2xl border border-mint-border shadow-xs text-center max-w-2xl mx-auto">
+        <Reveal className="mt-10 md:mt-14 p-6 sm:p-8 bg-offwhite rounded-2xl border-2 border-ink  text-center max-w-2xl mx-auto">
           <p className="text-base sm:text-lg font-medium text-navy mb-4">
             Want to see what your business could look like? We'll make a free demo for you.
           </p>

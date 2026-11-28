@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'motion/react';
-import { ArrowRight, CheckCircle2, Bell, Sparkles } from 'lucide-react';
+import { CheckCircle2, Bell, Sparkles } from 'lucide-react';
 import Button from './common/Button';
 import { EASE } from './common/motion';
 
@@ -34,17 +34,12 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-white via-[#FDFDF7] to-mint">
-      {/* Decorative background: soft green & gold glow */}
+    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-offwhite">
+      {/* Decorative background: faint coral route line */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        {/* Soft radial glow */}
-        <div className="absolute inset-0 bg-grid-navy" />
-        <div className="blob absolute -top-32 -left-32 w-[28rem] h-[28rem] bg-green/15 rounded-full blur-3xl" />
-        <div className="blob blob-delay absolute top-1/3 -right-32 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 left-1/3 w-96 h-96 bg-green/5 rounded-full blur-3xl" />
         {/* Subtle decorative curved path */}
         <svg
-          className="absolute top-12 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] opacity-[0.07]"
+          className="absolute top-12 left-1/2 -translate-x-1/2 w-[1400px] h-[600px] opacity-[0.12]"
           viewBox="0 0 1400 600"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -72,29 +67,29 @@ export default function Hero() {
           >
             {/* Small announcement pill */}
             <motion.div variants={item} className="mb-6 flex justify-center lg:justify-start">
-              <span className="inline-flex items-center gap-2 rounded-full border border-green/25 bg-white/80 backdrop-blur px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-navy shadow-sm">
+              <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-offwhite px-3.5 py-1.5 text-xs sm:text-sm font-medium uppercase tracking-[0.02em] text-ink">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-green" />
                 </span>
                 Now taking new projects in Kolhapur
-                <Sparkles className="w-3.5 h-3.5 text-gold" />
+                <Sparkles className="w-3.5 h-3.5 text-coral" />
               </span>
             </motion.div>
 
             {/* Main H1 */}
-            <motion.h1 variants={item} className="text-[34px] xs:text-[40px] sm:text-[46px] md:text-[54px] lg:text-[56px] font-bold font-heading text-navy leading-[1.12] tracking-tight mb-5 sm:mb-6">
+            <motion.h1 variants={item} className="text-[40px] xs:text-[48px] sm:text-[56px] md:text-[64px] font-heading uppercase text-ink leading-none tracking-[-0.01em] mb-5 sm:mb-6">
               Turn Your Idea Into a{' '}
-              <span className="text-gradient-green swoosh-underline">Digital Reality.</span>
+              <span className="text-coral">Digital Reality.</span>
             </motion.h1>
 
             {/* Marathi line from the poster */}
-            <motion.p variants={item} lang="mr" className="text-lg xs:text-xl sm:text-2xl font-heading font-bold text-navy leading-snug mb-5 sm:mb-6">
-              तुमची Idea <span className="text-green">Digital Reality</span> मध्ये आणतो.
+            <motion.p variants={item} lang="mr" className="text-lg xs:text-xl sm:text-2xl font-sans font-bold text-ink leading-snug mb-5 sm:mb-6">
+              तुमची Idea <span className="text-deep-teal underline decoration-coral decoration-4 underline-offset-4">Digital Reality</span> मध्ये आणतो.
             </motion.p>
 
             {/* Sub-text */}
-            <motion.p variants={item} className="text-base sm:text-lg md:text-[19px] text-[#334155] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-normal">
+            <motion.p variants={item} className="text-base sm:text-lg md:text-[19px] text-muted-ink leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-normal">
               Customized websites, web applications and mobile apps for local shops, businesses, startups and any idea you have. Built to get you found online and bring in more customers.
             </motion.p>
 
@@ -114,14 +109,13 @@ export default function Hero() {
                 variant="secondary"
                 size="lg"
                 className="w-full sm:w-auto"
-                icon={ArrowRight}
               >
                 See Our Work
               </Button>
             </motion.div>
 
             {/* Honest Trust Line */}
-            <motion.div variants={item} className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-slate-500 font-medium">
+            <motion.div variants={item} className="pt-2 border-t-2 border-ink/10 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-muted-ink font-medium">
               <div className="flex items-center gap-1.5 text-navy">
                 <CheckCircle2 className="w-4 h-4 text-green-dark" />
                 <span>Free demo before you pay</span>
@@ -153,19 +147,19 @@ export default function Hero() {
             >
               
               {/* Laptop Frame */}
-              <div className="relative rounded-2xl bg-navy p-3 shadow-[0_40px_80px_-30px_rgba(11,44,95,0.55)] border border-navy-dark ring-4 ring-gold/20">
+              <div className="relative rounded-2xl bg-ink p-3 border-2 border-ink">
                 {/* Laptop Camera / Header dot */}
                 <div className="flex items-center gap-1.5 pb-2 px-1">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
-                  <div className="ml-3 text-[10px] text-slate-300 font-mono tracking-tight opacity-75 truncate">
+                  <div className="ml-3 text-[10px] text-offwhite/70 font-mono tracking-tight opacity-75 truncate">
                     smitam-dental-care-ochre.vercel.app
                   </div>
                 </div>
 
                 {/* Laptop Screen Content */}
-                <div className="relative overflow-hidden rounded-lg bg-white border border-slate-200 aspect-[16/10]">
+                <div className="relative overflow-hidden rounded-lg bg-offwhite border border-slate-200 aspect-[16/10]">
                   <img
                     src="/projects/dental.png"
                     alt="Sample business website mockup preview"
@@ -175,32 +169,32 @@ export default function Hero() {
                 </div>
 
                 {/* Laptop Base Stand */}
-                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-32 h-2.5 bg-slate-300 rounded-b-md shadow" />
+                <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-32 h-2.5 bg-slate-300 rounded-b-md " />
               </div>
 
               {/* Overlapping Phone Frame (bottom-right corner) */}
-              <div className="animate-float-slow absolute bottom-0 right-0 w-28 sm:w-32 lg:w-[7.5rem] xl:w-32 bg-slate-900 p-1.5 sm:p-2 rounded-[24px] sm:rounded-[28px] shadow-2xl border-2 border-slate-700 hidden xs:block [transform:translateZ(40px)]">
+              <div className="animate-float-slow absolute bottom-0 right-0 w-28 sm:w-32 lg:w-[7.5rem] xl:w-32 bg-ink p-1.5 sm:p-2 rounded-2xl sm:rounded-2xl  border-2 border-ink hidden xs:block [transform:translateZ(40px)]">
                 {/* Speaker Notch */}
-                <div className="w-10 h-2 bg-slate-800 rounded-full mx-auto mb-1.5" />
+                <div className="w-10 h-2 bg-muted-ink rounded-full mx-auto mb-1.5" />
                 {/* Phone Screen */}
-                <div className="rounded-[18px] sm:rounded-[20px] overflow-hidden bg-white aspect-[9/17] relative flex flex-col">
+                <div className="rounded-[18px] sm:rounded-[20px] overflow-hidden bg-offwhite aspect-[9/17] relative flex flex-col">
                   {/* Phone Mockup Content */}
-                  <div className="bg-gradient-to-r from-forest to-green-dark p-2.5 text-white">
+                  <div className="bg-deep-teal p-2.5 text-offwhite">
                     <div className="flex items-center justify-between text-[8px] font-bold">
                       <span>Smitam Dental Care</span>
                       <span className="w-2 h-2 rounded-full bg-emerald-400" />
                     </div>
-                    <p className="text-[7px] text-slate-200 mt-1">Book appointment in 10s</p>
+                    <p className="text-[7px] text-offwhite/80 mt-1">Book appointment in 10s</p>
                   </div>
-                  <div className="p-2 space-y-1.5 flex-1 bg-slate-50 text-[7px] text-slate-700">
-                    <div className="bg-white p-1.5 rounded shadow-xs border border-slate-200">
+                  <div className="p-2 space-y-1.5 flex-1 bg-mint/40 text-[7px] text-ink">
+                    <div className="bg-offwhite p-1.5 rounded  border border-slate-200">
                       <p className="font-semibold text-navy">Dr. Aditi Kulkarni</p>
-                      <p className="text-slate-500">Braces &amp; Implants</p>
+                      <p className="text-muted-ink">Braces &amp; Implants</p>
                     </div>
-                    <div className="bg-green/10 text-green-dark p-1.5 rounded font-semibold text-center">
+                    <div className="bg-mint text-deep-teal p-1.5 rounded font-semibold text-center">
                       ✓ Instant WhatsApp Confirmation
                     </div>
-                    <div className="mt-2 bg-[#25D366] text-white p-1 rounded text-center font-bold">
+                    <div className="mt-2 bg-coral text-deep-teal p-1 rounded-full text-center font-bold">
                       Chat on WhatsApp
                     </div>
                   </div>
@@ -208,16 +202,16 @@ export default function Hero() {
               </div>
 
               {/* Floating Automation Badge: "New appointment request 🔔" */}
-              <div className="absolute -top-5 right-0 sm:-right-6 bg-white rounded-xl p-2.5 sm:p-3 shadow-xl border border-mint-border flex items-center gap-2.5 sm:gap-3 animate-float max-w-[calc(100%-1rem)]">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-lg bg-green/15 flex items-center justify-center text-green-dark">
+              <div className="absolute -top-5 right-0 sm:-right-6 bg-offwhite rounded-2xl p-2.5 sm:p-3 border-2 border-ink flex items-center gap-2.5 sm:gap-3 animate-float max-w-[calc(100%-1rem)]">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-full bg-coral flex items-center justify-center text-deep-teal">
                   <Bell className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
                     <span className="text-xs font-bold text-navy">New booking request</span>
-                    <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1 rounded">Live</span>
+                    <span className="text-[10px] text-deep-teal font-bold bg-mint px-1 rounded">Live</span>
                   </div>
-                  <p className="text-[11px] text-slate-500">Added to Google Calendar ✓</p>
+                  <p className="text-[11px] text-muted-ink">Added to Google Calendar ✓</p>
                 </div>
               </div>
 

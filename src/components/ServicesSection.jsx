@@ -35,11 +35,9 @@ export default function ServicesSection() {
   const [coreGroup, ...extraGroups] = serviceGroups;
 
   return (
-    <section id="services" className="relative py-16 sm:py-20 md:py-28 bg-white overflow-hidden">
+    <section id="services" className="relative py-16 sm:py-20 md:py-28 bg-offwhite overflow-hidden">
       {/* Soft green & gold glow, echoing the poster background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-24 -right-24 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -left-24 w-96 h-96 bg-green/10 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -57,12 +55,12 @@ export default function ServicesSection() {
             return (
               <RevealItem
                 key={service.id}
-                className="card-glow group relative bg-white rounded-3xl border border-mint-border shadow-[0_10px_30px_-12px_rgba(11,44,95,0.18)] hover:shadow-[0_18px_40px_-14px_rgba(11,44,95,0.28)] hover:-translate-y-1.5 transition-all duration-200 p-5 sm:p-7 text-left xs:text-center overflow-hidden flex items-start gap-4 xs:block"
+                className="card-glow group relative bg-offwhite rounded-2xl border-2 border-ink   hover:-translate-y-1.5 transition-all duration-200 p-5 sm:p-7 text-left xs:text-center overflow-hidden flex items-start gap-4 xs:block"
               >
                 {/* Gold top accent */}
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-green via-gold to-green opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 inset-x-0 h-1 bg-coral opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                <div className="w-14 h-14 xs:w-16 xs:h-16 shrink-0 xs:mx-auto rounded-2xl bg-gradient-to-br from-mint to-gold-soft/60 border border-mint-border flex items-center justify-center text-navy xs:mb-5 transition-colors group-hover:text-green-dark">
+                <div className="w-14 h-14 xs:w-16 xs:h-16 shrink-0 xs:mx-auto rounded-2xl bg-mint border-2 border-ink flex items-center justify-center text-navy xs:mb-5 transition-colors group-hover:text-green-dark">
                   <Icon className="w-7 h-7 xs:w-8 xs:h-8 transition-transform group-hover:scale-110 duration-200" strokeWidth={2.2} />
                 </div>
 
@@ -97,7 +95,7 @@ export default function ServicesSection() {
                     </span>
                   )}
                 </div>
-                <p className="text-sm text-slate-500 font-medium">
+                <p className="text-sm text-muted-ink font-medium">
                   {group.description}
                 </p>
               </div>
@@ -114,13 +112,13 @@ export default function ServicesSection() {
                   return (
                     <RevealItem
                       key={service.id}
-                      className={`bg-mint hover:bg-white p-5 sm:p-7 rounded-2xl border border-mint-border shadow-xs hover:shadow-md hover:border-green/40 hover:-translate-y-1.5 transition-all duration-200 group flex flex-col justify-between ${
+                      className={`bg-mint hover:bg-offwhite p-5 sm:p-7 rounded-2xl border-2 border-ink   hover:border-green/40 hover:-translate-y-1.5 transition-all duration-200 group flex flex-col justify-between ${
                         isLoneLastMd ? 'md:col-span-2' : ''
                       } ${isLoneLastLg ? 'lg:col-span-3' : isLoneLastMd ? 'lg:col-span-1' : ''}`}
                     >
                       <div className="flex items-start gap-4 sm:block">
                         {/* Icon Circle */}
-                        <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-xl bg-white group-hover:bg-green/12 border border-mint-border flex items-center justify-center text-green-dark sm:mb-5 shadow-2xs transition-colors">
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-xl bg-offwhite group-hover:bg-coral border-2 border-ink flex items-center justify-center text-green-dark sm:mb-5  transition-colors">
                           <Icon className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-110 duration-200" />
                         </div>
 
@@ -131,7 +129,7 @@ export default function ServicesSection() {
                           </h4>
 
                           {/* Description */}
-                          <p className="text-sm text-[#334155] leading-relaxed">
+                          <p className="text-sm text-muted-ink leading-relaxed">
                             {service.description}
                           </p>
                         </div>
